@@ -3,7 +3,7 @@
 return [
     'name' => 'LaravelPWA',
     'manifest' => [
-        'name' => env('Test APP', 'My Test APP'),
+        'name' => env('CobaCoba', 'HALO'),
         'short_name' => 'PWA',
         'start_url' => '/',
         'background_color' => '#ffffff',
@@ -18,7 +18,7 @@ return [
             '152x152' => '/images/icons/icon-152x152.png',
             '192x192' => '/images/icons/icon-192x192.png',
             '384x384' => '/images/icons/icon-384x384.png',
-            '512x512' => '/images/icons/icon-512x512.png'
+            '512x512' => '/images/icons/icon-512x512.png',
         ],
         'splash' => [
             '640x1136' => '/images/icons/splash-640x1136.png',
