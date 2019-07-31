@@ -10,4 +10,3 @@ class room extends Model
     protected $hidden = [
     ];
 }
-}
