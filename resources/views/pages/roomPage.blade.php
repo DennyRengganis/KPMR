@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="/css/size.css">
 @endsection
 @section('content')
-
 	@if($room->status_now==="FREE")
 	<div class="big">
 	<td>
@@ -14,7 +13,6 @@
 	{{$room->lantai}}
 	{{$room->status_now}}
 	room is free
-	<button type="button" class="btn btn-primary">Primary</button>
 	<br>
 	</td>
 	</div>
