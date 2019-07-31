@@ -7,7 +7,15 @@ use App\room;
 
 class RoomController extends Controller
 {
-    public function create(Request $request){
+    public function view(){
+        $liat = room::all()->sortBy('id');
+        #dd($liat);
+        return view('pages.homePage',compact('liat'));
+    }
+    public function create(){
+        return view('');
+    }
+    public function store(Request $request){
         $input = new room();
         $data = $this->validate($request, [
             'nomor'=>'required',
@@ -22,19 +30,36 @@ class RoomController extends Controller
 
         return redirect('');
     }
-    public function view(){
-        $liat = room::all()->sortBy('id');
-        #dd($liat);
-        return view('pages.homePage',compact('liat'));
+    public function updatepick($id){
+        $rooms = room::where('id',$id)->first();
+        if ($rooms != null){
+            return view('',compact('rooms'));
+        }
+        else return redirect('');
     }
-    public function update(){
-        
 
+    public function update($id,Request $request){
+        $input = room::where('id',$id)->first();
+        $data = $this->validate($request, [
+            'nomor'=>'required',
+            'gedung'=>'required',
+            'lantai'=>'required',
+            ]);
+        $input->nomor=$data['nomor'];
+        $input->gedung=$data['gedung'];
+        $input->lantai=$data['lantai'];
+        $input->status_now=$data['status_now'];
+        $input->save();
+
+        return redirect('');
     }
-    public function delete(){
-        
+
+    public function delete($id){
+        $rooms = room::where('id',$id)->first();
+        $rooms->delete();
+        return redirect('');
     }
-    /*testing*/
+
     public function viewrooms(){
         $roomtype = 3;
         #dd($liat);
