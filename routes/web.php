@@ -15,5 +15,14 @@ Route::get('/', function () {
     return view('pages.home');
 });
 /*testing*/
-Route::get('/roomPage','RoomController@viewrooms');
+/*Route::get('/roomPage','RoomController@viewrooms');*/
 Route::get('/homePage','RoomController@view');
+Route::get('/roomPage', function () {
+    return view('pages.roomPage');
+});
+Route::get('/detailRoom', function () {
+    return view('pages.detailRoom');
+});
+Route::get('/bookingRoom', function () {
+    return view('pages.bookingRoom');
+});

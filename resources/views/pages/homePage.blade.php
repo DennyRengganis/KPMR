@@ -4,12 +4,27 @@
 <link rel="stylesheet" type="text/css" href="/css/size.css">
 @endsection
 @section('content')
+<button type="button" class="btn btn-primary">+Booking</button>
+<form action="/action_page.php">
+	Building :
+  <select name="Building">
+    <option value="ACCF">ACCF</option>
+    <option value="TBS">TBS</option>
+  </select>
+  	Floor :
+    <select name="Floor">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="4">5</option>
+  </select>
+  <br><br>
+  <input type="submit" value="search">
+</form>
 @foreach($liat as $room)
 <tr>
-
-
 	@if($room->status_now==="FREE")
-	<div class="big">
 	<td>
 	{{$room->id}}
 	{{$room->nomor}}
@@ -17,14 +32,13 @@
 	{{$room->lantai}}
 	{{$room->status_now}}
 	room is free
-	<button type="button" class="btn btn-primary">Primary</button>
+	<span class="oi oi-plus"></span>
 	<br>
 	</td>
 	</div>
 	@endif
 
 	@if($room->status_now==="BOOKED")
-	<div class="small">
 	<td>
 	{{$room->id}}
 	{{$room->nomor}}
@@ -32,13 +46,13 @@
 	{{$room->lantai}}
 	{{$room->status_now}}
 	room is booked
+	<button type="button" class="btn btn-primary">Schedule Meeting</button>
 	<br>
 	</td>
 	</div>
 	@endif
 
 	@if($room->status_now==="WAITING")
-	<div class="med">
 	<td>
 	{{$room->id}}
 	{{$room->nomor}}
@@ -46,6 +60,7 @@
 	{{$room->lantai}}
 	{{$room->status_now}}
 	room is waiting
+	<button type="button" class="btn btn-primary">Schedule Meeting</button>
 	<br>
 	</td>
 	</div>
