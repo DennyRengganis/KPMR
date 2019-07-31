@@ -14,7 +14,6 @@
 Route::get('/', function () {
     return view('pages.home');
 });
-
-Route::get('/freeRoom', function () {
-    return view('pages.freeRoom');
-});
+/*testing*/
+Route::get('/roomPage','RoomController@viewrooms');
+Route::get('/homePage','RoomController@view');

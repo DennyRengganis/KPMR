@@ -4,6 +4,9 @@
 <link rel="stylesheet" type="text/css" href="/css/size.css">
 @endsection
 @section('content')
+@foreach($liat as $room)
+<tr>
+
 
 	@if($room->status_now==="FREE")
 	<div class="big">
@@ -46,5 +49,9 @@
 	<br>
 	</td>
 	</div>
+
+
 	@endif
+</tr>
+@endforeach
 @endsection
