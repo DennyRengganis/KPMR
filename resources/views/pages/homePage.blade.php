@@ -10,25 +10,25 @@
 </div>
 <form action="/action_page.php">
 	<div class="row">
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
-	<div class="col-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
+	<div class="col-w-1 col-s-1">h</div>
 </div>
-<div class="row">
+<!-- <div class="row">
 	<div class="example">jkdfjdskjdf</div>
-</div>
+</div> -->
 <div class="row">
-	<div class="col-1 col-s-1"></div>
-	<div class="col-2 col-s-2 center">
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-2 col-s-2 center">
 		<div class="dropdownbox">
 			Building :
 			<select name="Building">
@@ -37,8 +37,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-4 col-s-2"></div>
-	<div class="col-2 col-s-2 center">
+	<div class="col-w-4 col-s-2"></div>
+	<div class="col-w-2 col-s-2 center">
 		Floor :
 		<select name="Floor">
 			<option value="1">1</option>
@@ -48,17 +48,17 @@
 			<option value="4">5</option>
 		</select>
 	</div>
-	<button type="submit" class="btn btn-primary col-1 col-s-2 center" value="search">search</button>
+	<button type="submit" class="btn btn-primary col-w-1 col-s-2 center" value="search">search</button>
 </form>
-<button type="button" class="btn btn-primary col-1 col-s-2 center">+Booking</button>
-<div class="col-1 col-s-1"></div>
+<button type="button" class="btn btn-primary col-w-1 col-s-2 center">+Booking</button>
+<div class="col-w-1 col-s-1"></div>
 </div>
 <div class="row">
-<div class="col-1 col-s-1"></div>
-<div class="col-10 col-s-10">
+<div class="col-w-1 col-s-1"></div>
+<div class="col-w-10 col-s-10">
 	@foreach($liat as $room)
 	<tr>
-		<div class="col-4 col-s-4 center">
+		<div class="col-w-4 col-s-4 center">
 			@if($room->status_now==="FREE")
 			<td>
 				{{$room->id}}
@@ -101,6 +101,6 @@
 	</tr>
 	@endforeach
 </div>
-<div class="col-1 col-s-1"></div>
+<div class="col-w-1 col-s-1"></div>
 </div>
 @endsection
