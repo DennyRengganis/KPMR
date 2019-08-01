@@ -32,3 +32,6 @@ Route::get('/email', function () {
     return view('send_email');
 });
 Route::post('/sendEmail', 'Email@sendEmail');
+
+Route::get('home',array('as'=>'home','uses'=>'HomepageController@viewall'));
+Route::get('home/ajax/{id}',array('as'=>'myhome.ajax','uses'=>'HomepageController@myhomeAjax'));
