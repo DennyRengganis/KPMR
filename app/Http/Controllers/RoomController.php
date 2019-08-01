@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\room;
 
 class RoomController extends Controller
@@ -13,7 +11,6 @@ class RoomController extends Controller
         $liat = room::all()->sortBy('id');  
         return view('pages.homePage',compact('liat'));
     }
-
     public function create(){
         return view('');
     }

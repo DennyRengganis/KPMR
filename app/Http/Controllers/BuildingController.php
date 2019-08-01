@@ -4,34 +4,54 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\building;
-use Illuminate\Support\Facades\Validator;
 
 class BuildingController extends Controller
 {
     //
-    public function AddBuilding(Request $request){
+    public function view(){
+        $liat = building::all()->sortBy('id');  
+        return view('pages.homePage',compact('liat'));
+    }
+    public function create(){
+        return view('');
+    }
+    public function store(Request $request){
+        $input = new building();
+        $data = $this->validate($request, [
+            'nama_gedung'=>'required',
+            'jumlah_lantai'=>'required',
+            ]);
+        $input->nama_gedung=$data['nama_gedung'];
+        $input->jumlah_lantai=$data['jumlah_lantai'];
+        $input->save();
 
-    	$validator = Validator::make($request->all(), [
-    		'nama_gedung' =>'required',
-    		'jumlah_lantai'=>'required',
-    	]);
-
-    	if($validator->fails()){
-    		return response()->json(['status' => 'failed',]);
-    	}
-
-    	$newBuilding = new building();
-    	$newBuilding->nama_gedung = $request->nama_gedung;
-    	$newBuilding->jumlah_lantai= $request->jumlah_lantai;
-    	$newBuilding->save();
-
-
-    	return redirect
+        return redirect('');
+    }
+    public function updatepick($id){
+        $rooms = building::where('id',$id)->first();
+        if ($rooms != null){
+            return view('',compact('building'));
+        }
+        else return redirect('');
     }
 
-    public function ShowAll(Request $request){
-        $liat = room::all()->sortBy('id');  
-        return view('pages.homePage',compact('liat'));
+    public function update($id,Request $request){
+        $input = building::where('id',$id)->first();
+        $data = $this->validate($request, [
+            'nama_gedung'=>'required',
+            'jumlah_lantai'=>'required',
+            ]);
+        $input->nama_gedung=$data['nama_gedung'];
+        $input->jumlah_lantai=$data['jumlah_lantai'];
+        $input->save();
+
+        return redirect('');
+    }
+
+    public function delete($id){
+        $rooms = building::where('id',$id)->first();
+        $rooms->delete();
+        return redirect('');
     }
 
     
