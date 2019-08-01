@@ -62,7 +62,7 @@
 				@if($room->status_now==="FREE")
 				<td>
 					{{$room->id}}
-					{{$room->nomor}}
+					{{$room->nama_ruangan}}
 					{{$room->gedung}}
 					{{$room->lantai}}
 					{{$room->status_now}}
@@ -75,7 +75,7 @@
 				@if($room->status_now==="BOOKED")
 				<td>
 					{{$room->id}}
-					{{$room->nomor}}
+					{{$room->nama_ruangan}}
 					{{$room->gedung}}
 					{{$room->lantai}}
 					{{$room->status_now}}
@@ -88,7 +88,7 @@
 				@if($room->status_now==="WAITING")
 				<td>
 					{{$room->id}}
-					{{$room->nomor}}
+					{{$room->nama_ruangan}}
 					{{$room->gedung}}
 					{{$room->lantai}}
 					{{$room->status_now}}
