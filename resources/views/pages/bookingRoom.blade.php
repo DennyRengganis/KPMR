@@ -1,3 +1,9 @@
+@extends('layouts.default')
+@section('css')
+<link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/size.css">
+@endsection
+@section('content')
 <form action="/action_page.php">
   Building :
   <select name="Building">
@@ -26,4 +32,6 @@
   <input type="text" name="email" value="email">
   <br><br>
   <input type="submit" value="Book">
-  <button>Cancel</button>
+
+<script type="text/javascript" href="/js/bootstrap.bundle.js" ></script>
+@endsection
