@@ -9,16 +9,8 @@ use App\room;
 
 class RoomController extends Controller
 {
-    public function view2(){
-        $liat = room::all()->sortBy('id');
-        return response()->json($liat);
-    }
-
     public function view(){
-        $request = Request::create('/api/test', 'GET');
-        $response = app()->handle($request);
-        $liat = json_decode($response->getContent(), true);
-        // dd($liat);     
+        $liat = room::all()->sortBy('id');  
         return view('pages.homePage',compact('liat'));
     }
 

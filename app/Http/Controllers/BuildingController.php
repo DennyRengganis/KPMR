@@ -26,12 +26,12 @@ class BuildingController extends Controller
     	$newBuilding->save();
 
 
-    	return response()->json(['status' => 'success',]);
+    	return redirect
     }
 
     public function ShowAll(Request $request){
-        $query = building::all()->sortBy('id');
-        return response()->json($query);
+        $liat = room::all()->sortBy('id');  
+        return view('pages.homePage',compact('liat'));
     }
 
     
