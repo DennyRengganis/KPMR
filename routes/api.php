@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 
 
 Route::Post('building/addbuilding','BuildingController@AddBuilding');
+
+Route::Get('building/showall', 'BuildingController@ShowAll');
+
+Route::Get('test', 'RoomController@View2');

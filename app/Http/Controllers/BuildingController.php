@@ -28,4 +28,11 @@ class BuildingController extends Controller
 
     	return response()->json(['status' => 'success',]);
     }
+
+    public function ShowAll(Request $request){
+        $query = building::all()->sortBy('id');
+        return response()->json($query);
+    }
+
+    
 }

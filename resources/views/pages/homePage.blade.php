@@ -59,39 +59,39 @@
 	@foreach($liat as $room)
 	<tr>
 		<div class="col-w-4 col-s-4 center">
-			@if($room->status_now==="FREE")
+			@if($room['status_now']==="FREE")
 			<td>
-				{{$room->id}}
-				{{$room->nomor}}
-				{{$room->gedung}}
-				{{$room->lantai}}
-				{{$room->status_now}}
+				{{$room['id']}}
+				{{$room['nomor']}}
+				{{$room['id_gedung']}}
+				{{$room['lantai']}}
+				{{$room['status_now']}}
 				room is free
 				<span class="oi oi-plus"></span>
 				<br>
 			</td>
 			@endif
 
-			@if($room->status_now==="BOOKED")
+			@if($room['status_now']==="BOOKED")
 			<td>
-				{{$room->id}}
-				{{$room->nomor}}
-				{{$room->gedung}}
-				{{$room->lantai}}
-				{{$room->status_now}}
+				{{$room['id']}}
+				{{$room['nomor']}}
+				{{$room['id_gedung']}}
+				{{$room['lantai']}}
+				{{$room['status_now']}}
 				room is booked
 				<button type="button" class="btn btn-primary">Schedule Meeting</button>
 				<br>
 			</td>
 			@endif
 
-			@if($room->status_now==="WAITING")
+			@if($room['status_now']==="WAITING")
 			<td>
-				{{$room->id}}
-				{{$room->nomor}}
-				{{$room->gedung}}
-				{{$room->lantai}}
-				{{$room->status_now}}
+				{{$room['id']}}
+				{{$room['nomor']}}
+				{{$room['id_gedung']}}
+				{{$room['lantai']}}
+				{{$room['status_now']}}
 				room is waiting
 				<button type="button" class="btn btn-primary">Schedule Meeting</button>
 				<br>
