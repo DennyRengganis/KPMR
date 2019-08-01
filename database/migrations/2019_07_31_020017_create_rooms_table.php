@@ -13,12 +13,32 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
+        Schema::create('buildings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_gedung');
+            $table->string('jumlah_lantai');
+            //$table->timestamps();
+        });
         Schema::create('rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomor');
-            $table->string('gedung');
+            $table->unsignedBigInteger('id_gedung');
             $table->string('lantai');
             $table->string('status_now');
+            $table->foreign('id_gedung')->references('id')->on('buildings');
+            //$table->timestamps();
+        });
+        Schema::create('booklists', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_Ruangan');
+            $table->string('nama');
+            $table->string('NPK');
+            $table->string('email');
+            $table->string('PIN');
+            $table->datetime('waktu_Pinjam_Mulai');
+            $table->datetime('waktu_Pinjam_Selesai');
+            $table->string('keperluan');
+            $table->foreign('id_Ruangan')->references('id')->on('rooms');
             //$table->timestamps();
         });
     }
@@ -30,6 +50,8 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('booklists');
         Schema::dropIfExists('rooms');
+        Schema::dropIfExists('buildings');
     }
 }
