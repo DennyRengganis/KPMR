@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\room;
 
 class RoomController extends Controller
 {
-    public function view(){
+    public function view2(){
         $liat = room::all()->sortBy('id');
-        #dd($liat);
+        return response()->json($liat);
+    }
+
+    public function view(){
+        $request = Request::create('/api/test', 'GET');
+        $response = app()->handle($request);
+        $liat = json_decode($response->getContent(), true);
+        // dd($liat);     
         return view('pages.homePage',compact('liat'));
     }
+
     public function create(){
         return view('');
     }

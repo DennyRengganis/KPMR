@@ -26,3 +26,9 @@ Route::get('/detailRoom', function () {
 Route::get('/bookingRoom', function () {
     return view('pages.bookingRoom');
 });
+
+//email
+Route::get('/email', function () {
+    return view('send_email');
+});
+Route::post('/sendEmail', 'Email@sendEmail');
