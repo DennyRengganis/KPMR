@@ -11,7 +11,7 @@ class BookingFormController extends Controller
 {
     //
 	public function BookRoom(Request $request){
-
+		//dd($request);
 		$data = $this->validate($request, [
             'id_Ruangan' => 'required',
             'nama' => 'required',
@@ -22,10 +22,12 @@ class BookingFormController extends Controller
             'keperluan' => 'required',
             ]);
 
-		$booklist = booklist::where('id_Ruangan', $data['id_Ruangan'])->get();
+		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
 
-		$waktuPinjamMulai = date('Y-m-d', strtotime($data['waktu_Pinjam_Mulai']));
-		$waktuPinjamSelesai = date('Y-m-d', strtotime($data['waktu_Pinjam_Selesai']));
+		dd($booklist);
+
+		$waktuPinjamMulai = date('Y-m-d', strtotime($request['waktu_Pinjam_Mulai']));
+		$waktuPinjamSelesai = date('Y-m-d', strtotime($request['waktu_Pinjam_Selesai']));
 
 		// dd($booklist)
 		$checkFlag = True;
@@ -52,15 +54,16 @@ class BookingFormController extends Controller
 			$pinText = str_pad($pinText, 4, '0', STR_PAD_LEFT);
 
 			$input = new booklist();
-			$input->id_Ruangan = $data['id_Ruangan'];
-			$input->nama = $data['nama'];
-			$input->NPK = $data['NPK'];
-			$input->email = $data['email'];
+			$input->id_Ruangan = $request['id_Ruangan'];
+			$input->nama = $request['nama'];
+			$input->NPK = $request['NPK'];
+			$input->email = $request['email'];
 			$input->PIN = $pinText;
-			$input->waktu_Pinjam_Mulai = $data['waktu_Pinjam_Mulai'];
-			$input->waktu_Pinjam_Selesai = $data['waktu_Pinjam_Selesai'];
-			$input->keperluan = $data['keperluan'];
+			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
+			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
+			$input->keperluan = $request['keperluan'];
 
+			//dd($input);
 			$input->save();
 			//kirim email
 
