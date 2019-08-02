@@ -28,19 +28,27 @@ $factory->define(User::class, function (Faker $faker) {
 
 
 $factory->define(App\building::class, function(Faker $faker) {
+
+
+	for($y=1; $y<=6; $y++)
+    {
+        $lantai[]=$y;
+    }
+
 	return[
 		'nama_gedung' => $faker->streetName,
-		'jumlah_lantai' => 3,
+		'jumlah_lantai' => $faker->randomElement($lantai),
 	];
 });
 
 $factory->define(App\room::class, function(Faker $faker) {
 	$building_id = DB::table('buildings')->pluck('id')->toArray();
-	$lantai=array();
-    for($y=1; $y<=3; $y++)
+	$lantai_avail = DB::table('jumlah_lantai')->pluck('id')->toArray();
+	$lantai = array()
+	for($y=1; $y<=$lantai_avail; $y++)
     {
         $lantai[]=$y;
-    }
+    }   
 
     $status ='';
     $randomnumber = $faker->randomElement($status);
