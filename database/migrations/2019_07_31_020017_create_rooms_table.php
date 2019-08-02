@@ -30,7 +30,6 @@ class CreateRoomsTable extends Migration
         });
         Schema::create('booklists', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('id_Booking')->unique;
             $table->unsignedBigInteger('id_Ruangan');
             $table->string('nama');
             $table->string('NPK');
