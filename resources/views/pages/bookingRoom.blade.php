@@ -66,7 +66,7 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
      Room: 
-     <select name="id_ruangan">
+     <select name="id_Ruangan">
       <option value="0">--</option>
       @if(@isset($pickedroom))
       @foreach($roompool as $ruangan)
@@ -224,8 +224,8 @@
                 console.log(data);
 
 
-                $('select[name="id_ruangan"]').empty();
-                $('select[name="id_ruangan"]').append('<option value="0">--</option>');
+                $('select[name="id_Ruangan"]').empty();
+                $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
                 var room= data;
                 $.each(data,function(id,val){
                   console.log("masuk each");
@@ -235,13 +235,13 @@
                   console.log(val['id']);
                   console.log(val['nama_ruangan']);
                   console.log(val['status_now']);
-                  $('select[name="id_ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
+                  $('select[name="id_Ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
                 });
               }
             });
           }else{
-            $('select[name="id_ruangan"]').empty();
-            $('select[name="id_ruangan"]').append('<option value="0">--</option>');
+            $('select[name="id_Ruangan"]').empty();
+            $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
           }
         });
       });

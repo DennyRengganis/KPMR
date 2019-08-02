@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\room;
 use App\booklist;
@@ -11,8 +12,8 @@ class BookingFormController extends Controller
 {
     //
 	public function BookRoom(Request $request){
-		//dd($request);
-		$data = $this->validate($request, [
+		
+		$validator = $request->validate([
             'id_Ruangan' => 'required',
             'nama' => 'required',
             'NPK' => 'required',
@@ -21,21 +22,19 @@ class BookingFormController extends Controller
             'waktu_Pinjam_Selesai' => 'required',
             'keperluan' => 'required',
             ]);
-
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
+		// dd($request);
 
-		dd($booklist);
+		$waktuPinjamMulai = date(strtotime($request['waktu_Pinjam_Mulai']));
+		$waktuPinjamSelesai = date(strtotime($request['waktu_Pinjam_Selesai']));
 
-		$waktuPinjamMulai = date('Y-m-d', strtotime($request['waktu_Pinjam_Mulai']));
-		$waktuPinjamSelesai = date('Y-m-d', strtotime($request['waktu_Pinjam_Selesai']));
-
-		// dd($booklist)
+		// dd($waktuPinjamMulai);
 		$checkFlag = True;
 
 		foreach ($booklist as $list) {
 						
-			$waktuPakaiMulai = date('Y-m-d', strtotime($list->$waktu_Pinjam_Mulai));
-			$waktuPakaiSelesai = date('Y-m-d', strtotime($list->$waktu_Pinjam_Selesai));
+			$waktuPakaiMulai = date(strtotime($list->$waktu_Pinjam_Mulai));
+			$waktuPakaiSelesai = date(strtotime($list->$waktu_Pinjam_Selesai));
 
 			if(($waktuPinjamMulai > $waktuPakaimMulai) && ($waktuPinjamMulai > $waktuPakaiSelesai)){
 				$checkFlag = False;
