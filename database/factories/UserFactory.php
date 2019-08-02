@@ -43,31 +43,15 @@ $factory->define(App\building::class, function(Faker $faker) {
 
 $factory->define(App\room::class, function(Faker $faker) {
 	$building_id = DB::table('buildings')->pluck('id')->toArray();
-	$lantai_avail = DB::table('jumlah_lantai')->pluck('id')->toArray();
-	$lantai = array()
-	for($y=1; $y<=$lantai_avail; $y++)
-    {
-        $lantai[]=$y;
-    }   
-
-    $status ='';
-    $randomnumber = $faker->randomElement($status);
-    if ($randomnumber == 1){
-    	$status ='FREE';
-    }
-    else if ($randomnumber == 2){
-    	$status ='WAITING';
-    }
-    else
-    	$status ='BOOKED';
-
+    $idbangun = $faker->randomElement($building_id);
+	$lantai_avail = DB::table('buildings')->where('id', $idbangun)->first();
     $nama_ruangan = 'Room ' . $faker->buildingNumber;
     return
     [
     	'nama_ruangan' => $nama_ruangan,
-    	'id_gedung' => $faker->randomElement($building_id), 
-    	'lantai' => $faker->randomElement($lantai),
-    	'status_now' => $status,
+    	'id_gedung' => $idbangun, 
+    	'lantai' => rand(1, $lantai_avail->jumlah_lantai),
+    	'status_now' => 'FREE',
 
 	];
 
