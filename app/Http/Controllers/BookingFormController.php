@@ -64,7 +64,7 @@ class BookingFormController extends Controller
 			$input->save();
 			//kirim email
 
-			return redirect('');
+			return redirect('/bookingRoom');
 		}
 		elseif($checkFlag == False){
 			$haha=0;//kalo salah

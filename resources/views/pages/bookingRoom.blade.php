@@ -11,7 +11,8 @@
 <div class="header">
   <h1>Booking form</h1>
 </div>
-<form action="/action_page.php">
+<form action="/bookroom" method="post">
+  @csrf
   <div class="row">
     <div class="col-w-1 col-s-1">h</div>
     <div class="col-w-1 col-s-1">h</div>
@@ -65,7 +66,7 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
      Room: 
-     <select name="room">
+     <select name="id_ruangan">
       <option value="0">--</option>
       @if(@isset($pickedroom))
       @foreach($roompool as $ruangan)
@@ -88,7 +89,7 @@
       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
       <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
       <!-- </div> -->
-    <input type="hidden" id="dtp_input1" value="" /><br/>
+    <input type="hidden" name="waktu_Pinjam_Mulai" value="" /><br/>
     <!-- <input type="date" name="start_booking"> -->
   </div>
   <div class="col-w-1 col-s-1"></div>
@@ -98,12 +99,12 @@
       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
       <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
       <!-- </div> -->
-    <input type="hidden" id="dtp_input1" value="" /><br/>
+    <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
 <!--     <input type="date" name="end_booking"> -->
   </div>
   <div class="col-w-3 col-s-3 center">
     Purpose :
-    <input type="text" name="purpose" value="purpose">
+    <input type="text" name="keperluan" value="purpose">
   </div>
   <div class="col-w-1 col-s-1"></div>
 </div>
@@ -111,7 +112,7 @@
   <div class="col-w-1 col-s-1"></div>
   <div class="col-w-3 col-s-3 center">
     NPK :
-    <input type="integer" name="npk" value="npk">
+    <input type="integer" name="NPK" value="npk">
   </div>
   <div class="col-w-1 col-s-1"></div>
   <div class="col-w-3 col-s-3 center">
@@ -223,8 +224,8 @@
                 console.log(data);
 
 
-                $('select[name="room"]').empty();
-                $('select[name="room"]').append('<option value="0">--</option>');
+                $('select[name="id_ruangan"]').empty();
+                $('select[name="id_ruangan"]').append('<option value="0">--</option>');
                 var room= data;
                 $.each(data,function(id,val){
                   console.log("masuk each");
@@ -234,13 +235,13 @@
                   console.log(val['id']);
                   console.log(val['nama_ruangan']);
                   console.log(val['status_now']);
-                  $('select[name="room"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
+                  $('select[name="id_ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
                 });
               }
             });
           }else{
-            $('select[name="room"]').empty();
-            $('select[name="room"]').append('<option value="0">--</option>');
+            $('select[name="id_ruangan"]').empty();
+            $('select[name="id_ruangan"]').append('<option value="0">--</option>');
           }
         });
       });
