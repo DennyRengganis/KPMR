@@ -69,3 +69,28 @@
 .dropdownbox{
 	border: 1px black;
 }
+.buttonlike{
+    display:inline-block;
+    color:white;
+    border:1px solid #CCC;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+/*.buttonlike:active {
+    color:red;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}*/
+.booked{
+	background:#f0484e;
+}
+.free{
+	background:#49eb46;
+}
+.waiting{
+    background:#ffb30f;
+}
