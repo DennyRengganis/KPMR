@@ -1,4 +1,5 @@
 @extends('layouts.default')
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/size.css">
@@ -29,7 +30,8 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-4 col-s-4 center">
       Building :
-      <select name="Building">
+      <select name="building">
+        <option value="0">-Building-</option>
         @if(@isset($pickedbuilding))
         @foreach($gedung as $gd)
         @if($gd->id===$pickedbuilding->id)
@@ -47,7 +49,8 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
       Floor: 
-      <select name="Floor">
+      <select name="floor">
+        <option value="0">--</option>
         @if(@isset($pickedroom))
         @for($i=1;$i<=$pickedbuilding->jumlah_lantai;$i++)
         @if($i===$pickedfloor)
@@ -56,15 +59,14 @@
         <option value="{{$i}}">{{$i}}</option>
         @endif
         @endfor
-        @else
-        <option value="0">--</option>
         @endif
       </select>
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
      Room: 
-     <select name="Room">
+     <select name="room">
+      <option value="0">--</option>
       @if(@isset($pickedroom))
       @foreach($roompool as $ruangan)
       @if($ruangan->id===$pickedroom->id)
@@ -73,8 +75,6 @@
       <option value="{{$ruangan->id}}">{{$ruangan->nama_ruangan}}</option>
       @endif
       @endforeach
-      @else
-      <option value="0">--</option>
       @endif
     </select>
   </div>
@@ -132,7 +132,6 @@
   <div class="col-w-1 col-s-1"></div>
 </div>
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
 <script type="text/javascript">
@@ -170,3 +169,81 @@
 </script>
 
 @endsection
+
+
+<script type="text/javascript">
+      var buildingID=0;
+
+      $(document).ready(function() {
+        $('select[name="building"]').on('change', function() {
+          buildingID = $(this).val();
+          console.log(buildingID);
+          if(buildingID) {
+            $.ajax({
+              url: '/home/ajax/'+buildingID,
+              type: "GET",
+              dataType: "json",
+              success:function(data) {
+
+                console.log(data);
+
+
+                $('select[name="floor"]').empty();
+                $('select[name="floor"]').append('<option value="0">--</option>');
+                var max_floor = data["jumlah_lantai"];
+                var i;
+                for(i=1;i<=max_floor;i++){
+                  $('select[name="floor"]').append('<option value="'+ i +'">'+ i +'</option>');
+                }
+
+              }
+            });
+          }else{
+            $('select[name="floor"]').empty();
+            $('select[name="floor"]').append('<option value="0">--</option>');
+          }
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select[name="floor"]').on('change', function() {
+          floorpick = $(this).val();
+          console.log(floorpick);
+          console.log("buid: ")
+          console.log(buildingID);
+          if(floorpick) {
+            $.ajax({
+              url: '/home/ajax/'+buildingID+'/'+floorpick,
+              type: "GET",
+              dataType: "json",
+              success:function(data) {
+
+                console.log(data);
+
+
+                $('select[name="room"]').empty();
+                $('select[name="room"]').append('<option value="0">--</option>');
+                var room= data;
+                $.each(data,function(id,val){
+                  console.log("masuk each");
+                  console.log("data each:")
+                  console.log(id);
+                  console.log(val);
+                  console.log(val['id']);
+                  console.log(val['nama_ruangan']);
+                  console.log(val['status_now']);
+                  $('select[name="room"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
+                });
+              }
+            });
+          }else{
+            $('select[name="room"]').empty();
+            $('select[name="room"]').append('<option value="0">--</option>');
+          }
+        });
+      });
+
+
+    </script>
