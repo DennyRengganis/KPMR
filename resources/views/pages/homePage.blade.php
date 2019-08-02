@@ -1,5 +1,5 @@
 @extends('layouts.default')
-<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/size.css">
@@ -44,7 +44,7 @@
 				<div class="col-w-2 col-s-2 center">
 					Floor :
 					<select name="floor">
-						<option value="0"></option>
+						<option value="0">--</option>
 					</select>
 				</div>
 				<div class="col-w-1 col-s-1"></div>
@@ -82,7 +82,8 @@
 								console.log(data);
 
 
-								$('list_ruangan').empty();
+								$('select[name="floor"]').empty();
+								$('select[name="floor"]').append(<'option value="0">--</option>');
 								var max_floor = data["jumlah_lantai"];
 								var i;
 								for(i=1;i<=max_floor;i++){
