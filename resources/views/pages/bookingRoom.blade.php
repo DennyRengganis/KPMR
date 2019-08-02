@@ -83,7 +83,7 @@
 </div>
 <div class="row">
   <div class="col-w-1 col-s-1"></div>
-    <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+    <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
     Start Booking : 
       <input class="form-control" size="16" type="text" value="" readonly>
       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
@@ -93,7 +93,7 @@
     <!-- <input type="date" name="start_booking"> -->
   </div>
   <div class="col-w-1 col-s-1"></div>
- <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+ <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
     End Booking :
     <input class="form-control" size="16" type="text" value="" readonly>
       <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
