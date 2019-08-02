@@ -47,71 +47,30 @@
 				<option value="0"></option>
 			</select>
 		</div>
-	<div class="col-w-1 col-s-1"></div>
+		<div class="col-w-1 col-s-1"></div>
 	</form>
 	<div class="col-w-1 col-s-2 center" >
-	<form action="/bookingRoom" method="get" target="_self">
-	<button type="submit" class="btn btn-primary">+Booking</button>
-	</form>
+		<form action="/bookingRoom" method="get" target="_self">
+			<button type="submit" class="btn btn-primary">+Booking</button>
+		</form>
 	</div>
 	<div class="col-w-1 col-s-1"></div>
 </div>
 <div class="row">
 	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-10 col-s-10">
-		@foreach($ruangan as $room)
-		<tr>
-			<div class="col-4 col-s-4 center">
-				@if($room->status_now==="FREE")
-				<td>
-					{{$room->id}}
-					{{$room->nama_ruangan}}
-					{{$room->gedung}}
-					{{$room->lantai}}
-					{{$room->status_now}}
-					room is free
-					<span class="oi oi-plus"></span>
-					<br>
-				</td>
-				@endif
-
-				@if($room->status_now==="BOOKED")
-				<td>
-					{{$room->id}}
-					{{$room->nama_ruangan}}
-					{{$room->gedung}}
-					{{$room->lantai}}
-					{{$room->status_now}}
-					room is booked
-					<button type="button" class="btn btn-primary">Schedule Meeting</button>
-					<br>
-				</td>
-				@endif
-
-				@if($room->status_now==="WAITING")
-				<td>
-					{{$room->id}}
-					{{$room->nama_ruangan}}
-					{{$room->gedung}}
-					{{$room->lantai}}
-					{{$room->status_now}}
-					room is waiting
-					<button type="button" class="btn btn-primary">Schedule Meeting</button>
-					<br>
-				</td>
-				@endif
-			</div>
-		</tr>
-		@endforeach
+	<div class="col-w-10 col-s-10 list_ruangan">
+	
 	</div>
 	<div class="col-1 col-s-1"></div>
 </div>
 @endsection
 
 <script type="text/javascript">
+	var buildingID=0;
+	
 	$(document).ready(function() {
 		$('select[name="building"]').on('change', function() {
-			var buildingID = $(this).val();
+			buildingID = $(this).val();
 			console.log(buildingID);
 			if(buildingID) {
 				$.ajax({
@@ -123,7 +82,7 @@
 						console.log(data);
 
 
-						$('select[name="floor"]').empty();
+						$('list_ruangan').empty();
 						var max_floor = data["jumlah_lantai"];
 						var i;
 						for(i=1;i<=max_floor;i++){
@@ -137,4 +96,56 @@
 			}
 		});
 	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('select[name="floor"]').on('change', function() {
+			floorpick = $(this).val();
+			console.log(floorpick);
+			console.log("buid: ")
+			console.log(buildingID);
+			if(floorpick) {
+				$.ajax({
+					url: '/home/ajax/'+buildingID+'/'+floorpick,
+					type: "GET",
+					dataType: "json",
+					success:function(data) {
+
+						console.log(data);
+
+
+						$('.list_ruangan').empty();
+						var room= data;
+						$.each(data,function(id,val){
+							console.log("masuk each");
+							console.log("data each:")
+							console.log(id);
+							console.log(val);
+							console.log(val['id']);
+							console.log(val['nama_ruangan']);
+							console.log(val['status_now']);
+							if(val['status_now']=="FREE"){
+								console.log("masuk free");
+								$('.list_ruangan').append('<div class="col-4 col-s-4 center ">'+val['id']+'<br>'+val['nama_ruangan']+'<br>'+val['status_now']+'<br>'+'room is free <span class="oi oi-plus"></span><br></div>');
+							};
+
+							if(val['status_now']=="BOOKED"){
+								console.log("masuk booked");
+								$('.list_ruangan').append('<div class="col-4 col-s-4 center">'+val['id']+'<br>'+val['nama_ruangan']+'<br>'+val['status_now']+'<br>'+'room is booked <span class="oi oi-plus"></span><br></div>');
+							};
+							if(val['status_now']=="WAITING"){
+								console.log("masuk wait");
+								$('.list_ruangan').append('<div class="col-4 col-s-4 center ">'+val['id']+'<br>'+val['nama_ruangan']+'<br>'+val['status_now']+'<br>'+'waiting confirmation <span class="oi oi-plus"></span><br></div>');
+							};
+						});
+					}
+				});
+			}else{
+				$('.list_ruangan').empty();
+			}
+		});
+	});
+
+
 </script>
