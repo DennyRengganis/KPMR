@@ -30,6 +30,7 @@
     <div class="col-w-4 col-s-4 center">
       Building :
       <select name="Building">
+        @isset($pickedbuilding)
         <option value="ACCF">ACCF</option>
         <option value="TBS">TBS</option>
       </select>

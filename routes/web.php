@@ -26,7 +26,7 @@ Route::get('/detailRoom', function () {
 Route::get('/bookingRoom', function () {
     return view('pages.bookingRoom');
 });
-
+Route::get('/bookingRoom/{id}',array('as'=>'bookwithroom','uses'=>'HomepageController@bookwithroom'));
 //email
 Route::get('/email', function () {
     return view('send_email');
@@ -36,3 +36,4 @@ Route::post('/sendEmail', 'Email@sendEmail');
 Route::get('home',array('as'=>'home','uses'=>'HomepageController@viewall'));
 Route::get('home/ajax/{id}',array('as'=>'myhome.ajax','uses'=>'HomepageController@myhomeAjax'));
 Route::get('home/ajax/{id}/{floor}',array('as'=>'myroom.ajax','uses'=>'HomepageController@myroomAjax'));
+

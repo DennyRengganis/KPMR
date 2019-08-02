@@ -29,4 +29,12 @@ class HomepageController extends Controller
         $rooms = room::where('id_gedung',$id)->where('lantai',$floor)->get();
         return json_encode($rooms);
     }
+
+    public function bookwithroom($id){
+    	$pickedroom = room::where('id',$id)->first();
+    	$pickedbuilding = building::where('id',$pickedroom['id_gedung'])->first;
+    	$pickedfloor = $pickedroom['lantai'];
+    	$gedung = building::all()->sortBy('id');
+    	return view('pages.bookingRoom',compact('pickedroom','pickedbuilding','pickedfloor','gedung'));
+    }
 }
