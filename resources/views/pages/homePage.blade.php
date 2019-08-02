@@ -8,7 +8,7 @@
 @section('content')
 <div class="header">
 	<h1>Search Room</h1>
-</div>
+<div>
 <form action="/action_page.php">
 	<div class="row">
 		<div class="col-w-1 col-s-1">h</div>
