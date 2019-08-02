@@ -29,7 +29,7 @@
 	</div>
 	<div class="row">
 		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-2 col-s-2 center">
+		<div class="col-w-3 col-s-3 center">
 			<div class="dropdownbox">
 				Building :
 				<select name="building">
@@ -40,16 +40,20 @@
 				</select>
 			</div>
 		</div>
-		<div class="col-w-4 col-s-2"></div>
+		<div class="col-w-3 col-s-2"></div>
 		<div class="col-w-2 col-s-2 center">
 			Floor :
 			<select name="floor">
 				<option value="0"></option>
 			</select>
 		</div>
-		<button type="submit" class="btn btn-primary col-w-1 col-s-2 center" value="search">search</button>
+	<div class="col-w-1 col-s-1"></div>
 	</form>
-	<button type="button" class="btn btn-primary col-w-1 col-s-2 center">+Booking</button>
+	<div class="col-w-1 col-s-2 center" >
+	<form action="/bookingRoom" method="get" target="_self">
+	<button type="submit" class="btn btn-primary">+Booking</button>
+	</form>
+	</div>
 	<div class="col-w-1 col-s-1"></div>
 </div>
 <div class="row">
