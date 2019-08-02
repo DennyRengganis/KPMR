@@ -23,10 +23,8 @@ Route::get('/roomPage', function () {
 Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
-Route::get('/bookingRoom', function () {
-    return view('pages.bookingRoom');
-});
-Route::get('/bookingRoom/{id}',array('as'=>'bookwithroom','uses'=>'HomepageController@bookwithroom'));
+Route::get('/bookingRoom','BookingFormController@viewbasic');
+Route::get('/bookingRoom/{id}',array('as'=>'bookwithroom','uses'=>'BookingFormController@bookwithroom'));
 //email
 Route::get('/email', function () {
     return view('send_email');

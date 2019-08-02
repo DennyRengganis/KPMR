@@ -30,31 +30,52 @@
     <div class="col-w-4 col-s-4 center">
       Building :
       <select name="Building">
-        @isset($pickedbuilding)
-        <option value="ACCF">ACCF</option>
-        <option value="TBS">TBS</option>
+        @if(@isset($pickedbuilding))
+        @foreach($gedung as $gd)
+        @if($gd->id===$pickedbuilding->id)
+        <option value="{{$gd->id}}" selected="selected">{{$gd->nama_gedung}}</option>
+        @endif
+        <option value="{{$gd->id}}">{{$gd->nama_gedung}}</option>
+        @endforeach
+        @else
+        @foreach($gedung as $gd)
+        <option value="{{$gd->id}}">{{$gd->nama_gedung}}</option>
+        @endforeach
+        @endif
       </select>
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
       Floor: 
       <select name="Floor">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="4">5</option>
+        @if(@isset($pickedroom))
+        @for($i=1;$i<=$pickedbuilding->jumlah_lantai;$i++)
+        @if($i===$pickedfloor)
+        <option value="{{$i}}" selected="selected">{{$i}}</option>
+        @else
+        <option value="{{$i}}">{{$i}}</option>
+        @endif
+        @endfor
+        @else
+        <option value="0">--</option>
+        @endif
       </select>
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
-     Floor: 
+     Room: 
      <select name="Room">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="4">5</option>
+      @if(@isset($pickedroom))
+      @foreach($roompool as $ruangan)
+      @if($ruangan->id===$pickedroom->id)
+      <option value="{{$ruangan->id}}" selected="selected">{{$ruangan->nama_ruangan}}</option>
+      @else
+      <option value="{{$ruangan->id}}">{{$ruangan->nama_ruangan}}</option>
+      @endif
+      @endforeach
+      @else
+      <option value="0">--</option>
+      @endif
     </select>
   </div>
   <div class="col-w-1 col-s-1"></div>

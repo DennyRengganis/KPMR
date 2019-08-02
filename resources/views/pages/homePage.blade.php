@@ -135,7 +135,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<form action="/bookingRoom/'+val['id']'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form>'
+											+'<form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form>'
 											+'BOOK NOW'
 											+'</div>'
 											+'</div>');
@@ -151,7 +151,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/bookingRoom/'+val['id']'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
+											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
 											+'</div>'
 											+'</div>');
 									};
@@ -165,7 +165,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/bookingRoom/'+val['id']'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
+											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
 											+'</div>'
 											+'</div>');
 									};

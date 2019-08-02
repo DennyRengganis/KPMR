@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\room;
 use App\booklist;
+use App\building;
 
 class BookingFormController extends Controller
 {
@@ -65,11 +66,25 @@ class BookingFormController extends Controller
 
 			return redirect('');
 		}
-		else($checkFlag == False){
-			//kalo salah
+		elseif($checkFlag == False){
+			$haha=0;//kalo salah
 		}
 
 
 	}
+
+	public function viewbasic(){
+		$gedung=building::all()->sortBy('id');
+		return view('pages.bookingRoom',compact('gedung'));
+		}
+
+	public function bookwithroom($id){
+    	$pickedroom = room::where('id',$id)->first();
+    	$pickedbuilding = building::where('id',$pickedroom['id_gedung'])->first();
+    	$pickedfloor = $pickedroom['lantai'];
+    	$gedung = building::all()->sortBy('id');
+    	$roompool = room::where('id_gedung',$pickedroom['id_gedung'])->where('lantai',$pickedfloor)->get();
+    	return view('pages.bookingRoom',compact('pickedroom','pickedbuilding','pickedfloor','gedung','roompool'));
+    }
 
 }
