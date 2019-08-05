@@ -30,6 +30,7 @@
 			<div class="row">
 				<div class="col-w-1 col-s-1"></div>
 				<div class="col-w-3 col-s-3 center">
+					<div class="dropdownbox">
 						Building :
 						<br>
 						<select name="building">
@@ -38,6 +39,7 @@
 							<option value="{{ $gd->id }}">{{ $gd->nama_gedung }}</option>
 							@endforeach
 						</select>
+					</div>
 				</div>
 				<div class="col-w-3 col-s-2"></div>
 				<div class="col-w-2 col-s-2 center">

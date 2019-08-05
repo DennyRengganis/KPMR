@@ -11,26 +11,28 @@
 <div class="header">
   <h1>Booking form</h1>
 </div>
-<form action="/bookroom" method="post">
+<div class="bodybr">
+  <form action="/bookroom" method="post">
   @csrf
   <div class="row">
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
-    <div class="col-w-1 col-s-1">h</div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
   </div>
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
-    <div class="col-w-4 col-s-4 center">
+    <div class="col-w-3 col-s-3 left">
       Building :
+      <br>
       <select name="building">
         <option value="0">-Building-</option>
         @if(@isset($pickedbuilding))
@@ -48,8 +50,9 @@
       </select>
     </div>
     <div class="col-w-1 col-s-1"></div>
-    <div class="col-w-2 col-s-2 center">
+    <div class="col-w-3 col-s-3 left">
       Floor: 
+      <br>
       <select name="floor">
         <option value="0">--</option>
         @if(@isset($pickedroom))
@@ -63,9 +66,9 @@
         @endif
       </select>
     </div>
-    <div class="col-w-1 col-s-1"></div>
-    <div class="col-w-2 col-s-2 center">
+    <div class="col-w-3 col-s-3 left">
       Room: 
+      <br>
       <select name="id_Ruangan">
        <option value="0">--</option>
        @if(@isset($pickedroom))
@@ -83,26 +86,33 @@
   </div>
   <div class="row">
    <div class="col-w-1 col-s-1"></div>
-   <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
-     Start Booking : 
+   <div class="col-w-3 col-s-3 left">
+     Start Booking :
+     <br> 
+     <div class="input-group date form_datetime" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
      <input class="form-control" size="16" type="text" value="" readonly>
      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
      <!-- </div> -->
      <input type="hidden" name="waktu_Pinjam_Mulai" value="" /><br/>
      <!-- <input type="date" name="start_booking"> -->
+     </div>
    </div>
    <div class="col-w-1 col-s-1"></div>
-   <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
-     End Booking :
-     <input class="form-control" size="16" type="text" value="" readonly>
-     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-     <!-- </div> -->
-     <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
-     <!--     <input type="date" name="end_booking"> -->
+   <div class="col-w-3 col-s-3 left">
+    End Booking :
+    <br>
+       <div class="input-group date form_datetime" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+        <input class="form-control" size="16" type="text" value="" readonly>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        <!-- </div> -->
+        <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
+        <!--     <input type="date" name="end_booking"> -->
+      </div>
    </div>
-   <div class="col-w-3 col-s-3 center">
+
+   <div class="col-w-3 col-s-3 left">
      Purpose :
      <input type="text" name="keperluan" value="purpose">
    </div>
@@ -110,27 +120,47 @@
   </div>
   <div class="row">
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-3 col-s-3 center">
+   <div class="col-w-3 col-s-3 left">
       NPK :
-     <input type="integer" name="NPK" value="npk">
+      <br>
+        <input type="integer" name="NPK" value="">
    </div>
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-3 col-s-3 center">
+   <div class="col-w-3 col-s-3 left">
      Nama :
+     <br>
      <input type="text" name="nama" value="nama">
    </div>
-   <div class="col-w-3 col-s-3 center">
+   <div class="col-w-3 col-s-3 left">
      Email:
+     <br>
      <input type="text" name="email" value="email">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="col-w-6 col-s-6"></div>
-  <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
-  <div class="col-w-1 col-s-1"></div>
-  <button type="button" onclick="window.location.href = '/home'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
-  <div class="col-w-1 col-s-1"></div>
-</form>
+  <div class="row">
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <div class="col-w-1 col-s-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-w-6 col-s-6"></div>
+    <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
+    <div class="col-w-1 col-s-1"></div>
+    <button type="button" onclick="window.location.href = '/home'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
+    <div class="col-w-1 col-s-1"></div>
+  </div>
+  </form>
+</div>
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>

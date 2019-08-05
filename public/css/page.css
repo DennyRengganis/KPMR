@@ -8,6 +8,13 @@
   clear: both;
   display: table;
 }
+.bodybr{
+  background-color: #d1d1d1;
+  padding-bottom: 10px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 1%;
+}
 
 [class*="col-"] {
   float: left;
@@ -59,7 +66,8 @@
 
 
 .header {
-  border: 1px solid red;
+  margin-left: 1%;
+/*  border: 1px solid red;*/
   padding: 15px;
 }
 
@@ -67,8 +75,13 @@
 	text-align: center;
 	font-size: 150%;
 }
+.left{
+  text-align: left;
+  font-size: 150%;
+}
 .dropdownbox{
-	border: 1px black;
+	border: 1px solid black;
+	padding-bottom: 5px;
 }
 .buttonlike{
     display:inline-block;
@@ -94,4 +107,7 @@
 }
 .waiting{
     background:#ffb30f;
+}
+input{
+  width: 75%;
 }
