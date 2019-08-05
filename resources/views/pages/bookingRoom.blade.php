@@ -11,6 +11,15 @@
 <div class="header">
   <h1>Booking form</h1>
 </div>
+
+<div class="">
+  <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+
 <div class="bodybr">
   <form action="/bookroom" method="post">
   @csrf
