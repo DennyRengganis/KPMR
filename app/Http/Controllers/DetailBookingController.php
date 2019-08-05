@@ -14,7 +14,7 @@ class DetailBookingController extends Controller
     	$dtcurr=$current->toDateString();
     	$tomorrow = Carbon::now()->addDay();
     	$dttmrw= $tomorrow->toDateString();
-        $detail = booklist::wheredate('waktu_Pinjam_Mulai','>=',$dtcurr)->wheredate('waktu_Pinjam_Mulai','<=',$dttmrw)->where('id_Ruangan',$idroom)->get();
+        $detail = booklist::wheredate('waktu_Pinjam_Mulai','>=',$dtcurr)->wheredate('waktu_Pinjam_Mulai','<=',$dttmrw)->where('id_Ruangan',$idroom)->orderBy('waktu_Pinjam_Mulai','desc')get();
         $info = room::where('id',$idroom)->first();
         //dd($detail);  
         return view('pages.detailRoom',compact('detail','info'));
@@ -22,6 +22,9 @@ class DetailBookingController extends Controller
 
     public function cancel($id){
     	$lists = booklist::where('id',$id)->first();
+        $ruangan = room::where('id',$lists->id_Ruangan)->first();
+        $ruangan->status_now="BOOKED";
+        $ruangan->save();
         $lists->delete();
         return redirect('');
     }
