@@ -6,89 +6,71 @@
 <link rel="stylesheet" type="text/css" href="/css/page.css">
 @endsection
 @section('content')
-	<div class="row">
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-		<div class="col-w-1 col-s-1"></div>
-	</div>
-	<div class="row">
-		<div class="col-w-6 col-s-6 center">
-			<div class="row">
-				<div class="booked col-w-12 col-s-12">
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-					KAMU SUDAH BOOKED
-					<br>
-				</div>
+<div class="row">
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+	<div class="col-w-1 col-s-1"></div>
+</div>
+<div class="row">
+	<div class="col-w-6 col-s-6 center">
+		<div class="row">
+			@if($info->status_now=="BOOKED")
+			<div class="booked col-w-12 col-s-12">
+				{{$info->nama_ruangan}}
+				<br>
+				{{$info->status_now}}
+				<br>
+
+				@foreach($detail as $dt) 
+				{{$dt}} 
+				<br>
+				@endforeach
+
 			</div>
-			<div class="row">
-				<div class="waiting col-w-12 col-s-12">
-					TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-						TAPI AKU MASIH WAITING
-					<br>
-				</div>
+			@endif
+
+			@if($info->status_now=="WAITING")
+			<div class="waiting col-w-12 col-s-12">
+				{{$info->nama_ruangan}}
+				<br>
+				{{$info->status_now}}
+				<br>
+
+				@foreach($detail as $dt) 
+				{{$dt}}
+				<br> 
+				@endforeach
+
 			</div>
-			<div class="row">
-				<div class="free col-s-12 col-w-12">
-					SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-						SAMPAI KAMU FREE
-					<br>
-				</div>
-			</div>	
-		</div>
-		<div class="col-w-6 col-s-6 center">
-			Kejam
+			@endif
+
+			@if($info->status_now=="FREE")
+			<div class="free col-s-12 col-w-12">
+				{{$info->nama_ruangan}}
+				<br>
+				{{$info->status_now}}
+				<br>
+
+				@foreach($detail as $dt) 
+				{{$dt}} 
+				<br>
+				@endforeach
+				
+			</div>
+			@endif	
 		</div>
 	</div>
+	<div class="col-w-6 col-s-6 center">
+		Kejam
+	</div>
+</div>
 @endsection
