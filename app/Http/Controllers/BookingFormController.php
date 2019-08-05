@@ -11,24 +11,15 @@ use App\building;
 class BookingFormController extends Controller
 {
     //
-	public function BookRoom(Request $request){
+	public function BookRoom(BookingFormRequest $request){
 		
-		$validator = $request->validate([
-            'id_Ruangan' => 'required',
-            'nama' => 'required',
-            'NPK' => 'required',
-            'email' => 'required',
-            'waktu_Pinjam_Mulai' => 'required',
-            'waktu_Pinjam_Selesai' => 'required',
-            'keperluan' => 'required',
-            ]);
+		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
 		// dd($request);
 
 		$waktuPinjamMulai = date(strtotime($request['waktu_Pinjam_Mulai']));
 		$waktuPinjamSelesai = date(strtotime($request['waktu_Pinjam_Selesai']));
 
-		// dd($waktuPinjamMulai);
 		$checkFlag = True;
 
 		foreach ($booklist as $list) {
