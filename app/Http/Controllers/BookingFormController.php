@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\room;
 use App\booklist;
 use App\building;
+use App\Http\Requests\BookingFormRequest;
 
 class BookingFormController extends Controller
 {
@@ -60,7 +61,8 @@ class BookingFormController extends Controller
 			return redirect('/bookingRoom');
 		}
 		elseif($checkFlag == False){
-			$haha=0;//kalo salah
+			
+			$haha=0;
 		}
 
 
