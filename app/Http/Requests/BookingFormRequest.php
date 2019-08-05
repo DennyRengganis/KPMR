@@ -26,11 +26,28 @@ class BookingFormRequest extends FormRequest
         return [
             'id_Ruangan' => 'required',
             'nama' => 'required',
-            'NPK' => 'required',
+            'NPK' => 'required|digits:5',
             'email' => 'required|email',
             'waktu_Pinjam_Mulai' => 'required|date',
-            'waktu_Pinjam_Selesai' => 'required|date|after:start_date',
+            'waktu_Pinjam_Selesai' => 'required|date|after:waktu_Pinjam_Mulai',
             'keperluan' => 'required|',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Mohon isikan nama anda',
+            'NPK.digits:5' => 'Format NPK salah',
+            'NPK.required' => 'Mohon isikan NPK anda',
+            'email.required' => 'Mohon isikan email anda',
+            'email.email' => 'Format email salah',
+            'waktu_Pinjam_Mulai.required' => 'Mohon isikan tanggal dan waktu mulai',
+            'waktu_Pinjam_Mulai.date' =>'format tanggal salah',
+            'waktu_Pinjam_Selesai.required' => 'Mohon isikan tanggal dan waktu mulai',
+            'waktu_Pinjam_Selesai.date' =>'format tanggal salah',
+            'waktu_Pinjam_Selesai.after:waktu_Pinjam_Mulai' => 'tanggal selesai dan waktu harus setelah tanggal dan waktu mulai',
+            
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\room;
 use App\booklist;
 use App\building;
 use App\Http\Requests\BookingFormRequest;
+use Mail;
 
 class BookingFormController extends Controller
 {
@@ -18,15 +19,15 @@ class BookingFormController extends Controller
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
 		// dd($request);
 
-		$waktuPinjamMulai = date(strtotime($request['waktu_Pinjam_Mulai']));
-		$waktuPinjamSelesai = date(strtotime($request['waktu_Pinjam_Selesai']));
+		$waktuPinjamMulai = strtotime($request['waktu_Pinjam_Mulai']);
+		$waktuPinjamSelesai = strtotime($request['waktu_Pinjam_Selesai']);
 
 		$checkFlag = True;
 
 		foreach ($booklist as $list) {
 						
-			$waktuPakaiMulai = date(strtotime($list->$waktu_Pinjam_Mulai));
-			$waktuPakaiSelesai = date(strtotime($list->$waktu_Pinjam_Selesai));
+			$waktuPakaiMulai = strtotime($list->$waktu_Pinjam_Mulai);
+			$waktuPakaiSelesai = strtotime($list->$waktu_Pinjam_Selesai);
 
 			if(($waktuPinjamMulai > $waktuPakaimMulai) && ($waktuPinjamMulai > $waktuPakaiSelesai)){
 				$checkFlag = False;
@@ -53,34 +54,37 @@ class BookingFormController extends Controller
 			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
 			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
 			$input->keperluan = $request['keperluan'];
+
+			$namaRuangan = room::where('id', $request['id_Ruangan'])->first();
+			$namaGedung = building::where('id', $namaRuangan->id_gedung)->first();
 			//kirim email
 			$judul = "Booking Room";
 			try{
 				Mail::send('email', 
-					['nama' => $request['nama'], 
-					'mulai' => $request['waktu_Pinjam_Mulai'],
-					'selesai'=> $request['waktu_Pinjam_Selesai'],
+					['nama' => $request['nama'],
+					'namaRuangan' => $namaRuangan->nama_ruangan,
+					'namaGedung' => $namaGedung->nama_gedung,
+					'mulai' => date("D, d/m/y H:i", strtotime($request['waktu_Pinjam_Mulai'])),
+					'selesai'=> date("D, d/m/y H:i", strtotime($request['waktu_Pinjam_Selesai'])),
+					'npk'=>$request['NPK'],
 					'keperluan' => $request['keperluan'],
-					'BookingID' =>$request['id'],
-					'ConfirmationPIN' => $pinText]
+					// 'BookingID' =>$request['id'],
+					'confirmationPIN' => $pinText]
 					, function ($message) use ($request)
 				{
-					$message->subject($judul);
-					$message->from('donotreply@gmail.com', 'Meeting Room');
+					$message->subject("BookingRoom");
 					$message->to($request['email']);
 				});
-				return back()->with('alert-success','Berhasil Kirim Email');
 			}
 			catch (Exception $e){
 				return response (['status' => false,'errors' => $e->getMessage()]);
 			}
 			//dd($input);
 			$input->save();
-			return redirect('/bookingRoom');
+			return back()->with('alert-success','Berhasil Kirim Email');
 		}
 		elseif($checkFlag == False){
-			
-			$haha=0;
+			return back()->with('alert-success','Gagal');
 		}
 
 
