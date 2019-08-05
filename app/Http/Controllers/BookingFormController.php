@@ -26,14 +26,22 @@ class BookingFormController extends Controller
 
 		foreach ($booklist as $list) {
 						
-			$waktuPakaiMulai = strtotime($list->$waktu_Pinjam_Mulai);
-			$waktuPakaiSelesai = strtotime($list->$waktu_Pinjam_Selesai);
+			$waktuPakaiMulai = strtotime($list->waktu_Pinjam_Mulai);
+			$waktuPakaiSelesai = strtotime($list->waktu_Pinjam_Selesai);
 
-			if(($waktuPinjamMulai > $waktuPakaimMulai) && ($waktuPinjamMulai > $waktuPakaiSelesai)){
+			if(($waktuPinjamMulai >= $waktuPakaiMulai) && ($waktuPinjamMulai <= $waktuPakaiSelesai)){
 				$checkFlag = False;
 			}
 
-			if(($waktuPinjamSelesai > $waktuPakaiMulai) && ($waktuPinjamSelesai > $waktuPakaiSelesai)){
+			if(($waktuPinjamSelesai >= $waktuPakaiMulai) && ($waktuPinjamSelesai <= $waktuPakaiSelesai)){
+				$checkFlag = False;
+			}
+
+			if(($waktuPakaiMulai >= $waktuPinjamMulai) && ($waktuPakaiMulai <= $waktuPinjamSelesai)){
+				$checkFlag = False;
+			}
+
+			if(($waktuPakaiSelesai >= $waktuPinjamMulai) && ($waktuPakaiSelesai <= $waktuPinjamSelesai)){
 				$checkFlag = False;
 			}
 		}

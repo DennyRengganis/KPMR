@@ -38,6 +38,7 @@ class CreateRoomsTable extends Migration
             $table->datetime('waktu_Pinjam_Mulai');
             $table->datetime('waktu_Pinjam_Selesai');
             $table->string('keperluan');
+            $table->string('status');
             $table->foreign('id_Ruangan')->references('id')->on('rooms');
             //$table->timestamps();
         });
