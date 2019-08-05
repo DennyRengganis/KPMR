@@ -65,73 +65,72 @@
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-2 col-s-2 center">
-     Room: 
-     <select name="id_Ruangan">
-      <option value="0">--</option>
-      @if(@isset($pickedroom))
-      @foreach($roompool as $ruangan)
-      @if($ruangan->id===$pickedroom->id)
-      <option value="{{$ruangan->id}}" selected="selected">{{$ruangan->nama_ruangan}}</option>
-      @else
-      <option value="{{$ruangan->id}}">{{$ruangan->nama_ruangan}}</option>
-      @endif
-      @endforeach
-      @endif
-    </select>
+      Room: 
+      <select name="id_Ruangan">
+       <option value="0">--</option>
+       @if(@isset($pickedroom))
+       @foreach($roompool as $ruangan)
+       @if($ruangan->id===$pickedroom->id)
+       <option value="{{$ruangan->id}}" selected="selected">{{$ruangan->nama_ruangan}}</option>
+       @else
+       <option value="{{$ruangan->id}}">{{$ruangan->nama_ruangan}}</option>
+       @endif
+       @endforeach
+       @endif
+      </select>
+    </div>
+    <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="col-w-1 col-s-1"></div>
-</div>
-<div class="row">
-  <div class="col-w-1 col-s-1"></div>
-    <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
-    Start Booking : 
-      <input class="form-control" size="16" type="text" value="" readonly>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-      <!-- </div> -->
-    <input type="hidden" name="waktu_Pinjam_Mulai" value="" /><br/>
-    <!-- <input type="date" name="start_booking"> -->
+  <div class="row">
+   <div class="col-w-1 col-s-1"></div>
+   <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+     Start Booking : 
+     <input class="form-control" size="16" type="text" value="" readonly>
+     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+     <!-- </div> -->
+     <input type="hidden" name="waktu_Pinjam_Mulai" value="" /><br/>
+     <!-- <input type="date" name="start_booking"> -->
+   </div>
+   <div class="col-w-1 col-s-1"></div>
+   <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+     End Booking :
+     <input class="form-control" size="16" type="text" value="" readonly>
+     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+     <!-- </div> -->
+     <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
+     <!--     <input type="date" name="end_booking"> -->
+   </div>
+   <div class="col-w-3 col-s-3 center">
+     Purpose :
+     <input type="text" name="keperluan" value="purpose">
+   </div>
+   <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="col-w-1 col-s-1"></div>
- <div class="input-group date form_datetime col-w-3 col-s-3 center" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
-    End Booking :
-    <input class="form-control" size="16" type="text" value="" readonly>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-      <!-- </div> -->
-    <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
-<!--     <input type="date" name="end_booking"> -->
+  <div class="row">
+   <div class="col-w-1 col-s-1"></div>
+   <div class="col-w-3 col-s-3 center">
+      NPK :
+     <input type="integer" name="NPK" value="npk">
+   </div>
+   <div class="col-w-1 col-s-1"></div>
+   <div class="col-w-3 col-s-3 center">
+     Nama :
+     <input type="text" name="nama" value="nama">
+   </div>
+   <div class="col-w-3 col-s-3 center">
+     Email:
+     <input type="text" name="email" value="email">
+   </div>
+   <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="col-w-3 col-s-3 center">
-    Purpose :
-    <input type="text" name="keperluan" value="purpose">
-  </div>
-  <div class="col-w-1 col-s-1"></div>
-</div>
-<div class="row">
-  <div class="col-w-1 col-s-1"></div>
-  <div class="col-w-3 col-s-3 center">
-    NPK :
-    <input type="integer" name="NPK" value="npk">
-  </div>
-  <div class="col-w-1 col-s-1"></div>
-  <div class="col-w-3 col-s-3 center">
-    Nama :
-    <input type="text" name="nama" value="nama">
-  </div>
-  <div class="col-w-3 col-s-3 center">
-    Email:
-    <input type="text" name="email" value="email">
-  </div>
-  <div class="col-w-1 col-s-1"></div>
-</div>
-<div class="row">
   <div class="col-w-6 col-s-6"></div>
   <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
   <div class="col-w-1 col-s-1"></div>
-  <button type="button" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
+  <button type="button" onclick="window.location.href = '/home'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
   <div class="col-w-1 col-s-1"></div>
-</div>
+</form>
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
@@ -173,78 +172,78 @@
 
 
 <script type="text/javascript">
-      var buildingID=0;
+  var buildingID=0;
 
-      $(document).ready(function() {
-        $('select[name="building"]').on('change', function() {
-          buildingID = $(this).val();
-          console.log(buildingID);
-          if(buildingID) {
-            $.ajax({
-              url: '/home/ajax/'+buildingID,
-              type: "GET",
-              dataType: "json",
-              success:function(data) {
+  $(document).ready(function() {
+    $('select[name="building"]').on('change', function() {
+      buildingID = $(this).val();
+      console.log(buildingID);
+      if(buildingID) {
+        $.ajax({
+          url: '/home/ajax/'+buildingID,
+          type: "GET",
+          dataType: "json",
+          success:function(data) {
 
-                console.log(data);
+            console.log(data);
 
 
-                $('select[name="floor"]').empty();
-                $('select[name="floor"]').append('<option value="0">--</option>');
-                var max_floor = data["jumlah_lantai"];
-                var i;
-                for(i=1;i<=max_floor;i++){
-                  $('select[name="floor"]').append('<option value="'+ i +'">'+ i +'</option>');
-                }
-
-              }
-            });
-          }else{
             $('select[name="floor"]').empty();
             $('select[name="floor"]').append('<option value="0">--</option>');
+            var max_floor = data["jumlah_lantai"];
+            var i;
+            for(i=1;i<=max_floor;i++){
+              $('select[name="floor"]').append('<option value="'+ i +'">'+ i +'</option>');
+            }
+
           }
         });
-      });
-    </script>
+      }else{
+        $('select[name="floor"]').empty();
+        $('select[name="floor"]').append('<option value="0">--</option>');
+      }
+    });
+  });
+</script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('select[name="floor"]').on('change', function() {
-          floorpick = $(this).val();
-          console.log(floorpick);
-          console.log("buid: ")
-          console.log(buildingID);
-          if(floorpick) {
-            $.ajax({
-              url: '/home/ajax/'+buildingID+'/'+floorpick,
-              type: "GET",
-              dataType: "json",
-              success:function(data) {
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select[name="floor"]').on('change', function() {
+      floorpick = $(this).val();
+      console.log(floorpick);
+      console.log("buid: ")
+      console.log(buildingID);
+      if(floorpick) {
+        $.ajax({
+          url: '/home/ajax/'+buildingID+'/'+floorpick,
+          type: "GET",
+          dataType: "json",
+          success:function(data) {
 
-                console.log(data);
+            console.log(data);
 
 
-                $('select[name="id_Ruangan"]').empty();
-                $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
-                var room= data;
-                $.each(data,function(id,val){
-                  console.log("masuk each");
-                  console.log("data each:")
-                  console.log(id);
-                  console.log(val);
-                  console.log(val['id']);
-                  console.log(val['nama_ruangan']);
-                  console.log(val['status_now']);
-                  $('select[name="id_Ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
-                });
-              }
-            });
-          }else{
             $('select[name="id_Ruangan"]').empty();
             $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
+            var room= data;
+            $.each(data,function(id,val){
+              console.log("masuk each");
+              console.log("data each:")
+              console.log(id);
+              console.log(val);
+              console.log(val['id']);
+              console.log(val['nama_ruangan']);
+              console.log(val['status_now']);
+              $('select[name="id_Ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
+            });
           }
         });
-      });
+      }else{
+        $('select[name="id_Ruangan"]').empty();
+        $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
+      }
+    });
+  });
 
 
-    </script>
+</script>

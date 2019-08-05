@@ -11,38 +11,38 @@
 	<div>
 		<form action="/action_page.php">
 			<div class="row">
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
-				<div class="col-w-1 col-s-1">h</div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
+				<div class="col-w-1 col-s-1"></div>
 			</div>
-			<div class="row">
+<!-- 			<div class="row">
 				<div class="example">jkdfjdskjdf</div>
-			</div>
+			</div> -->
 			<div class="row">
 				<div class="col-w-1 col-s-1"></div>
 				<div class="col-w-3 col-s-3 center">
-					<div class="dropdownbox">
 						Building :
+						<br>
 						<select name="building">
 							<option value="0">Building</option>
 							@foreach ($gedung as $gd)
 							<option value="{{ $gd->id }}">{{ $gd->nama_gedung }}</option>
 							@endforeach
 						</select>
-					</div>
 				</div>
 				<div class="col-w-3 col-s-2"></div>
 				<div class="col-w-2 col-s-2 center">
 					Floor :
+					<br>
 					<select name="floor">
 						<option value="0">--</option>
 					</select>
@@ -50,6 +50,7 @@
 				<div class="col-w-1 col-s-1"></div>
 			</form>
 			<div class="col-w-1 col-s-2 center" >
+				<br>
 				<form action="/bookingRoom" method="get" target="_self">
 					<button type="submit" class="btn btn-primary">+Booking</button>
 				</form>
@@ -83,7 +84,7 @@
 
 
 								$('select[name="floor"]').empty();
-								$('select[name="floor"]').append(<'option value="0">--</option>');
+								$('select[name="floor"]').append('<option value="0">--</option>');
 								var max_floor = data["jumlah_lantai"];
 								var i;
 								for(i=1;i<=max_floor;i++){

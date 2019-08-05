@@ -12,7 +12,7 @@
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 1px solid red;
+/*  border: 1px solid red;*/
 }
 
 /* For mobile phones: */
@@ -65,6 +65,7 @@
 
 .center{
 	text-align: center;
+	font-size: 150%;
 }
 .dropdownbox{
 	border: 1px black;

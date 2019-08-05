@@ -32,9 +32,9 @@ Route::get('/email', function () {
 });
 Route::post('/sendEmail', 'Email@sendEmail');
 
-Route::get('home',array('as'=>'home','uses'=>'HomepageController@viewall'));
-Route::get('home/ajax/{id}',array('as'=>'myhome.ajax','uses'=>'HomepageController@myhomeAjax'));
-Route::get('home/ajax/{id}/{floor}',array('as'=>'myroom.ajax','uses'=>'HomepageController@myroomAjax'));
+Route::get('/home',array('as'=>'home','uses'=>'HomepageController@viewall'));
+Route::get('/home/ajax/{id}',array('as'=>'myhome.ajax','uses'=>'HomepageController@myhomeAjax'));
+Route::get('/home/ajax/{id}/{floor}',array('as'=>'myroom.ajax','uses'=>'HomepageController@myroomAjax'));
 
 //detail Booking
 Route::get('/detailBooking/{id}',array('as'=>'detailBooking','uses'=>'DetailBookingController@viewbook'));
