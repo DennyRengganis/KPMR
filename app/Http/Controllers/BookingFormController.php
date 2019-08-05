@@ -53,11 +53,29 @@ class BookingFormController extends Controller
 			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
 			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
 			$input->keperluan = $request['keperluan'];
-
+			//kirim email
+			$judul = "Booking Room";
+			try{
+				Mail::send('email', 
+					['nama' => $request['nama'], 
+					'mulai' => $request['waktu_Pinjam_Mulai'],
+					'selesai'=> $request['waktu_Pinjam_Selesai'],
+					'keperluan' => $request['keperluan'],
+					'BookingID' =>$request['id'],
+					'ConfirmationPIN' => $pinText]
+					, function ($message) use ($request)
+				{
+					$message->subject($judul);
+					$message->from('donotreply@gmail.com', 'Meeting Room');
+					$message->to($request['email']);
+				});
+				return back()->with('alert-success','Berhasil Kirim Email');
+			}
+			catch (Exception $e){
+				return response (['status' => false,'errors' => $e->getMessage()]);
+			}
 			//dd($input);
 			$input->save();
-			//kirim email
-
 			return redirect('/bookingRoom');
 		}
 		elseif($checkFlag == False){
