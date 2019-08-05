@@ -22,7 +22,70 @@
 	</div>
 	<div class="row">
 		<div class="col-w-6 col-s-6 center">
-			Halo dunia
+			<div class="row">
+				<div class="booked col-w-12 col-s-12">
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+					KAMU SUDAH BOOKED
+					<br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="waiting col-w-12 col-s-12">
+					TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+						TAPI AKU MASIH WAITING
+					<br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="free col-s-12 col-w-12">
+					SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+						SAMPAI KAMU FREE
+					<br>
+				</div>
+			</div>	
 		</div>
 		<div class="col-w-6 col-s-6 center">
 			Kejam

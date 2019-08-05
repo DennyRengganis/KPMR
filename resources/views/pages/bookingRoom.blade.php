@@ -111,7 +111,7 @@
    <div class="col-w-3 col-s-3 left">
     End Booking :
     <br>
-       <div class="input-group date form_datetime" data-date="2019-06-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+       <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
         <input class="form-control" size="16" type="text" value="" readonly>
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
