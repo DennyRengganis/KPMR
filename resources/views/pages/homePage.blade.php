@@ -132,6 +132,10 @@
 									if(val['status_now']=="FREE"){
 										console.log("masuk free");
 										$('.list_ruangan').append('<div class="col-4 col-s-4 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
 											+'<div class="buttonlike free">'
 											+val['id']
 											+'<br>'
@@ -142,12 +146,17 @@
 											+'<form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form>'
 											+'BOOK NOW'
 											+'</div>'
+											+'</a>'
 											+'</div>');
 									};
 
 									if(val['status_now']=="BOOKED"){
 										console.log("masuk booked");
 										$('.list_ruangan').append('<div class="col-4 col-s-4 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
 											+'<div class="buttonlike booked">'
 											+val['id']
 											+'<br>'
@@ -157,11 +166,16 @@
 											+'<br>'
 											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
 											+'</div>'
+											+'</a>'
 											+'</div>');
 									};
 									if(val['status_now']=="WAITING"){
 										console.log("masuk wait");
 										$('.list_ruangan').append('<div class="col-4 col-s-4 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
 											+'<div class="buttonlike waiting">'
 											+val['id']
 											+'<br>'
@@ -171,6 +185,7 @@
 											+'<br>'
 											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
 											+'</div>'
+											+'</a>'
 											+'</div>');
 									};
 								});

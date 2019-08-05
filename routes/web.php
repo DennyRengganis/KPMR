@@ -23,6 +23,9 @@ Route::get('/roomPage', function () {
 Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
+Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook'));
+
+
 Route::get('/bookingRoom','BookingFormController@viewbasic');
 Route::get('/bookingRoom/{id}',array('as'=>'bookwithroom','uses'=>'BookingFormController@bookwithroom'));
 Route::post('/bookroom','BookingFormController@BookRoom');
