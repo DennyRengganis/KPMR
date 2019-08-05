@@ -66,7 +66,7 @@
         <option value="0">--</option>
         @if(@isset($pickedroom))
         @for($i=1;$i<=$pickedbuilding->jumlah_lantai;$i++)
-        @if($i===$pickedfloor)
+        @if($i==$pickedfloor)
         <option value="{{$i}}" selected="selected">{{$i}}</option>
         @else
         <option value="{{$i}}">{{$i}}</option>
