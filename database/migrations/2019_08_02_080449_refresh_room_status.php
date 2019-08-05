@@ -15,21 +15,28 @@ class RefreshRoomStatus extends Migration
     {
         DB::unprepared('
  
-CREATE  EVENT `kpmr`.`Refresh_Room_Status`
+CREATE  EVENT `Refresh_Room_Status`
 
 ON SCHEDULE
        EVERY 1 MINUTE
 DO
     BEGIN
     
-    DELETE bk.*
+    UPDATE rooms 
+JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE < NOW()) AS blist
+ON rooms.`id` = blist.`id_Ruangan`
+SET rooms.`status_now` = "FREE"
+WHERE rooms.`status_now` = "WAITING";
+
+
+    /*DELETE bk.*
 FROM booklists AS bk
 JOIN rooms AS rm
 ON rm.id = bk.id_Ruangan
-WHERE rm.`status_now` = "WAITING" AND bk.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE < NOW();
+WHERE rm.`status_now` = "WAITING" AND bk.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE < NOW();*/
 
         UPDATE rooms 
-JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` >= NOW() AND booklists.`waktu_Pinjam_Mulai` <= NOW() + INTERVAL 10 MINUTE) AS blist
+JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` <= NOW() AND booklists.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE >= NOW() ) AS blist
 ON rooms.`id` = blist.`id_Ruangan`
 SET rooms.`status_now` = "WAITING"
 WHERE rooms.`status_now` != "BOOKED";
