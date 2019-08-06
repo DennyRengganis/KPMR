@@ -14,7 +14,8 @@ class RefreshRoomStatus extends Migration
     public function up()
     {
         DB::unprepared('
- 
+
+DROP EVENT IF EXISTS Refresh_Room_Status;
 CREATE  EVENT `Refresh_Room_Status`
 
 ON SCHEDULE
@@ -24,15 +25,15 @@ DO
 
 UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
 SET r.status_now = "WAITING", b.status = "NEED CONFIRMATION" 
-WHERE (b.`waktu_Pinjam_Mulai` >= NOW() AND b.status = "WAITING");
+WHERE (b.`waktu_Pinjam_Mulai` <= NOW() AND b.status = "WAITING");
 
 UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
 SET r.status_now = "FREE", b.status = "CANCELLED"
-WHERE (b.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE >= NOW() AND b.status = "NEED CONFIRMATION");
+WHERE (b.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE <= NOW() AND b.status = "NEED CONFIRMATION");
 
 UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
 SET r.status_now = "FREE", b.status = "DONE"
-WHERE (b.`waktu_Pinjam_Selesai`>=NOW() AND b.status = "IN PROGRESS" );
+WHERE (b.`waktu_Pinjam_Selesai` <= NOW() AND b.status = "IN PROGRESS" );
 
     END
 ;
