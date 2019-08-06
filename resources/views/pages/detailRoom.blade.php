@@ -24,7 +24,7 @@
 	<div class="col-w-6 col-s-6 center">
 		<div class="row">
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12">
+			<div class="booked col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
 				<br>
 				{{$info->status_now}}
@@ -34,12 +34,14 @@
 				{{$dt}} 
 				<br>
 				@endforeach
+				<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
+
 
 			</div>
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12">
+			<div class="waiting col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
 				<br>
 				{{$info->status_now}}
@@ -47,14 +49,25 @@
 
 				@foreach($detail as $dt) 
 				{{$dt}}
-				<br> 
 				@endforeach
-
+				<div class="row">
+					<div class="waiting col-w-6 col-s-6 center">
+						<button type="submit" class="btn btn-primary">Check in</button>
+					</div>
+					<div class="waiting col-w-6 col-s-6 center">
+						<button type="submit" class="btn btn-primary">Cancel</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="waiting col-w-12 col-s-12 center">
+						<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
+					</div>
+				</div>
 			</div>
 			@endif
 
 			@if($info->status_now=="FREE")
-			<div class="free col-s-12 col-w-12">
+			<div class="free col-s-12 col-w-12 center">
 				{{$info->nama_ruangan}}
 				<br>
 				{{$info->status_now}}
@@ -64,6 +77,8 @@
 				{{$dt}} 
 				<br>
 				@endforeach
+				<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
+				
 				
 			</div>
 			@endif	
