@@ -13,6 +13,7 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
+        DB::unprepared('SET GLOBAL event_scheduler=ON;');
         Schema::create('buildings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_gedung');

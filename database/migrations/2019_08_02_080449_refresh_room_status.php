@@ -19,7 +19,7 @@ DROP EVENT IF EXISTS Refresh_Room_Status;
 CREATE  EVENT `Refresh_Room_Status`
 
 ON SCHEDULE
-       EVERY 1 MINUTE
+       EVERY 1 MINUTE STARTS "2019-08-06 14:26:00" 
 DO
     BEGIN
 
@@ -49,7 +49,7 @@ WHERE (b.`waktu_Pinjam_Selesai` <= NOW() AND b.status = "IN PROGRESS" );
     public function down()
     {
 
-        DB::unprepared('DROP EVENT Refresh_Room_Status');
+        DB::unprepared('DROP EVENT IF EXISTS Refresh_Room_Status');
         //
     }
 }
