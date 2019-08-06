@@ -23,10 +23,10 @@ class DetailBookingController extends Controller
     public function cancel($id){
     	$lists = booklist::where('id',$id)->first();
         $ruangan = room::where('id',$lists->id_Ruangan)->first();
-        $ruangan->status_now="BOOKED";
+        $ruangan->status_now="FREE";
         $ruangan->save();
         $lists->delete();
-        return redirect('');
+        return back();
     }
 
     public function submit($id,$pin){
@@ -35,10 +35,10 @@ class DetailBookingController extends Controller
     		$ruangan = room::where('id',$check->id_Ruangan)->first();
     		$ruangan->status_now="BOOKED";
     		$ruangan->save();
-    		return redirect('');
+    		return back();
     	}
     	else {
-    		return redirect('');
+    		return back()->with('alert-success','Gagal');
     	}
     }
 }
