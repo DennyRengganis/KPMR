@@ -21,31 +21,19 @@ ON SCHEDULE
        EVERY 1 MINUTE
 DO
     BEGIN
-    
-    UPDATE rooms 
-JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE < NOW()) AS blist
-ON rooms.`id` = blist.`id_Ruangan`
-SET rooms.`status_now` = "FREE"
-WHERE rooms.`status_now` = "WAITING";
 
+UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
+SET r.status_now = "WAITING", b.status = "NEED CONFIRMATION" 
+WHERE (b.`waktu_Pinjam_Mulai` >= NOW() AND b.status = "WAITING");
 
-    /*DELETE bk.*
-FROM booklists AS bk
-JOIN rooms AS rm
-ON rm.id = bk.id_Ruangan
-WHERE rm.`status_now` = "WAITING" AND bk.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE < NOW();*/
+UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
+SET r.status_now = "FREE", b.status = "CANCELLED"
+WHERE (b.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE >= NOW() AND b.status = "NEED CONFIRMATION");
 
-        UPDATE rooms 
-JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` <= NOW() AND booklists.`waktu_Pinjam_Mulai` + INTERVAL 10 MINUTE >= NOW() ) AS blist
-ON rooms.`id` = blist.`id_Ruangan`
-SET rooms.`status_now` = "WAITING"
-WHERE rooms.`status_now` != "BOOKED";
+UPDATE rooms r JOIN booklists b ON (r.id =  b.id_ruangan) 
+SET r.status_now = "FREE", b.status = "DONE"
+WHERE (b.`waktu_Pinjam_Selesai`>=NOW() AND b.status = "IN PROGRESS" );
 
-UPDATE rooms 
-JOIN(SELECT * FROM booklists WHERE booklists.`waktu_Pinjam_Mulai` >= NOW() AND booklists.`waktu_Pinjam_selesai` >= NOW() OR 
-booklists.`waktu_Pinjam_Mulai` <= NOW() AND booklists.`waktu_Pinjam_selesai` <= NOW()) AS blist
-ON rooms.`id` = blist.`id_Ruangan`
-SET rooms.`status_now` = "FREE";
     END
 ;
 

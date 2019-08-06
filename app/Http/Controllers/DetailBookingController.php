@@ -24,8 +24,9 @@ class DetailBookingController extends Controller
     	$lists = booklist::where('id',$id)->first();
         $ruangan = room::where('id',$lists->id_Ruangan)->first();
         $ruangan->status_now="FREE";
+        $lists->status="CANCELLED";
         $ruangan->save();
-        $lists->delete();
+        $lists->save();
         return back();
     }
 
@@ -34,6 +35,8 @@ class DetailBookingController extends Controller
     	if($check->PIN==$pin){
     		$ruangan = room::where('id',$check->id_Ruangan)->first();
     		$ruangan->status_now="BOOKED";
+            $check->status = "IN PROGRESS";
+            $check->save();
     		$ruangan->save();
     		return back();
     	}

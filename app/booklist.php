@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class booklist extends Model
 {
 	public $timestamps = false;
-    protected $fillable = ['id_Ruangan','nama','NPK','email','PIN','waktu_Pinjam_Mulai','waktu_Pinjam_Selesai','keperluan',];
+    protected $fillable = ['id_Ruangan','nama','NPK','email','PIN','waktu_Pinjam_Mulai','waktu_Pinjam_Selesai','keperluan','status',];
     protected $hidden = [
     ];
 }
