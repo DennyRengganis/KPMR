@@ -27,12 +27,20 @@
 			<div class="booked col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
 				<br>
+				[TEMPAT TANGGAL SKRG]
+				<br>
 				{{$info->status_now}}
 				<br>
 
 				@foreach($detail as $dt) 
-				{{$dt}} 
+				@if($loop->first)
+				[TEMPAT COUNTDOWN]
 				<br>
+				{{$dt->keperluan}}
+				<br>
+				Booked by: {{$dt->nama}}
+				<br>
+				@endif
 				@endforeach
 				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
 
@@ -44,11 +52,19 @@
 			<div class="waiting col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
 				<br>
+				[TEMPAT TANGGAL SKRG]
+				<br>
 				{{$info->status_now}}
 				<br>
 
 				@foreach($detail as $dt) 
-				{{$dt}}
+				@if($loop->first)
+				[TEMPAT COUNTDOWN]
+				<br>
+				{{$dt->keperluan}}
+				<br>
+				Booked by: {{$dt->nama}}
+				@endif
 				@endforeach
 				<div class="row">
 					<div class="waiting col-w-6 col-s-6 center">
@@ -70,12 +86,15 @@
 			<div class="free col-s-12 col-w-12 center">
 				{{$info->nama_ruangan}}
 				<br>
+				[TEMPAT TANGGAL SKRG]
+				<br>
 				{{$info->status_now}}
 				<br>
 
 				@foreach($detail as $dt) 
-				{{$dt}} 
+				@if($loop->first)
 				<br>
+				@endif 
 				@endforeach
 				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
 				
