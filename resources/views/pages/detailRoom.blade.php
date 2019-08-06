@@ -20,6 +20,7 @@
 	<div class="col-w-1 col-s-1"></div>
 	<div class="col-w-1 col-s-1"></div>
 </div>
+<br>
 <div class="row">
 	<div class="col-w-6 col-s-6 center">
 		<div class="row">
@@ -32,16 +33,20 @@
 				{{$info->status_now}}
 				<br>
 
-				@foreach($detail as $dt) 
-				@if($loop->first)
 				[TEMPAT COUNTDOWN]
 				<br>
-				{{$dt->keperluan}}
+				<!-- @php
+				date_default_timezone_set("Asia/Jakarta");
+				$now = new DateTime("now");
+				$end = new DateTime("$detail['0']->waktu_Pinjam_Selesai");
+ 				$countdown= $end->diff($now);
+ 				echo $countdown->format('%h:%i:%s');
+				@endphp -->
 				<br>
-				Booked by: {{$dt->nama}}
+				{{$detail['0']->keperluan}}
 				<br>
-				@endif
-				@endforeach
+				Booked by: {{$detail['0']->nama}}
+				<br>
 				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
 
 
@@ -57,13 +62,15 @@
 				{{$info->status_now}}
 				<br>
 
-				@foreach($detail as $dt) 
+				@foreach($detail as $detail['0']) 
 				@if($loop->first)
 				[TEMPAT COUNTDOWN]
+				@php
+				@endphp
 				<br>
-				{{$dt->keperluan}}
+				{{$detail['0']->keperluan}}
 				<br>
-				Booked by: {{$dt->nama}}
+				Booked by: {{$detail['0']->nama}}
 				@endif
 				@endforeach
 				<div class="row">
@@ -91,7 +98,7 @@
 				{{$info->status_now}}
 				<br>
 
-				@foreach($detail as $dt) 
+				@foreach($detail as $detail['0']) 
 				@if($loop->first)
 				<br>
 				@endif 
