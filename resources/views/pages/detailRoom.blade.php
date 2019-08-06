@@ -34,7 +34,7 @@
 				{{$dt}} 
 				<br>
 				@endforeach
-				<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
+				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
 
 
 			</div>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="row">
 					<div class="waiting col-w-12 col-s-12 center">
-						<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
+						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
 					</div>
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 				{{$dt}} 
 				<br>
 				@endforeach
-				<form action="/bookingRoom/{{$info->id}}" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
+				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
 				
 				
 			</div>
@@ -86,6 +86,7 @@
 	</div>
 	<div class="col-w-6 col-s-6 center">
 		Kejam
+		<p id="demo"></p>
 	</div>
 </div>
 @endsection

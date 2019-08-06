@@ -165,7 +165,11 @@
     <div class="col-w-6 col-s-6"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
     <div class="col-w-1 col-s-1"></div>
+    @if(@isset($backflag))
+    <button type="button" onclick="window.location.href = '/detailRoom/{{$pickedroom->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
+    @else
     <button type="button" onclick="window.location.href = '/home'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
+    @endif  
     <div class="col-w-1 col-s-1"></div>
   </div>
   </form>

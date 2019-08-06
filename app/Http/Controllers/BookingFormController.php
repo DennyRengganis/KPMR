@@ -111,5 +111,14 @@ class BookingFormController extends Controller
     	$roompool = room::where('id_gedung',$pickedroom['id_gedung'])->where('lantai',$pickedfloor)->get();
     	return view('pages.bookingRoom',compact('pickedroom','pickedbuilding','pickedfloor','gedung','roompool'));
     }
+    public function bookwithroomdetail($id,$flag){
+    	$backflag = $flag;
+    	$pickedroom = room::where('id',$id)->first();
+    	$pickedbuilding = building::where('id',$pickedroom['id_gedung'])->first();
+    	$pickedfloor = $pickedroom['lantai'];
+    	$gedung = building::all()->sortBy('id');
+    	$roompool = room::where('id_gedung',$pickedroom['id_gedung'])->where('lantai',$pickedfloor)->get();
+    	return view('pages.bookingRoom',compact('pickedroom','pickedbuilding','pickedfloor','gedung','roompool','backflag'));
+    }
 
 }

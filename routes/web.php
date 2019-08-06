@@ -29,6 +29,7 @@ Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingCo
 Route::get('/bookingRoom','BookingFormController@viewbasic');
 Route::get('/bookingRoom/{id}',array('as'=>'bookwithroom','uses'=>'BookingFormController@bookwithroom'));
 Route::post('/bookroom','BookingFormController@BookRoom');
+Route::get('/bookingRoom/{id}/{flag}',array('as'=>'bookwithroomdetail','uses'=>'BookingFormController@bookwithroomdetail'));
 //email
 Route::get('/email', function () {
     return view('send_email');
