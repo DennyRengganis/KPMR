@@ -44,6 +44,10 @@ class BookingFormController extends Controller
 			if(($waktuPakaiSelesai >= $waktuPinjamMulai) && ($waktuPakaiSelesai <= $waktuPinjamSelesai)){
 				$checkFlag = False;
 			}
+
+			if ($checkFlag == False){
+				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
+			}
 		}
 
 
@@ -61,14 +65,14 @@ class BookingFormController extends Controller
 			$input->PIN = $pinText;
 			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
 			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
-			$input->keperluan = $request['keperluan'];	
-			$input->status = $request['status'];
+			$input->keperluan = $request['keperluan'];
+			$input->status = 'WAITING';
 
 			$namaRuangan = room::where('id', $request['id_Ruangan'])->first();
 			$namaGedung = building::where('id', $namaRuangan->id_gedung)->first();
 			//kirim email
 			$judul = "Booking Room";
-		/*	try{
+			try{
 				Mail::send('email', 
 					['nama' => $request['nama'],
 					'namaRuangan' => $namaRuangan->nama_ruangan,
@@ -87,15 +91,11 @@ class BookingFormController extends Controller
 			}
 			catch (Exception $e){
 				return response (['status' => false,'errors' => $e->getMessage()]);
-			}*/
+			}
 			//dd($input);
 			$input->save();
-			return back()->with('alert-success','Berhasil Kirim Email');
+			return back()->withErrors('Terimakasih, booking sudah dikonfirmasi');
 		}
-		elseif($checkFlag == False){
-			return back()->with('alert-success','Gagal');
-		}
-
 
 	}
 
@@ -112,6 +112,7 @@ class BookingFormController extends Controller
     	$roompool = room::where('id_gedung',$pickedroom['id_gedung'])->where('lantai',$pickedfloor)->get();
     	return view('pages.bookingRoom',compact('pickedroom','pickedbuilding','pickedfloor','gedung','roompool'));
     }
+
     public function bookwithroomdetail($id,$flag){
     	$backflag = $flag;
     	$pickedroom = room::where('id',$id)->first();
