@@ -35,13 +35,6 @@
 
 				[TEMPAT COUNTDOWN]
 				<br>
-				<!-- @php
-				date_default_timezone_set("Asia/Jakarta");
-				$now = new DateTime("now");
-				$end = new DateTime("$detail['0']->waktu_Pinjam_Selesai");
- 				$countdown= $end->diff($now);
- 				echo $countdown->format('%h:%i:%s');
-				@endphp -->
 				<br>
 				{{$detail['0']->keperluan}}
 				<br>
@@ -62,8 +55,6 @@
 				{{$info->status_now}}
 				<br>
 
-				@foreach($detail as $detail['0']) 
-				@if($loop->first)
 				[TEMPAT COUNTDOWN]
 				@php
 				@endphp
@@ -71,8 +62,6 @@
 				{{$detail['0']->keperluan}}
 				<br>
 				Booked by: {{$detail['0']->nama}}
-				@endif
-				@endforeach
 				<div class="row">
 					<div class="waiting col-w-6 col-s-6 center">
 						<button type="submit" class="btn btn-primary">Check in</button>
@@ -98,11 +87,6 @@
 				{{$info->status_now}}
 				<br>
 
-				@foreach($detail as $detail['0']) 
-				@if($loop->first)
-				<br>
-				@endif 
-				@endforeach
 				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
 				
 				
