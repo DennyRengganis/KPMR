@@ -161,6 +161,7 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-1 col-s-1"></div>
   </div>
+  <input type="hidden" value="WAITING" name="status">
   <div class="row">
     <div class="col-w-6 col-s-6"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>

@@ -61,13 +61,14 @@ class BookingFormController extends Controller
 			$input->PIN = $pinText;
 			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
 			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
-			$input->keperluan = $request['keperluan'];
+			$input->keperluan = $request['keperluan'];	
+			$input->status = $request['status'];
 
 			$namaRuangan = room::where('id', $request['id_Ruangan'])->first();
 			$namaGedung = building::where('id', $namaRuangan->id_gedung)->first();
 			//kirim email
 			$judul = "Booking Room";
-			try{
+		/*	try{
 				Mail::send('email', 
 					['nama' => $request['nama'],
 					'namaRuangan' => $namaRuangan->nama_ruangan,
@@ -86,7 +87,7 @@ class BookingFormController extends Controller
 			}
 			catch (Exception $e){
 				return response (['status' => false,'errors' => $e->getMessage()]);
-			}
+			}*/
 			//dd($input);
 			$input->save();
 			return back()->with('alert-success','Berhasil Kirim Email');
