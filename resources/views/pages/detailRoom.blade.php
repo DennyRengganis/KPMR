@@ -24,7 +24,7 @@
 <div class="row">
 	<div class="col-w-6 col-s-6 center">
 		<div class="row">
-			@if(count($detail)&& count($besok))
+			@if(count($detail))
 			@if($info->status_now=="BOOKED")
 			<div class="booked col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
@@ -100,9 +100,21 @@
 	</div>
 	<div class="col-w-6 col-s-6 center">
 		TODAY:
+		<br>
 		@if(count($detail))
 		@foreach($detail as $dt)
-		{{$dt->waktu_Pinjam_Mulai}} - {{$dt->waktu_Pinjam_Selesai}}<br>
+		
+		@php
+		$date = "$dt->waktu_Pinjam_Mulai";
+		$date = strtotime($date);
+		echo date('H:i', $date);
+		echo " - ";
+		$datedone= "$dt->waktu_Pinjam_Selesai";
+		$datedone = strtotime($datedone);
+		echo date('H:i', $datedone);
+		@endphp
+		
+		<br> 
 		{{$dt->keperluan}}<br>
 		{{$dt->nama}}<br>
 		@endforeach
@@ -110,9 +122,25 @@
 		<br>
 		<br>
 		TOMORROW:
+		@php
+		$hari = "tomorrow";
+		$hari = strtotime($hari);
+		echo date('D, d-m-Y', $hari);
+		@endphp
+		
 		@if(count($besok))
 		@foreach($besok as $dt)
-		{{$dt->waktu_Pinjam_Mulai}} - {{$dt->waktu_Pinjam_Selesai}}<br>
+		
+		@php
+		$date = "$dt->waktu_Pinjam_Mulai";
+		$date = strtotime($date);
+		echo date('H:i', $date);
+		echo " - ";
+		$datedone= "$dt->waktu_Pinjam_Selesai";
+		$datedone = strtotime($datedone);
+		echo date('H:i', $datedone);
+		@endphp
+		<br>
 		{{$dt->keperluan}}<br>
 		{{$dt->nama}}<br>
 		<br>
@@ -121,7 +149,7 @@
 		@endif
 	</div>
 </div>
-@if(count($detail)&&count($besok))
+@if(count($detail))
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("{{$detail['0']->waktu_Pinjam_Selesai}}").getTime();
@@ -182,5 +210,12 @@ var distance = countDownDate - now;
 }, 1000);
 </script>
 @endif
-<!-- WE DENDEN COEPOE -->
+
+<script type="text/javascript">
+   setTimeout(function(){
+       location.reload();
+   },60000);
+</script>
+
+
 @endsection
