@@ -25,6 +25,7 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
+  font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
   div.hide {
@@ -108,11 +109,20 @@
 	background:#f0484e;
 }
 .free{
-	background:#49eb46;
+	background:#80e66a;
 }
 .waiting{
     background:#ffb30f;
 }
 input{
   width: 75%;
+}
+.detailroom{
+  height: 90vh;
+}
+.roomFont{
+  color: white;
+}
+.pageRoomFont{
+  color: black;
 }

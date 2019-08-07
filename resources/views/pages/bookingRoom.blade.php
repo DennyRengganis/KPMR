@@ -37,7 +37,7 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="row">
+  <div class="row pageRoomFont">
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
       Building :

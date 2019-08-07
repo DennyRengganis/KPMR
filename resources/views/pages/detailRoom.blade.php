@@ -7,11 +7,11 @@
 @endsection
 @section('content')
 <div class="row">
-	<div class="col-w-6 col-s-12 center">
+	<div class="col-w-6 col-s-12 center roomFont">
 		<div class="row">
 			@if(count($detail))
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12 center" style="height: 90vh">
+			<div class="booked col-w-12 col-s-12 center detailroom">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-s-6 hide2 center">
 						<div>
-							<button type="submit" class="btn btn-primary">Detail info</button>
+							<button type="submit" class="btn btn-lg btn-primary">Detail info</button>
 						</div>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12 center" style="height: 90vh">
+			<div class="waiting col-w-12 col-s-12" style="text-align: center;height: 90vh">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -81,7 +81,7 @@
 			@endif
 			@endif
 			@if($info->status_now=="FREE")
-			<div class="free col-s-12 col-w-12 center" style="height: 90vh">
+			<div class="free col-s-12 col-w-12 center detailroom" style=" padding-top: 10%;">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -89,10 +89,15 @@
 				{{$info->status_now}}
 				<br>
 				<div class="row">
-					<div class="col-s-6 col-w-12 center">
-						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
+					<a href="/bookingRoom/{{$info->id}}/1" class="col-s-12 col-w-12 center"><img src="/open-iconic-master/svg/plus.svg" style="width: 20%"></a>
+				</div>
+				<div class="row">
+					<div class="col-w-12 center">
+						BOOK NOW!
 					</div>
-					<div class="col-s-6 hide2 center">
+				</div>
+				<div class="row">
+					<div class="col-s-12 hide2 center">
 						<div>
 							<button type="submit" class="btn btn-primary">Detail info</button>
 						</div>
@@ -103,7 +108,7 @@
 			@endif
 		</div>
 	</div>
-	<div class="col-w-6 hide center">
+	<div class="col-w-6 hide center pageRoomFont">
 		TODAY:
 		<br>
 		@if(count($detail))
