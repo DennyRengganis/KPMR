@@ -9,6 +9,7 @@ use App\booklist;
 use App\building;
 use App\Http\Requests\BookingFormRequest;
 use Mail;
+use Carbon\Carbon;
 
 class BookingFormController extends Controller
 {
@@ -17,7 +18,14 @@ class BookingFormController extends Controller
 		
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
-		// dd($request);
+		
+		$mulai=new Carbon($request['waktu_Pinjam_Mulai']);
+		$selesai=new Carbon($request['waktu_Pinjam_Selesai']);
+		$mulai->second=0;
+		$selesai->second=0;
+		$request['waktu_Pinjam_Mulai']= $mulai->toDateTimeString();
+		$request['waktu_Pinjam_Selesai']= $selesai->toDateTimeString();
+		//dd($request);
 
 		$waktuPinjamMulai = strtotime($request['waktu_Pinjam_Mulai']);
 		$waktuPinjamSelesai = strtotime($request['waktu_Pinjam_Selesai']);
