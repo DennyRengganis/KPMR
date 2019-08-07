@@ -24,6 +24,7 @@
 <div class="row">
 	<div class="col-w-6 col-s-6 center">
 		<div class="row">
+			@if(count($detail)&& count($besok))
 			@if($info->status_now=="BOOKED")
 			<div class="booked col-w-12 col-s-12 center">
 				{{$info->nama_ruangan}}
@@ -79,7 +80,7 @@
 				</div>
 			</div>
 			@endif
-
+			@endif
 			@if($info->status_now=="FREE")
 			<div class="free col-s-12 col-w-12 center">
 				{{$info->nama_ruangan}}
@@ -93,13 +94,34 @@
 				
 				
 			</div>
-			@endif	
+			
+			@endif
 		</div>
 	</div>
 	<div class="col-w-6 col-s-6 center">
-		Kejam
+		TODAY:
+		@if(count($detail))
+		@foreach($detail as $dt)
+		{{$dt->waktu_Pinjam_Mulai}} - {{$dt->waktu_Pinjam_Selesai}}<br>
+		{{$dt->keperluan}}<br>
+		{{$dt->nama}}<br>
+		@endforeach
+		@endif
+		<br>
+		<br>
+		TOMORROW:
+		@if(count($besok))
+		@foreach($besok as $dt)
+		{{$dt->waktu_Pinjam_Mulai}} - {{$dt->waktu_Pinjam_Selesai}}<br>
+		{{$dt->keperluan}}<br>
+		{{$dt->nama}}<br>
+		<br>
+		<br>
+		@endforeach
+		@endif
 	</div>
 </div>
+@if(count($detail)&&count($besok))
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("{{$detail['0']->waktu_Pinjam_Selesai}}").getTime();
@@ -159,5 +181,5 @@ var distance = countDownDate - now;
   }
 }, 1000);
 </script>
-
+@endif
 @endsection
