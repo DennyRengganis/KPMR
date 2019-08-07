@@ -7,26 +7,11 @@
 @endsection
 @section('content')
 <div class="row">
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-	<div class="col-w-1 col-s-1"></div>
-</div>
-<br>
-<div class="row">
-	<div class="col-w-6 col-s-6 center">
+	<div class="col-w-6 col-s-12 center">
 		<div class="row">
 			@if(count($detail))
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12 center">
+			<div class="booked col-w-12 col-s-12 center" style="height: 90vh">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -42,14 +27,22 @@
 				<br>
 				Booked by: {{$detail['0']->nama}}
 				<br>
-				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
-
+				<div class="row">
+					<div class="col-w-12 col-s-6 center">
+						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
+					</div>
+					<div class="col-s-6 hide2 center">
+						<div>
+							<button type="submit" class="btn btn-primary">Detail info</button>
+						</div>
+					</div>
+				</div>
 
 			</div>
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12 center">
+			<div class="waiting col-w-12 col-s-12 center" style="height: 90vh">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -74,31 +67,43 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="waiting col-w-12 col-s-12 center">
+					<div class="waiting col-w-12 col-s-6 center">
 						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
 					</div>
+					<div class="col-s-6 hide2 center">
+						<div>
+							<button type="submit" class="btn btn-primary">Detail info</button>
+						</div>
+					</div>
+
 				</div>
 			</div>
 			@endif
 			@endif
 			@if($info->status_now=="FREE")
-			<div class="free col-s-12 col-w-12 center">
+			<div class="free col-s-12 col-w-12 center" style="height: 90vh">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
 				<br>
 				{{$info->status_now}}
 				<br>
-
-				<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
-				
-				
+				<div class="row">
+					<div class="col-s-6 col-w-12 center">
+						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Book Now</button></form>
+					</div>
+					<div class="col-s-6 hide2 center">
+						<div>
+							<button type="submit" class="btn btn-primary">Detail info</button>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 			@endif
 		</div>
 	</div>
-	<div class="col-w-6 col-s-6 center">
+	<div class="col-w-6 hide center">
 		TODAY:
 		<br>
 		@if(count($detail))
@@ -184,7 +189,7 @@ var x = setInterval(function() {
 <script>
 
 // Set the date we're counting down to
-var countDownDate = new Date().getTime()+600000;
+var countDownDate = new Date("{{$detail['0']->waktu_Pinjam_Mulai}}").getTime()+600000;
 
 // Update the count down every 1 second
 var x = setInterval(function() {
