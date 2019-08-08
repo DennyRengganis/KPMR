@@ -45,3 +45,5 @@ Route::get('/detailBooking/{id}',array('as'=>'detailBooking','uses'=>'DetailBook
 Route::post('/detailBooking/{id}',array('as'=>'cancelBooking','uses'=>'DetailBookingController@cancel'));
 Route::post('/detailBooking/{id}/{pin}',array('as'=>'submitBooking','uses'=>'DetailBookingController@submit'));
 
+Route:post('/confirm_checkin','DetailBookingController@confirm');
+Route:post('/confirm_cancel','DetailBookingController@cancel');

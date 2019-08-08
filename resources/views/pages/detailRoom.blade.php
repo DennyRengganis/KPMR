@@ -7,6 +7,14 @@
 <link rel="stylesheet" type="text/css" href="/css/detailroom.css">
 @endsection
 @section('content')
+@if(count($error))
+	<ul>
+    	@foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+    	@endforeach
+    </ul>
+@endif
+
 <div class="row">
 	<div class="col-w-6 col-s-12 center roomFont">
 		<div class="row">
@@ -65,10 +73,11 @@
 						<div class="form-popup" id="myForm">
   							<form action="/action_page.php" class="form-container">
    								<h1 style="color: black;">Insert your confirmation pin</h1>
-   				    			<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
+   				    			<input type="text" name="pin1" maxlength="1" />
+    							<input type="text" name="pin2" maxlength="1" />
+    							<input type="text" name="pin3" maxlength="1" />
+    							<input type="text" name="pin4" maxlength="1" />
+    							<input type="hidden" name="id" value="{{detail['0']->id}}">
     							<div class="row" style="margin-top: 5%">
     								<div class="col-s-4"></div>
     								<div class="col-s-4 center">
@@ -86,10 +95,11 @@
 						<div class="form-popup" id="myForm2">
   							<form action="/action_page.php" class="form-container">
    								<h1 style="color: black;font-size: 80%">Insert your confirmation pin to cancel</h1>
-   				    			<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
-    							<input type="text" maxlength="1" />
+   				    			<input type="text" name="pin1" maxlength="1" />
+    							<input type="text" name="pin2" maxlength="1" />
+    							<input type="text" name="pin3" maxlength="1" />
+    							<input type="text" name="pin4" maxlength="1" />
+    							<input type="hidden" name="id" value="{{detail['0']->id}}">
     							<div class="row" style="margin-top: 5%">
     								<div class="col-s-4"></div>
     								<div class="col-s-4 center">
