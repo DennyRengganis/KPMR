@@ -21,7 +21,7 @@ class DetailBookingController extends Controller
         return view('pages.detailRoom',compact('detail','info','besok'));
     }
 
-    public function cancel($request){
+    public function cancel(Request $request){
     	$lists = booklist::where('id',$request['id'])->first();
         $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
         if($lists->PIN==$pin){
@@ -37,7 +37,7 @@ class DetailBookingController extends Controller
         }
     }
 
-    public function confirm($request){
+    public function confirm(Request $request){
     	$check = booklist::where('id',$request['id'])->first();
         $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
     	if($check->PIN==$pin){
