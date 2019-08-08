@@ -21,14 +21,19 @@ class DetailBookingController extends Controller
         return view('pages.detailRoom',compact('detail','info','besok'));
     }
 
-    public function cancel($id){
+    public function cancel($id,$pin){
     	$lists = booklist::where('id',$id)->first();
-        $ruangan = room::where('id',$lists->id_Ruangan)->first();
-        $ruangan->status_now="FREE";
-        $lists->status="CANCELLED";
-        $ruangan->save();
-        $lists->save();
-        return back();
+        if($lists->PIN==$pin){
+            $ruangan = room::where('id',$lists->id_Ruangan)->first();
+            $ruangan->status_now="FREE";
+            $lists->status="CANCELLED";
+            $ruangan->save();
+            $lists->save();
+            return back();
+        }
+        else {
+            return back()->with('alert-success','Gagal');
+        }
     }
 
     public function submit($id,$pin){
