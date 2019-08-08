@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/size.css">
 <link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/detailroom.css">
 @endsection
 @section('content')
 <div class="row">
@@ -42,7 +43,7 @@
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12" style="text-align: center;height: 90vh">
+			<div class="waiting col-w-12 col-s-12" style="text-align: center;height: 90vh;padding-top: 10%">
 				{{$info->nama_ruangan}}
 				<br>
 				[TEMPAT TANGGAL SKRG]
@@ -59,11 +60,47 @@
 				<br>
 				Booked by: {{$detail['0']->nama}}
 				<div class="row">
-					<div class="waiting col-w-6 col-s-6 center">
-						<button type="submit" class="btn btn-primary">Check in</button>
+					<div class="waiting hide2 col-s-6 center">
+						<button class="open-button" onclick="openForm()">Check in</button>
+						<div class="form-popup" id="myForm">
+  							<form action="/action_page.php" class="form-container">
+   								<h1 style="color: black;">Insert your confirmation pin</h1>
+   				    			<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<div class="row" style="margin-top: 5%">
+    								<div class="col-s-4"></div>
+    								<div class="col-s-4 center">
+    									<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    								</div>
+    								<div class="col-s-4 center">
+    									<button type="submit" class="btn">submit</button>
+    								</div>
+    							</div>
+  							</form>
+						</div>
 					</div>
-					<div class="waiting col-w-6 col-s-6 center">
-						<button type="submit" class="btn btn-primary">Cancel</button>
+					<div class="waiting hide2 col-s-6 center">
+						<button class="cancel-button" onclick="openForm2()">Cancel</button>
+						<div class="form-popup" id="myForm2">
+  							<form action="/action_page.php" class="form-container">
+   								<h1 style="color: black;font-size: 80%">Insert your confirmation pin to cancel</h1>
+   				    			<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<input type="text" maxlength="1" />
+    							<div class="row" style="margin-top: 5%">
+    								<div class="col-s-4"></div>
+    								<div class="col-s-4 center">
+    									<button type="button" class="btn cancel" onclick="closeForm2()">cancel</button>
+    								</div>
+    								<div class="col-s-4 center">
+    									<button type="submit" class="btn">submit</button>
+    								</div>
+    							</div>
+  							</form>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -110,6 +147,7 @@
 	</div>
 	<div class="col-w-6 hide center pageRoomFont">
 		TODAY:
+
 		<br>
 		@if(count($detail))
 		@foreach($detail as $dt)
@@ -226,6 +264,38 @@ var distance = countDownDate - now;
        location.reload();
    },60000);
 </script>
+<script type="text/javascript">
+	$("input").keyup(function() {
+    if($(this).val().length >= 1) {
+      var input_flds = $(this).closest('form').find(':input');
+      input_flds.eq(input_flds.index(this) + 1).focus();
+    }
+});
+</script>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+function openForm2() {
+  document.getElementById("myForm2").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+function closeForm2() {
+  document.getElementById("myForm2").style.display = "none";
+}
+
+
+$("input").keyup(function() {
+    if($(this).val().length >= 1) {
+      var input_flds = $(this).closest('form').find(':input');
+      input_flds.eq(input_flds.index(this) + 1).focus();
+    }
+});
+</script>
+
 
 
 @endsection
