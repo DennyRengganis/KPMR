@@ -21,9 +21,9 @@ class DetailBookingController extends Controller
         return view('pages.detailRoom',compact('detail','info','besok'));
     }
 
-    public function cancel($id,$pin1,$pin2,$pin3,$pin4){
-    	$lists = booklist::where('id',$id)->first();
-        $pin=sprintf("%s%s%s%s",$pin1,$pin2,$pin3,$pin4);
+    public function cancel($request){
+    	$lists = booklist::where('id',$request['id'])->first();
+        $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
         if($lists->PIN==$pin){
             $ruangan = room::where('id',$lists->id_Ruangan)->first();
             $ruangan->status_now="FREE";
@@ -37,9 +37,9 @@ class DetailBookingController extends Controller
         }
     }
 
-    public function confirm($id,$pin1,$pin2,$pin3,$pin4){
-    	$check = booklist::where('id',$id)->first();
-        $pin=sprintf("%s%s%s%s",$pin1,$pin2,$pin3,$pin4);
+    public function confirm($request){
+    	$check = booklist::where('id',$request['id'])->first();
+        $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
     	if($check->PIN==$pin){
     		$ruangan = room::where('id',$check->id_Ruangan)->first();
     		$ruangan->status_now="BOOKED";
