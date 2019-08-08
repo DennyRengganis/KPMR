@@ -17,7 +17,7 @@ class BookingFormController extends Controller
 	public function BookRoom(BookingFormRequest $request){
 		
 		$validator = $request->validated();
-		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->get();
+		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();
 		
 		$mulai=new Carbon($request['waktu_Pinjam_Mulai']);
 		$selesai=new Carbon($request['waktu_Pinjam_Selesai']);
@@ -26,6 +26,11 @@ class BookingFormController extends Controller
 		$request['waktu_Pinjam_Mulai']= $mulai->toDateTimeString();
 		$request['waktu_Pinjam_Selesai']= $selesai->toDateTimeString();
 		//dd($request);
+
+		if ($request['waktu_Pinjam_Mulai'] <= date_default_timezone_get() || $request['waktu_Pinjam_Mulai']>=$request['waktu_Pinjam_Selesai'])
+		{
+			return back()->withErrors(['Waktu pinjam tidak benar']); 
+		}
 
 		$waktuPinjamMulai = strtotime($request['waktu_Pinjam_Mulai']);
 		$waktuPinjamSelesai = strtotime($request['waktu_Pinjam_Selesai']);
@@ -38,22 +43,18 @@ class BookingFormController extends Controller
 			$waktuPakaiSelesai = strtotime($list->waktu_Pinjam_Selesai);
 
 			if(($waktuPinjamMulai >= $waktuPakaiMulai) && ($waktuPinjamMulai <= $waktuPakaiSelesai)){
-				$checkFlag = False;
+				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
 			if(($waktuPinjamSelesai >= $waktuPakaiMulai) && ($waktuPinjamSelesai <= $waktuPakaiSelesai)){
-				$checkFlag = False;
+				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
 			if(($waktuPakaiMulai >= $waktuPinjamMulai) && ($waktuPakaiMulai <= $waktuPinjamSelesai)){
-				$checkFlag = False;
+				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
 			if(($waktuPakaiSelesai >= $waktuPinjamMulai) && ($waktuPakaiSelesai <= $waktuPinjamSelesai)){
-				$checkFlag = False;
-			}
-
-			if ($checkFlag == False){
 				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 		}
