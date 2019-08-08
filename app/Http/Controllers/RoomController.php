@@ -34,11 +34,11 @@ class RoomController extends Controller
         if ($rooms != null){
             return view('',compact('rooms'));
         }
-        else return redirect('');
+        else return back();
     }
 
-    public function update($id,Request $request){
-        $input = room::where('id',$id)->first();
+    public function update(Request $request){
+        $input = room::where('id',$request['id'])->first();
         $data = $this->validate($request, [
             'nomor'=>'required',
             'gedung'=>'required',
@@ -53,10 +53,10 @@ class RoomController extends Controller
         return redirect('');
     }
 
-    public function delete($id){
-        $rooms = room::where('id',$id)->first();
+    public function delete(Request $request){
+        $rooms = room::where('id',$request['id'])->first();
         $rooms->delete();
-        return redirect('');
+        return back();
     }
 
     public function viewrooms(){

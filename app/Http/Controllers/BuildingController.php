@@ -32,11 +32,11 @@ class BuildingController extends Controller
         if ($rooms != null){
             return view('',compact('building'));
         }
-        else return redirect('');
+        else return back();
     }
 
-    public function update($id,Request $request){
-        $input = building::where('id',$id)->first();
+    public function update(Request $request){
+        $input = building::where('id',$request['id'])->first();
         $data = $this->validate($request, [
             'nama_gedung'=>'required',
             'jumlah_lantai'=>'required',
@@ -48,10 +48,10 @@ class BuildingController extends Controller
         return redirect('');
     }
 
-    public function delete($id){
-        $rooms = building::where('id',$id)->first();
+    public function delete(Request $request){
+        $rooms = building::where('id',$request['id'])->first();
         $rooms->delete();
-        return redirect('');
+        return back();
     }
 
     
