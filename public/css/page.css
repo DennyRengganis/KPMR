@@ -178,3 +178,34 @@ input{
 .pageRoomFont{
   color: black;
 }
+
+/*Fixed table head - CSS-only
+Simply position: sticky; top: 0; your th elements. (Chrome, FF, Edge)
+*/
+.tableFixHead          { overflow-y: auto; height: 42.5vh; }
+.tableFixHead thead th { position: sticky; top: 0; }
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; height: 10vh; }
+th     { background:#eee; }
+
+.tableFixHead { border: 0.5px solid #000; border-left: 0; border-right: 0; }
+.tableFixHead th, td { border: 0.5px solid #000; border-top: 0; }
+.tableFixHead tbody tr:last-child td { border-bottom: 0; }
+.tableFixHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
+/*
+table {
+    width: 100%;
+    display:block;
+}
+thead {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+}
+tbody {
+    height: 100px;
+    border:1px solid red;
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
+}*/

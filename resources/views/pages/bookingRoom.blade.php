@@ -95,7 +95,7 @@
   </div>
   <div class="row">
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-3 col-s-3 left">
+   <div class="col-w-4 col-s-4 left">
      Start Booking :
      <br> 
      <div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
@@ -107,7 +107,6 @@
      <!-- <input type="date" name="start_booking"> -->
      </div>
    </div>
-   <div class="col-w-1 col-s-1"></div>
    <div class="col-w-3 col-s-3 left">
     End Booking :
     <br>
