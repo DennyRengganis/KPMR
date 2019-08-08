@@ -27,7 +27,7 @@ class BookingFormController extends Controller
 		$request['waktu_Pinjam_Selesai']= $selesai->toDateTimeString();
 		//dd($request);
 
-		if ($request['waktu_Pinjam_Mulai'] <= date_default_timezone_get() || $request['waktu_Pinjam_Mulai']>=$request['waktu_Pinjam_Selesai'])
+		if ($request['waktu_Pinjam_Mulai']>=$request['waktu_Pinjam_Selesai'])
 		{
 			return back()->withErrors(['Waktu pinjam tidak benar']); 
 		}
