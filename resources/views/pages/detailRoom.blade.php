@@ -22,12 +22,16 @@
 			<div class="booked col-w-12 col-s-12 center detailroom">
 				{{$info->nama_ruangan}}
 				<br>
-				[TEMPAT TANGGAL SKRG]
+				@php
+				date_default_timezone_set('Asia/Jakarta');
+				$currdate = "now";
+				$currdate = strtotime($currdate);
+				echo date('H:i D, d M Y', $currdate);
+				@endphp
 				<br>
 				{{$info->status_now}}
 				<br>
 
-				[TEMPAT COUNTDOWN]
 				<p id="bookedcd"></p>
 				<br>
 				<br>
@@ -53,12 +57,16 @@
 			<div class="waiting col-w-12 col-s-12" style="text-align: center;height: 90vh;padding-top: 10%">
 				{{$info->nama_ruangan}}
 				<br>
-				[TEMPAT TANGGAL SKRG]
+				@php
+				date_default_timezone_set('Asia/Jakarta');
+				$currdate = "now";
+				$currdate = strtotime($currdate);
+				echo date('H:i D, d M Y', $currdate);
+				@endphp
 				<br>
 				{{$info->status_now}}
 				<br>
 
-				[TEMPAT COUNTDOWN]
 				<p id="waitingcd"></p>
 				@php
 				@endphp
@@ -132,7 +140,12 @@
 			<div class="free col-s-12 col-w-12 center detailroom" style=" padding-top: 10%;">
 				{{$info->nama_ruangan}}
 				<br>
-				[TEMPAT TANGGAL SKRG]
+				@php
+				date_default_timezone_set('Asia/Jakarta');
+				$currdate = "now";
+				$currdate = strtotime($currdate);
+				echo date('H:i D, d M Y', $currdate);
+				@endphp
 				<br>
 				{{$info->status_now}}
 				<br>
