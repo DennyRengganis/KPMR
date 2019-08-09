@@ -19,7 +19,7 @@
 		<div class="row">
 			@if(count($detail))
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12 center detailroom">
+			<div class="booked col-w-12 col-s-12 detailroom detailroombox">
 				{{$info->nama_ruangan}}
 				<br>
 				@php
@@ -54,7 +54,7 @@
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12" style="text-align: center;height: 90vh;padding-top: 10%">
+			<div class="waiting col-w-12 col-s-12 detailroombox">
 				{{$info->nama_ruangan}}
 				<br>
 				@php
@@ -311,8 +311,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById("bookedcd").innerHTML = hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById("bookedcd").innerHTML = hours + "h"
+  + minutes + "m" + seconds + "s";
 
   // If the count down is over, write some text 
   if (distance < 0) {
@@ -341,7 +341,7 @@ var minutesw = Math.floor((distancew % (1000 * 60 * 60)) / (1000 * 60));
 var secondsw = Math.floor((distancew % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById("waitingcd").innerHTML = minutesw + "m " + secondsw + "s ";
+  document.getElementById("waitingcd").innerHTML = minutesw + "m" + secondsw + "s";
 
   // If the count down is over, write some text 
   if (distancew < 0) {

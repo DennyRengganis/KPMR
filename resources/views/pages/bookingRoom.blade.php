@@ -9,7 +9,14 @@
 @endsection
 @section('content')
 <div class="header">
-  <h1>Booking form</h1>
+  <div class="row">
+    <div class="col-s-12 col-w-10">
+      <h1>Booking form</h1>
+    </div>
+    <div class="col-w-2 col-s-2 hide">
+      <button type="button" onclick="window.location.href = '/'" class="btn btn-secondary">home</button>
+    </div>
+  </div>
 </div>
 
 <div class="">
@@ -178,13 +185,13 @@
   </div>
   <div class="row">
     <div class="col-w-6 col-s-6"></div>
-    <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
-    <div class="col-w-1 col-s-1"></div>
     @if(@isset($backflag))
     <button type="button" onclick="window.location.href = '/detailRoom/{{$pickedroom->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
     @else
     <button type="button" onclick="window.location.href = '/'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
     @endif  
+    <div class="col-w-1 col-s-1"></div>
+    <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Book</button>
     <div class="col-w-1 col-s-1"></div>
   </div>
   </form>

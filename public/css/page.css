@@ -223,3 +223,7 @@ tbody {
   background-color: white;
   height: 35vh;
 }
+
+.detailroombox{
+  text-align: center;height: 90vh;padding-top: 10%;
+}
