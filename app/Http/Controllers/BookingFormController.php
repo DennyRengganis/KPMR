@@ -103,7 +103,7 @@ class BookingFormController extends Controller
 			}
 			//dd($input);
 			$input->save();
-			return back()->with(compact('input'));
+			return back()->with('input',$input);
 		}
 
 	}

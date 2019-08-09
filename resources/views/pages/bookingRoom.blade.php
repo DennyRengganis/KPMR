@@ -20,13 +20,14 @@
     </ul>
 </div>
 
-@isset($input)
-<div class="input">
-  @if(count($input))
-  {{$input}}
-  @endif
+@if (Session::has('input'))
+<div class="">
+  <ul>
+        {{Session::get('input')}}
+    </ul>
 </div>
-@endisset
+@endif
+
 
 <div class="bodybr">
   <form action="/bookroom" method="post">
