@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-s-6 hide2 center">
 						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-lg btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-lg btn-primary">Detail info</button>
 						</div>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="col-s-6 hide2 center">
 						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-primary">Detail info</button>
 						</div>
 					</div>
 
@@ -136,6 +136,7 @@
 			</div>
 			@endif
 			@endif
+
 			@if($info->status_now=="FREE")
 			<div class="free col-s-12 col-w-12 center detailroom" style=" padding-top: 10%;">
 				{{$info->nama_ruangan}}
@@ -160,7 +161,7 @@
 				<div class="row">
 					<div class="col-s-12 hide2 center">
 						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-primary">Detail info</button>
 						</div>
 					</div>
 				</div>
@@ -239,55 +240,7 @@
 						</tbody>
 					</table>
 				</div>
-				<!-- TODAY:
-
-				<br>
-				@if(count($detail))
-				@foreach($detail as $dt)
-
-				@php
-				$date = "$dt->waktu_Pinjam_Mulai";
-				$date = strtotime($date);
-				echo date('H:i', $date);
-				echo " - ";
-				$datedone= "$dt->waktu_Pinjam_Selesai";
-				$datedone = strtotime($datedone);
-				echo date('H:i', $datedone);
-				@endphp
-
-				<br> 
-				{{$dt->keperluan}}<br>
-				{{$dt->nama}}<br>
-				@endforeach
-				@endif
-				<br>
-				<br>
-				TOMORROW:
-				@php
-				$hari = "tomorrow";
-				$hari = strtotime($hari);
-				echo date('D, d-m-Y', $hari);
-				@endphp
-
-				@if(count($besok))
-				@foreach($besok as $dt)
-
-				@php
-				$date = "$dt->waktu_Pinjam_Mulai";
-				$date = strtotime($date);
-				echo date('H:i', $date);
-				echo " - ";
-				$datedone= "$dt->waktu_Pinjam_Selesai";
-				$datedone = strtotime($datedone);
-				echo date('H:i', $datedone);
-				@endphp
-				<br>
-				{{$dt->keperluan}}<br>
-				{{$dt->nama}}<br>
-				<br>
-				<br>
-				@endforeach
-				@endif -->
+	
 			</div>
 		</div>
 		@if(count($detail))
@@ -350,7 +303,6 @@ var secondsw = Math.floor((distancew % (1000 * 60)) / 1000);
   }
 }, 1000);
 </script>
-@endif
 
 <script type="text/javascript">
 	setTimeout(function(){
@@ -390,5 +342,5 @@ var secondsw = Math.floor((distancew % (1000 * 60)) / 1000);
 </script>
 
 
-
+@endif
 @endsection
