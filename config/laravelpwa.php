@@ -3,8 +3,8 @@
 return [
     'name' => 'LaravelPWA',
     'manifest' => [
-        'name' => env('CobaCoba', 'HALO'),
-        'short_name' => 'PWA',
+        'name' => env('Meeting Rooom', 'Meeting Room'),
+        'short_name' => 'Meeting Room',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
