@@ -59,7 +59,7 @@
 			</div>
 			<div class="col-w-1 col-s-1"></div>
 		</div>
-		<div class="row" style="border: 1px solid black; margin-right:0.1%">
+		<div class="row">
 			<div class="col-w-1 col-s-1"></div>
 			<div class="col-w-10 col-s-10 list_ruangan">
 
@@ -82,21 +82,88 @@
 							dataType: "json",
 							success:function(data) {
 
-								console.log(data);
+								//console.log(data);
 
 
 								$('select[name="floor"]').empty();
+								$('.list_ruangan').empty();
 								$('select[name="floor"]').append('<option value="0">--</option>');
-								var max_floor = data["jumlah_lantai"];
+								var max_floor = data[0]["jumlah_lantai"];
 								var i;
 								for(i=1;i<=max_floor;i++){
 									$('select[name="floor"]').append('<option value="'+ i +'">'+ i +'</option>');
 								}
+								// console.log("data1:");
+								// console.log(data[1]);
+								$.each(data[1],function(key,val){
+									console.log(val);
+									if(val['status_now']=="FREE"){
+										//console.log("masuk free");
+										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
+											+'<div class="buttonlike free">'
+											+val['id']
+											+'<br>'
+											+val['nama_ruangan']
+											+'<br>'
+											+val['status_now']
+											+'<br>'
+											+'<form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form>'
+											+'BOOK NOW'
+											+'</div>'
+											+'</a>'
+											+'</div>');
+									};
+
+									if(val['status_now']=="BOOKED"){
+										//console.log("masuk booked");
+										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
+											+'<div class="buttonlike booked">'
+											+val['id']
+											+'<br>'
+											+val['nama_ruangan']
+											+'<br>'
+											+val['status_now']
+											+'<br>'
+											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
+											+'</div>'
+											+'</a>'
+											+'</div>');
+									};
+
+									if(val['status_now']=="WAITING"){
+										//console.log("masuk wait");
+										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
+											+'<a href="'
+											+'detailRoom/'
+											+val['id']
+											+'">'
+											+'<div class="buttonlike waiting">'
+											+val['id']
+											+'<br>'
+											+val['nama_ruangan']
+											+'<br>'
+											+val['status_now']
+											+'<br>'
+											+'<br><form action="/bookingRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>'
+											+'</div>'
+											+'</a>'
+											+'</div>');
+									};
+								});
 
 							}
 						});
 					}else{
 						$('select[name="floor"]').empty();
+						$('.list_ruangan').empty();
 					}
 				});
 			});
@@ -122,13 +189,13 @@
 								$('.list_ruangan').empty();
 								var room= data;
 								$.each(data,function(id,val){
-									console.log("masuk each");
-									console.log("data each:")
-									console.log(id);
-									console.log(val);
-									console.log(val['id']);
-									console.log(val['nama_ruangan']);
-									console.log(val['status_now']);
+									// console.log("masuk each");
+									// console.log("data each:")
+									// console.log(id);
+									// console.log(val);
+									// console.log(val['id']);
+									// console.log(val['nama_ruangan']);
+									// console.log(val['status_now']);
 									if(val['status_now']=="FREE"){
 										console.log("masuk free");
 										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
@@ -151,7 +218,7 @@
 									};
 
 									if(val['status_now']=="BOOKED"){
-										console.log("masuk booked");
+										//console.log("masuk booked");
 										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
 											+'<a href="'
 											+'detailRoom/'
@@ -170,7 +237,7 @@
 											+'</div>');
 									};
 									if(val['status_now']=="WAITING"){
-										console.log("masuk wait");
+										//console.log("masuk wait");
 										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
 											+'<a href="'
 											+'detailRoom/'

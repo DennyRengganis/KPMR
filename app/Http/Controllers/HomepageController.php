@@ -21,7 +21,10 @@ class HomepageController extends Controller
     public function myhomeAjax($id)
     {
         $floors = building::where('id',$id)->first();
-        return json_encode($floors);
+        $rooms = room::where('id_gedung',$id)->get();
+        $datas = array();
+        array_push($datas, $floors, $rooms);
+        return json_encode($datas);
     }
 
     public function myroomAjax($id,$floor)
