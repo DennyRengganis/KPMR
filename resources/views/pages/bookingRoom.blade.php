@@ -21,7 +21,7 @@
 </div>
 
 @if (Session::has('input'))
-<div class="notif">
+<div class="book-popup" id="notif">
       @php
         $notice= Session::get('input'); 
       @endphp
@@ -30,6 +30,7 @@
       Please check your e-mail and Save this Details for check-in in tablet<br>
       Booking ID : {{$notice->id}}<br>
       PIN : {{$notice->PIN}}<br>
+      <button type="button" class="btn btn-primary" onclick="closeForm()">Ok</button>
 </div>
 @endif
 
@@ -181,7 +182,7 @@
     @if(@isset($backflag))
     <button type="button" onclick="window.location.href = '/detailRoom/{{$pickedroom->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
     @else
-    <button type="button" onclick="window.location.href = '/home'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
+    <button type="button" onclick="window.location.href = '/'" class="btn btn-secondary col-w-2 col-s-2 center">cancel</button>
     @endif  
     <div class="col-w-1 col-s-1"></div>
   </div>
@@ -300,6 +301,8 @@
       }
     });
   });
-
+  function closeForm() {
+    document.getElementById("notif").style.display = "none";
+  }
 
 </script>
