@@ -1,4 +1,4 @@
-var staticCacheName = "pwa-v" + new Date().getTime();
+var CACHE_NAME = "pwa-v" + new Date().getTime();
 var filesToCache = [
     './offline',
     './css/app.css',
@@ -14,39 +14,45 @@ var filesToCache = [
 ];
 
 // Cache on install
-self.addEventListener("install", event => {
-    this.skipWaiting();
+self.addEventListener('install', function(event) {
+    // Perform install steps
     event.waitUntil(
-        caches.open(staticCacheName)
-            .then(cache => {
-                return cache.addAll(filesToCache);
-            })
-    )
-});
-
-// Clear cache on activate
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames
-                    .filter(cacheName => (cacheName.startsWith("pwa-")))
-                    .filter(cacheName => (cacheName !== staticCacheName))
-                    .map(cacheName => caches.delete(cacheName))
-            );
+        caches.open(CACHE_NAME)
+        .then(function(cache) {
+            console.log('Opened cache '+CACHE_NAME);
+            return cache.addAll(urlsToCache);
         })
-    );
+        .catch(function(e) {
+            console.log('Error from caches open', e);
+        })
+    )
 });
 
-// Serve from Cache
-self.addEventListener("fetch", event => {
+self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                return response || fetch(event.request);
-            })
-            .catch(() => {
-                return caches.match('offline');
-            })
-    )
+      caches.match(event.request)
+        .then(function(response) {
+          // Cache hit - return response
+          if (response) {
+                console.log('got it from cache', event.request);
+                return response;
+          }
+          return fetch(event.request);
+        }
+      )
+    );
+  });
+  
+self.addEventListener("activate", function(event) {  
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cacheName) {          
+                    if (CACHE_NAME !== cacheName) {
+                        return caches.delete(cacheName);          
+                    }        
+                })      
+            );    
+        })  
+    );
 });
