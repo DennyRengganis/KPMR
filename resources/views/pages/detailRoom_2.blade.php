@@ -14,7 +14,7 @@
 	@endforeach
 </ul>
 @endif
-	<div class="col-s-12 hide center pageRoomFont">
+	<div class="col-s-12 center pageRoomFont">
 		<div class="row tableFixHead">
 			<table class="table">
 				<thead style="text-align: center;background-color: grey;">
