@@ -28,16 +28,25 @@
 </div>
 
 @if (Session::has('input'))
-<div class="book-popup" id="notif">
+<div class="book-popup-w book-popup-s" id="notif">
       @php
         $notice= Session::get('input'); 
       @endphp
-      Confirmation PIN<br>
-      Thanks {{$notice->nama}}! Your Reservartion is confirmed.<br>
-      Please check your e-mail and Save this Details for check-in in tablet<br>
+      <b>Confirmation PIN</b>
+      <br>
+      <br>
+      Thank you <b>{{$notice->nama}}!</b> Your Reservartion is confirmed.<br>
+      Please check your e-mail and Save this Details for check-in in tablet:
+      <br>
+      <br>
       Booking ID : {{$notice->id}}<br>
-      PIN : {{$notice->PIN}}<br>
-      <button type="button" class="btn btn-primary" onclick="closeForm()">Ok</button>
+      PIN : <b>{{$notice->PIN}}</b><br>
+      <div class="row">
+        <div class="col-s-9 col-w-9"></div>
+        <div class="col-w-3 col-s-3">
+          <button type="button" class="btn btn-primary" onclick="closeForm()">Ok</button>
+        </div>
+      </div>
 </div>
 @endif
 
@@ -145,7 +154,7 @@
 
    <div class="col-w-3 col-s-3 left">
      Purpose :
-     <input type="text" name="keperluan" value="purpose">
+     <input type="text" name="keperluan" value="">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
@@ -160,12 +169,12 @@
    <div class="col-w-3 col-s-3 left">
      Nama :
      <br>
-     <input type="text" name="nama" value="nama">
+     <input type="text" name="nama" value="">
    </div>
    <div class="col-w-3 col-s-3 left">
      Email:
      <br>
-     <input type="text" name="email" value="email">
+     <input type="text" name="email" value="">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>

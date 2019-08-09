@@ -83,10 +83,35 @@
   div.hide {
     display: none;
   }
+.book-popup-s {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid black;
+  z-index: 9;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  height: 27vh;
+  padding: -5px -5px -5px -5px;
+  }
 }
 @media only screen and (min-width: 769px) {
   div.hide2 {
     display: none;
+  }
+.book-popup-w {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid black;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  height: 40vh;
   }
 }
 
@@ -121,7 +146,6 @@
   .col-w-11 {width: 91.66%;}
   .col-w-12 {width: 100%;}
 }
-
 
 .header {
   margin-left: 1%;
@@ -210,20 +234,11 @@ tbody {
     overflow: auto;
 }*/
 
-.book-popup {
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 75%;
-  background-color: white;
-  height: 35vh;
-}
+
 
 .detailroombox{
   text-align: center;height: 90vh;padding-top: 10%;
+}
+select, option {
+    max-width:150px;
 }
