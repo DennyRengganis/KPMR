@@ -59,7 +59,7 @@
 			</div>
 			<div class="col-w-1 col-s-1"></div>
 		</div>
-		<div class="row" style="border: 1px solid black; margin-right:0.1%">
+		<div class="row">
 			<div class="col-w-1 col-s-1"></div>
 			<div class="col-w-10 col-s-10 list_ruangan">
 
