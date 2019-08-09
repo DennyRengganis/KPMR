@@ -71,7 +71,7 @@
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 1px solid red;
+/*  border: 1px solid red;*/
 }
 
 /* For mobile phones: */
@@ -138,7 +138,7 @@
   font-size: 150%;
 }
 .dropdownbox{
-	border: 1px solid black;
+/*	border: 1px solid black;*/
 	padding-bottom: 5px;
 }
 .buttonlike{

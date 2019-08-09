@@ -27,7 +27,7 @@
 <!-- 			<div class="row">
 				<div class="example">jkdfjdskjdf</div>
 			</div> -->
-			<div class="row">
+			<div class="row" style="border: 1px solid black; margin-left: -3%">
 				<div class="col-w-1 col-s-1"></div>
 				<div class="col-w-3 col-s-3 center">
 					<div class="dropdownbox">
@@ -59,7 +59,7 @@
 			</div>
 			<div class="col-w-1 col-s-1"></div>
 		</div>
-		<div class="row">
+		<div class="row" style="border: 1px solid black; margin-right:0.1%">
 			<div class="col-w-1 col-s-1"></div>
 			<div class="col-w-10 col-s-10 list_ruangan">
 
