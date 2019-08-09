@@ -10,10 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('pages.home');
-});
 /*testing*/
 /*Route::get('/roomPage','RoomController@viewrooms');*/
 Route::get('/homePage','RoomController@view');
@@ -36,7 +32,7 @@ Route::get('/email', function () {
 });
 Route::post('/sendEmail', 'Email@sendEmail');
 
-Route::get('/home',array('as'=>'home','uses'=>'HomepageController@viewall'));
+Route::get('/',array('as'=>'home','uses'=>'HomepageController@viewall'));
 Route::get('/home/ajax/{id}',array('as'=>'myhome.ajax','uses'=>'HomepageController@myhomeAjax'));
 Route::get('/home/ajax/{id}/{floor}',array('as'=>'myroom.ajax','uses'=>'HomepageController@myroomAjax'));
 

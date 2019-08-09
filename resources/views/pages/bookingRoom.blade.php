@@ -20,6 +20,14 @@
     </ul>
 </div>
 
+@isset($input)
+<div class="input">
+  @if(count($input))
+  {{$input}}
+  @endif
+</div>
+@endisset
+
 <div class="bodybr">
   <form action="/bookroom" method="post">
   @csrf
