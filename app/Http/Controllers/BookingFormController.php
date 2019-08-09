@@ -103,7 +103,7 @@ class BookingFormController extends Controller
 			}
 			//dd($input);
 			$input->save();
-			return back()->withErrors('Terimakasih, booking sudah dikonfirmasi');
+			return back()->with('input',$input);
 		}
 
 	}

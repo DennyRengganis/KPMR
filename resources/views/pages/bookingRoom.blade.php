@@ -20,6 +20,20 @@
     </ul>
 </div>
 
+@if (Session::has('input'))
+<div class="notif">
+      @php
+        $notice= Session::get('input'); 
+      @endphp
+      Confirmation PIN<br>
+      Thanks {{$notice->nama}}! Your Reservartion is confirmed.<br>
+      Please check your e-mail and Save this Details for check-in in tablet<br>
+      Booking ID : {{$notice->id}}<br>
+      PIN : {{$notice->PIN}}<br>
+</div>
+@endif
+
+
 <div class="bodybr">
   <form action="/bookroom" method="post">
   @csrf
