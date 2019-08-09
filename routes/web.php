@@ -20,6 +20,7 @@ Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
 Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook'));
+Route::get('/detailRoom2/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook2'));
 
 
 Route::get('/bookingRoom','BookingFormController@viewbasic');

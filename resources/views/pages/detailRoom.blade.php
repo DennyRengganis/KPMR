@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-s-6 hide2 center">
 						<div>
-							<button type="submit" class="btn btn-lg btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-lg btn-primary">Detail info</button>
 						</div>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="col-s-6 hide2 center">
 						<div>
-							<button type="submit" class="btn btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-primary">Detail info</button>
 						</div>
 					</div>
 
@@ -160,7 +160,7 @@
 				<div class="row">
 					<div class="col-s-12 hide2 center">
 						<div>
-							<button type="submit" class="btn btn-primary">Detail info</button>
+							<button type="button" onclick="window.location.href = '/detailRoom2/{{$detail['0']->id}}'" class="btn btn-primary">Detail info</button>
 						</div>
 					</div>
 				</div>

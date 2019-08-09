@@ -21,6 +21,18 @@ class DetailBookingController extends Controller
         return view('pages.detailRoom',compact('detail','info','besok'));
     }
 
+    public function viewbook2($idroom){
+        $current=Carbon::now();
+        $dtcurr=$current->toDateString();
+        $tomorrow = Carbon::now()->addDay();
+        $dttmrw= $tomorrow->toDateString();
+        $detail = booklist::wheredate('waktu_Pinjam_Mulai',$dtcurr)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $besok = booklist::wheredate('waktu_Pinjam_Mulai',$dttmrw)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $info = room::where('id',$idroom)->first();
+        //dd($detail);  
+        return view('pages.detailRoom_2',compact('detail','info','besok'));
+    }
+
     public function cancel(Request $request){
     	$lists = booklist::where('id',$request['id'])->first();
         $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
