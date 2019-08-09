@@ -1,5 +1,5 @@
 @extends('layouts.default')
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" charset="UTF-8"></script>
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/size.css">

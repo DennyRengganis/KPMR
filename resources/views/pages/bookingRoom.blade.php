@@ -1,5 +1,5 @@
 @extends('layouts.default')
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" charset="UTF-8"></script>
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/size.css">
@@ -111,12 +111,13 @@
   <div class="row">
    <div class="col-w-1 col-s-1"></div>
    <div class="col-w-4 col-s-4 left">
-     Start Booking :
+     Start Book:
      <br> 
      <div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
-     <input class="form-control" size="16" type="text" value="" readonly>
      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+     <input class="form-control" size="16" type="text" value="" readonly>
+
      <!-- </div> -->
      <input type="hidden" name="waktu_Pinjam_Mulai" value="" /><br/>
      <!-- <input type="date" name="start_booking"> -->
@@ -126,9 +127,9 @@
     End Booking :
     <br>
        <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
-        <input class="form-control" size="16" type="text" value="" readonly>
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        <input class="form-control" size="16" type="text" value="" readonly>
         <!-- </div> -->
         <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
         <!--     <input type="date" name="end_booking"> -->
