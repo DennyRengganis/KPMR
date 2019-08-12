@@ -8,57 +8,75 @@ use App\room;
 class RoomController extends Controller
 {
     public function view(){
-        $list = room::all()->sortBy('id');  
-        return view('',compact('list'));
+        if(Auth::check()){
+            $list = room::all()->sortBy('id');  
+            return view('',compact('list'));
+        }
+        else return redirect('/');
     }
     public function create(){
-        return view('');
+        if(Auth::check()){
+            return view('');
+        }
+        else return redirect('/');
     }
     public function store(Request $request){
-        $input = new room();
-        $data = $this->validate($request, [
-            'nomor'=>'required',
-            'gedung'=>'required',
-            'lantai'=>'required',
-            ]);
-        $input->nomor=$data['nomor'];
-        $input->gedung=$data['gedung'];
-        $input->lantai=$data['lantai'];
-        $input->status_now="FREE";
-        $input->save();
+        if(Auth::check()){
+            $input = new room();
+            $data = $this->validate($request, [
+                'nomor'=>'required',
+                'gedung'=>'required',
+                'lantai'=>'required',
+                ]);
+            $input->nomor=$data['nomor'];
+            $input->gedung=$data['gedung'];
+            $input->lantai=$data['lantai'];
+            $input->status_now="FREE";
+            $input->save();
 
-        return redirect('');
+            return redirect('');
+        }
+        else return redirect('/');
     }
     public function updatepick($id){
-        $rooms = room::where('id',$id)->first();
-        if ($rooms != null){
-            return view('',compact('rooms'));
+        if(Auth::check()){
+           $rooms = room::where('id',$id)->first();
+           if ($rooms != null){
+               return view('',compact('rooms'));
+           }
+           else return back(); 
         }
-        else return back();
+        else return redirect('/');
     }
 
     public function update(Request $request){
-        $input = room::where('id',$request['id'])->first();
-        $data = $this->validate($request, [
-            'nomor'=>'required',
-            'gedung'=>'required',
-            'lantai'=>'required',
-            ]);
-        $input->nomor=$data['nomor'];
-        $input->gedung=$data['gedung'];
-        $input->lantai=$data['lantai'];
-        $input->status_now=$data['status_now'];
-        $input->save();
+        if(Auth::check()){
+            $input = room::where('id',$request['id'])->first();
+            $data = $this->validate($request, [
+                'nomor'=>'required',
+                'gedung'=>'required',
+                'lantai'=>'required',
+                ]);
+            $input->nomor=$data['nomor'];
+            $input->gedung=$data['gedung'];
+            $input->lantai=$data['lantai'];
+            $input->status_now=$data['status_now'];
+            $input->save();
 
-        return redirect('');
+            return redirect('');
+        }
+        else return redirect('/');
     }
 
     public function delete(Request $request){
-        $rooms = room::where('id',$request['id'])->first();
+        if(Auth::check()){
+           $rooms = room::where('id',$request['id'])->first();
         if ($rooms != null){
              $rooms->delete();
         } 
-        return back();
+        return back(); 
+        }
+        else return redirect('/');
     }
 
 }
