@@ -17,6 +17,11 @@ class CreateRoomsTable extends Migration
             $table->integer('masterMinute');
             //$table->timestamps();
         });
+        DB::table('mastertime')->insert(
+                array(
+                    'masterMinute' => 10,
+                )
+            );
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('username')->unique();
@@ -55,9 +60,9 @@ class CreateRoomsTable extends Migration
             $table->string('PIN');
             $table->datetime('waktu_Pinjam_Mulai');
             $table->datetime('waktu_Pinjam_Selesai');
+            $table->datetime('waktu_Pinjam_Timeout');
             $table->string('keperluan');
             $table->string('status');
-            $table->string('waktu_Pinjam_Timeout');
             $table->foreign('id_Ruangan')->references('id')->on('rooms');
             //$table->timestamps();
         });

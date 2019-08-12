@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\booklist;
 use App\room;
+use App\mastertime;
 use Carbon\Carbon;
 
 class scheduleController extends Controller
@@ -21,9 +22,10 @@ class scheduleController extends Controller
 
 	public function FromNeedConfirmationToCancelled()
 	{
-		$roomFreeLists = booklist::where('waktu_Pinjam_Mulai', '<=', Carbon::now()->subminutes(5))->where('status', 'NEED CONFIRMATION')->pluck('id_ruangan')->toArray();
+		$timeout = mastertime::first();
+		$roomFreeLists = booklist::where('waktu_Pinjam_Mulai', '<=', Carbon::now()->subminutes($timeout->minute))->where('status', 'NEED CONFIRMATION')->pluck('id_ruangan')->toArray();
 
-		$booklistsCANCELLED = booklist::where('waktu_Pinjam_Mulai', '<=', Carbon::now()->subminutes(5))->where('status', 'NEED CONFIRMATION')->update(['status'=>'CANCELLED']);
+		$booklistsCancelled = booklist::where('waktu_Pinjam_Mulai', '<=', Carbon::now()->subminutes($timeout->minute))->where('status', 'NEED CONFIRMATION')->update(['status'=>'CANCELLED']);
 
 		$roomFree = room::wherein('id', $roomFreeLists)->update(['status_now'=>'FREE']);
 	}
@@ -37,7 +39,4 @@ class scheduleController extends Controller
 		$roomFree = room::wherein('id', $roomFreeLists)->update(['status_now' => 'FREE']);
 	}
 
-	public function TesHourly(){
-		
-	}
 }
