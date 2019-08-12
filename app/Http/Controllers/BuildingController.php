@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\building;
+use Auth;
 
 class BuildingController extends Controller
 {

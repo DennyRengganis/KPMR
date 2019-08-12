@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\room;
+use App\building;
+use Auth;
 
 class RoomController extends Controller
 {
@@ -17,6 +19,13 @@ class RoomController extends Controller
     public function create(){
         if(Auth::check()){
             return view('');
+        }
+        else return redirect('/');
+    }
+    public function createhere($id_building,$lantai){
+        if(Auth::check()){
+            $buildings = building::where('id',$id)->first();
+            return view('',compact('buildings','lantai'));
         }
         else return redirect('/');
     }
@@ -40,7 +49,10 @@ class RoomController extends Controller
     }
     public function updatepick($id){
         if(Auth::check()){
-           $rooms = room::where('id',$id)->first();
+           $rooms = room::leftJoin('buildings','rooms.id_gedung','=','buildings.id')
+                        ->select('rooms.*','buildings.nama_gedung as building_nama')
+                        ->where('rooms.id',$id)->first();
+           dd($rooms);
            if ($rooms != null){
                return view('',compact('rooms'));
            }
