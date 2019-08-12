@@ -264,7 +264,7 @@
 
             $('select[name="floor"]').empty();
             $('select[name="floor"]').append('<option value="0">--</option>');
-            var max_floor = data["jumlah_lantai"];
+            var max_floor = data[0]["jumlah_lantai"];
             var i;
             for(i=1;i<=max_floor;i++){
               $('select[name="floor"]').append('<option value="'+ i +'">'+ i +'</option>');
