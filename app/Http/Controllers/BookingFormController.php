@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\room;
 use App\booklist;
 use App\building;
+use App\mastertime;
 use App\Http\Requests\BookingFormRequest;
 use Mail;
 use Carbon\Carbon;
@@ -16,13 +17,16 @@ class BookingFormController extends Controller
     //
 	public function BookRoom(BookingFormRequest $request){
 		
+		$interval = mastertime::first();
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();
 		
 		$mulai=new Carbon($request['waktu_Pinjam_Mulai']);
 		$selesai=new Carbon($request['waktu_Pinjam_Selesai']);
+		$timeout = $mulai->addMinutes($interval->minute);
 		$mulai->second=0;
 		$selesai->second=0;
+		$timeout = $timeout->toDateTimeString();
 		$request['waktu_Pinjam_Mulai']= $mulai->toDateTimeString();
 		$request['waktu_Pinjam_Selesai']= $selesai->toDateTimeString();
 		//dd($request);
@@ -74,6 +78,7 @@ class BookingFormController extends Controller
 			$input->PIN = $pinText;
 			$input->waktu_Pinjam_Mulai = $request['waktu_Pinjam_Mulai'];
 			$input->waktu_Pinjam_Selesai = $request['waktu_Pinjam_Selesai'];
+			$input->waktu_Pinjam_Timeout = $timeout;
 			$input->keperluan = $request['keperluan'];
 			$input->status = 'WAITING';
 
