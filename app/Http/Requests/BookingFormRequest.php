@@ -30,7 +30,7 @@ class BookingFormRequest extends FormRequest
             'email' => 'required|email',
             'waktu_Pinjam_Mulai' => 'required|date',
             'waktu_Pinjam_Selesai' => 'required|date|after:waktu_Pinjam_Mulai',
-            'keperluan' => 'required|',
+            'keperluan' => 'required',
         ];
     }
 
@@ -47,7 +47,7 @@ class BookingFormRequest extends FormRequest
             'waktu_Pinjam_Selesai.required' => 'Mohon isikan tanggal dan waktu mulai',
             'waktu_Pinjam_Selesai.date' =>'format tanggal salah',
             'waktu_Pinjam_Selesai.after:waktu_Pinjam_Mulai' => 'tanggal selesai dan waktu harus setelah tanggal dan waktu mulai',
-            
+            'keperluan.required' => 'Mohon isikan keperluan meeting',
         ];
     }
 }

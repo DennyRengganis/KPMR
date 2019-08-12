@@ -78,5 +78,7 @@ class CreateRoomsTable extends Migration
         Schema::dropIfExists('booklists');
         Schema::dropIfExists('rooms');
         Schema::dropIfExists('buildings');
+        Schema::dropIfExists('mastertimes');
+        Schema::dropIfExists('admins');
     }
 }
