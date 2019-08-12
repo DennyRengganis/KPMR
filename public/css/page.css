@@ -96,7 +96,22 @@
   height: 27vh;
   padding: -5px -5px -5px -5px;
   }
-}
+  .detail-2{
+  text-align: center;
+  padding-top: 10%;
+  height: 60vh;
+  }
+  .tableHead          { overflow-y: auto; height: 30vh;  }
+  .tableHead thead th { position: sticky; top: -13px;}
+  .tableHead table  { border-collapse: collapse; width: 100%; }
+  .tableHead th, td { padding: 8px 8px 8px 8px; height: 8vh; }
+  .tableHead th     { background:#eee; }
+
+  .tableHead { border: 0.5px solid black; border-left: 0.5px solid black; border-right: 0.5px solid black; }
+  .tableHead th, td { border: 0.5px solid #000; border-top: 0; }
+  .tableHead tbody tr:last-child td { border-bottom: 0.5px solid black; border-right: 0.5px solid black; border-left: 0.5px solid black }
+  .tableHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
+  }
 @media only screen and (min-width: 769px) {
   div.hide2 {
     display: none;
@@ -113,6 +128,21 @@
   background-color: white;
   height: 40vh;
   }
+  .detailroombox{
+  text-align: center;
+  padding-top: 10%;
+  height: 90vh;
+}
+.tableFixHead          { overflow-y: auto; height: 42.5vh; }
+.tableFixHead thead th { position: sticky; top: 0; }
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; height: 10vh; }
+th     { background:#eee; }
+
+.tableFixHead { border: 0.5px solid #000; border-left: 0; border-right: 0; }
+.tableFixHead th, td { border: 0.5px solid #000; border-top: 0; }
+.tableFixHead tbody tr:last-child td { border-bottom: 0; }
+.tableFixHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
 }
 
 @media only screen and (min-width: 608px) {
@@ -193,9 +223,6 @@
 input{
   width: 75%;
 }
-.detailroom{
-  height: 90vh;
-}
 .roomFont{
   color: white;
 }
@@ -206,16 +233,7 @@ input{
 /*Fixed table head - CSS-only
 Simply position: sticky; top: 0; your th elements. (Chrome, FF, Edge)
 */
-.tableFixHead          { overflow-y: auto; height: 42.5vh; }
-.tableFixHead thead th { position: sticky; top: 0; }
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; height: 10vh; }
-th     { background:#eee; }
 
-.tableFixHead { border: 0.5px solid #000; border-left: 0; border-right: 0; }
-.tableFixHead th, td { border: 0.5px solid #000; border-top: 0; }
-.tableFixHead tbody tr:last-child td { border-bottom: 0; }
-.tableFixHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
 /*
 table {
     width: 100%;
@@ -234,11 +252,6 @@ tbody {
     overflow: auto;
 }*/
 
-
-
-.detailroombox{
-  text-align: center;height: 90vh;padding-top: 10%;
-}
 select, option {
     max-width:150px;
 }

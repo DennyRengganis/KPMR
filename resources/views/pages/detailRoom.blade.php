@@ -19,7 +19,7 @@
 		<div class="row">
 			@if(count($detail))
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12 detailroom detailroombox">
+			<div class="booked col-w-12 col-s-12 detailroombox detail-2">
 				{{$info->nama_ruangan}}
 				<br>
 				@php
@@ -54,7 +54,7 @@
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12 detailroombox">
+			<div class="waiting col-w-12 col-s-12 detailroombox detail-2">
 				{{$info->nama_ruangan}}
 				<br>
 				@php
@@ -138,7 +138,7 @@
 			@endif
 
 			@if($info->status_now=="FREE")
-			<div class="free col-s-12 col-w-12 center detailroom" style=" padding-top: 10%;">
+			<div class="free col-s-12 col-w-12 center detailroombox detail-2">
 				{{$info->nama_ruangan}}
 				<br>
 				@php
@@ -243,8 +243,80 @@
 	
 			</div>
 		</div>
-		@if(count($detail))
-		<script>
+	</div>
+</div>
+<div class="row hide2">
+	<div class="col-s-6 tableHead">
+		<table class="table">
+			<thead style="text-align: center;background-color: grey;">
+				<tr>
+					<th>TODAY</th>
+				</tr>
+			</thead>
+			<tbody style="text-align: left;height: 200px; overflow-y:scroll;">
+				@if(count($detail))
+				@foreach($detail as $dt)
+				<tr>
+					<td>
+						@php
+						$date = "$dt->waktu_Pinjam_Mulai";
+						$date = strtotime($date);
+						echo date('H:i', $date);
+						echo " - ";
+						$datedone= "$dt->waktu_Pinjam_Selesai";
+						$datedone = strtotime($datedone);
+						echo date('H:i', $datedone);
+						@endphp
+						<br><b> 
+						{{$dt->keperluan}}</b><br>
+						{{$dt->nama}}
+					</td>
+				</tr>
+				@endforeach
+				@endif
+			</tbody>
+		</table>
+	</div>
+	<div class="col-s-6 tableHead">
+				<table class="table">
+					<thead style="text-align: center;background-color: grey;">
+						<tr>
+							<th>TOMORROW:
+								@php
+								$hari = "tomorrow";
+								$hari = strtotime($hari);
+								echo date('D, d-m-Y', $hari);
+							@endphp</th>
+						</tr>
+					</thead>
+					<tbody style="text-align: left;height: 200px; overflow-y:scroll;">
+						@if(count($besok))
+						@foreach($besok as $dt)
+						<tr>
+							<td>@php
+								$date = "$dt->waktu_Pinjam_Mulai";
+								$date = strtotime($date);
+								echo date('H:i', $date);
+								echo " - ";
+								$datedone= "$dt->waktu_Pinjam_Selesai";
+								$datedone = strtotime($datedone);
+								echo date('H:i', $datedone);
+								@endphp
+								<br>
+								<b>
+								{{$dt->keperluan}}
+								</b><br>
+								{{$dt->nama}}
+							</td>
+						</tr>
+							@endforeach
+							@endif
+						</tbody>
+					</table>
+				</div>	
+</div>
+@if(count($detail))
+<script>
 // Set the date we're counting down to
 var countDownDate = new Date("{{$detail['0']->waktu_Pinjam_Selesai}}").getTime();
 

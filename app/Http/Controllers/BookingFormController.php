@@ -42,19 +42,19 @@ class BookingFormController extends Controller
 			$waktuPakaiMulai = strtotime($list->waktu_Pinjam_Mulai);
 			$waktuPakaiSelesai = strtotime($list->waktu_Pinjam_Selesai);
 
-			if(($waktuPinjamMulai >= $waktuPakaiMulai) && ($waktuPinjamMulai <= $waktuPakaiSelesai)){
+			if(($waktuPinjamMulai > $waktuPakaiMulai) && ($waktuPinjamMulai < $waktuPakaiSelesai)){
 				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
-			if(($waktuPinjamSelesai >= $waktuPakaiMulai) && ($waktuPinjamSelesai <= $waktuPakaiSelesai)){
+			if(($waktuPinjamSelesai > $waktuPakaiMulai) && ($waktuPinjamSelesai < $waktuPakaiSelesai)){
 				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
-			if(($waktuPakaiMulai >= $waktuPinjamMulai) && ($waktuPakaiMulai <= $waktuPinjamSelesai)){
+			if(($waktuPakaiMulai > $waktuPinjamMulai) && ($waktuPakaiMulai < $waktuPinjamSelesai)){
 				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 
-			if(($waktuPakaiSelesai >= $waktuPinjamMulai) && ($waktuPakaiSelesai <= $waktuPinjamSelesai)){
+			if(($waktuPakaiSelesai > $waktuPinjamMulai) && ($waktuPakaiSelesai < $waktuPinjamSelesai)){
 				return back()->withErrors(['Ruangan terpakai saat waktu tersebut']);
 			}
 		}

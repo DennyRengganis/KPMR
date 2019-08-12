@@ -19,6 +19,9 @@ Route::get('/roomPage', function () {
 Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
+Route::get('/adminRoom', function () {
+    return view('pages.dashboardAdmin');
+});
 Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook'));
 Route::get('/detailRoom2/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook2'));
 
