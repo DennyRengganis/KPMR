@@ -31,9 +31,13 @@ class scheduleController extends Controller
 	public function FromInProgressToDone(){
 
 		$roomFreeLists = booklist::where('waktu_Pinjam_Selesai', '<=', Carbon::now())->where('status','IN PROGRESS')->pluck('id_ruangan')->toArray();
+
 		$booklistsDone = booklist::where('waktu_Pinjam_Selesai', '<=', Carbon::now())->where('status','IN PROGRESS')->update(['status'=>'DONE']);
 
 		$roomFree = room::wherein('id', $roomFreeLists)->update(['status_now' => 'FREE']);
 	}
 
+	public function TesHourly(){
+		
+	}
 }
