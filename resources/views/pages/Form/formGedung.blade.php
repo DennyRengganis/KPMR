@@ -32,7 +32,7 @@
   $actionstring="/AdminXmeetingYroomZ/updateGedung";
 @endphp
 @else
-  $actionstring="/AdminXmeetingYroomZ/createGedung";
+  $actionstring="/AdminXmeetingYroomZ/saveGedung";
 @endif
 <div class="bodybr">
   <form action="{{$actionstring}}" method="post">
