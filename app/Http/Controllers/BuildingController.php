@@ -7,10 +7,9 @@ use App\building;
 
 class BuildingController extends Controller
 {
-    //
     public function view(){
-        $liat = building::all()->sortBy('id');  
-        return view('pages.homePage',compact('liat'));
+        $list = building::all()->sortBy('id');  
+        return view('',compact('list'));
     }
     public function create(){
         return view('');
@@ -28,9 +27,9 @@ class BuildingController extends Controller
         return redirect('');
     }
     public function updatepick($id){
-        $rooms = building::where('id',$id)->first();
-        if ($rooms != null){
-            return view('',compact('building'));
+        $buildings = building::where('id',$id)->first();
+        if ($buildings != null){
+            return view('',compact('buildings'));
         }
         else return back();
     }
@@ -49,8 +48,10 @@ class BuildingController extends Controller
     }
 
     public function delete(Request $request){
-        $rooms = building::where('id',$request['id'])->first();
-        $rooms->delete();
+        $buildings = building::where('id',$request['id'])->first();
+        if ($buildings != null){
+             $buildings->delete();
+        }       
         return back();
     }
 

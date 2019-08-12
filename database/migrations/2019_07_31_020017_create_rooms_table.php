@@ -13,7 +13,24 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        DB::unprepared('SET GLOBAL event_scheduler=ON;');
+        Schema::create('mastertime', function (Blueprint $table) {
+            $table->integer('masterMinute');
+            //$table->timestamps();
+        });
+        Schema::create('admins', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->string('status');
+            //$table->timestamps();
+        });
+        DB::table('admins')->insert(
+                array(
+                    'username' => 'admin',
+                    'password' => Hash::make('KPMR2019'),
+                    'status'   => 'admin'
+                )
+            );
         Schema::create('buildings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_gedung');
@@ -40,6 +57,7 @@ class CreateRoomsTable extends Migration
             $table->datetime('waktu_Pinjam_Selesai');
             $table->string('keperluan');
             $table->string('status');
+            $table->string('waktu_Pinjam_Timeout');
             $table->foreign('id_Ruangan')->references('id')->on('rooms');
             //$table->timestamps();
         });

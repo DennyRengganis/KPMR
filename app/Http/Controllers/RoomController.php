@@ -8,8 +8,8 @@ use App\room;
 class RoomController extends Controller
 {
     public function view(){
-        $liat = room::all()->sortBy('id');  
-        return view('pages.homePage',compact('liat'));
+        $list = room::all()->sortBy('id');  
+        return view('',compact('list'));
     }
     public function create(){
         return view('');
@@ -55,13 +55,10 @@ class RoomController extends Controller
 
     public function delete(Request $request){
         $rooms = room::where('id',$request['id'])->first();
-        $rooms->delete();
+        if ($rooms != null){
+             $rooms->delete();
+        } 
         return back();
     }
 
-    public function viewrooms(){
-        $roomtype = 3;
-        #dd($liat);
-        return view('pages.roomPage',compact('roomtype'));
-    }
 }

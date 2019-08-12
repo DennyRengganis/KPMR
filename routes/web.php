@@ -47,3 +47,12 @@ Route::post('/detailBooking/{id}/{pin}',array('as'=>'submitBooking','uses'=>'Det
 
 Route::post('/confirm_checkin','DetailBookingController@confirm');
 Route::post('/confirm_cancel','DetailBookingController@cancel');
+
+//Auth::routes();
+//Admin only
+Route::get('/adminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
+Route::post('/adminXmeetingYroomZlogin', 'Auth\LoginController@login');
+Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
+
+
+Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
