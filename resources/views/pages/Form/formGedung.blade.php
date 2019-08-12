@@ -32,7 +32,9 @@
   $actionstring="/AdminXmeetingYroomZ/updateGedung";
 @endphp
 @else
+@php
   $actionstring="/AdminXmeetingYroomZ/saveGedung";
+@endphp
 @endif
 <div class="bodybr">
   <form action="{{$actionstring}}" method="post">
@@ -72,6 +74,7 @@
      <input type="text" name="nama_gedung" value="{{$buildings->nama_gedung}}">
      @else
      <input type="text" name="nama_gedung" value="">
+     @endif
    </div>
    <div class="col-w-5 col-s-5 left">
      Jumlah Lantai :
@@ -80,6 +83,7 @@
      <input type="text" name="jumlah_lantai" value="{{$buildings->junmlah_lantai}}">
      @else
      <input type="text" name="jumlah_lantai" value="">
+     @endif
    </div>
       <div class="col-w-1 col-s-1"></div>
   </div>
