@@ -34,11 +34,11 @@ class RoomController extends Controller
             $input = new room();
             $data = $this->validate($request, [
                 'nomor'=>'required',
-                'gedung'=>'required',
+                'id_gedung'=>'required',
                 'lantai'=>'required',
                 ]);
             $input->nomor=$data['nomor'];
-            $input->gedung=$data['gedung'];
+            $input->id_gedung=$data['id_gedung'];
             $input->lantai=$data['lantai'];
             $input->status_now="FREE";
             $input->save();

@@ -60,7 +60,7 @@ class BuildingController extends Controller
 
           return redirect('');  
         }
-        return redirect('/');
+        else return redirect('/');
     }
 
     public function delete(Request $request){
