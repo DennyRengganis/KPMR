@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\building;
+use Auth;
 
 class BuildingController extends Controller
 {
@@ -59,7 +60,7 @@ class BuildingController extends Controller
 
           return redirect('');  
         }
-        return redirect('/');
+        else return redirect('/');
     }
 
     public function delete(Request $request){

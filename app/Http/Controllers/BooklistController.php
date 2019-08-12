@@ -13,8 +13,9 @@ class BooklistController extends Controller
         if(Auth::check()){
              $list = booklist::leftJoin('rooms','booklists.id_Ruangan','=','rooms.id')
                         ->leftJoin('buildings','rooms.id_gedung','=','buildings.id')
-                        ->select('booklists.*','rooms.id as room_id','buildings.id as building_id')
+                        ->select('booklists.*','rooms.nama_ruangan as room_nama','buildings.nama_gedung as building_nama','rooms.lantai as room_lantai')
                         ->get();  
+            //dd($list);
             return view('',compact('list'));
         }
        else return redirect('/');
