@@ -79,8 +79,9 @@
         @foreach($gedung as $gd)
         @if($gd->id===$pickedbuilding->id)
         <option value="{{$gd->id}}" selected="selected">{{$gd->nama_gedung}}</option>
-        @endif
+        @else
         <option value="{{$gd->id}}">{{$gd->nama_gedung}}</option>
+        @endif
         @endforeach
         @else
         @foreach($gedung as $gd)
@@ -147,7 +148,7 @@
         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
         <input class="form-control" size="16" type="text" value="" readonly>
         <!-- </div> -->
-        <input type="hidden" name="waktu_Pinjam_Selesai" value="" /><br/>
+        <input type="hidden" name="waktu_Pinjam_Selesai" value=""/><br/>
         <!--     <input type="date" name="end_booking"> -->
       </div>
    </div>
@@ -259,11 +260,13 @@
           dataType: "json",
           success:function(data) {
 
-            console.log(data);
+            console.log(data); 
 
 
             $('select[name="floor"]').empty();
+            $('select[name="id_Ruangan"]').empty();
             $('select[name="floor"]').append('<option value="0">--</option>');
+            $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
             var max_floor = data[0]["jumlah_lantai"];
             var i;
             for(i=1;i<=max_floor;i++){
@@ -274,7 +277,9 @@
         });
       }else{
         $('select[name="floor"]').empty();
+        $('select[name="id_Ruangan"]').empty();
         $('select[name="floor"]').append('<option value="0">--</option>');
+        $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
       }
     });
   });
@@ -321,5 +326,31 @@
   function closeForm() {
     document.getElementById("notif").style.display = "none";
   }
+
+</script>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $('input[name="waktu_Pinjam_Selesai"]').on('change', function(){
+      var wselesai= $(this).val();
+      var wmulai= $('input[name="waktu_Pinjam_Mulai"').val();
+      console.log("ws wm");
+      console.log(wselesai);
+      console.log(wmulai);
+      var wm = new Date(wmulai).getTime();
+      var ws = new Date(wselesai).getTime();
+      console.log("date");
+      console.log(ws);
+      console.log(wm);
+      if(ws<=wm){
+        $('input[name="waktu_Pinjam_Selesai"]').value=0;
+        $('input[name="waktu_Pinjam_Mulai"]').value=0;
+        alert("Waktu Selesai tidak bisa sebelum Waktu Mulai");
+        location.reload();
+      }
+
+    });
+  });    
 
 </script>
