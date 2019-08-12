@@ -15,6 +15,7 @@ class BooklistController extends Controller
                         ->leftJoin('buildings','rooms.id_gedung','=','buildings.id')
                         ->select('booklists.*','rooms.id as room_id','buildings.id as building_id')
                         ->get();  
+            //dd($list);
             return view('',compact('list'));
         }
        else return redirect('/');
