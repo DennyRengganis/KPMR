@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+
         $schedule->call('App\Http\Controllers\scheduleController@FromNeedConfirmationToCancelled')->everyMinute();
         $schedule->call('App\Http\Controllers\scheduleController@FromInProgressToDone')->everyMinute();
         $schedule->call('App\Http\Controllers\scheduleController@FromWaitingToNeedConfirmation')->everyMinute();

@@ -18,23 +18,40 @@ class BookingFormController extends Controller
 	public function BookRoom(BookingFormRequest $request){
 		
 		$interval = mastertime::first();
+		// dd($interval);
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();
 		
 		$mulai=new Carbon($request['waktu_Pinjam_Mulai']);
 		$selesai=new Carbon($request['waktu_Pinjam_Selesai']);
-		$timeout = $mulai->addMinutes($interval->minute);
+
+		// dd($mulai, $selesai, $interval->masterMinute);
+		$timeout = new Carbon($request['waktu_Pinjam_Mulai']);
+		$timeout->addMinutes($interval->masterMinute);
+
 		$mulai->second=0;
 		$selesai->second=0;
+		
+		// dd($mulai, $selesai, $timeout);
+
 		$timeout = $timeout->toDateTimeString();
 		$request['waktu_Pinjam_Mulai']= $mulai->toDateTimeString();
 		$request['waktu_Pinjam_Selesai']= $selesai->toDateTimeString();
 		//dd($request);
 
-		if ($request['waktu_Pinjam_Mulai']>=$request['waktu_Pinjam_Selesai'])
+
+		// dd($request['waktu_Pinjam_Mulai'], $request['waktu_Pinjam_Selesai'], Carbon::now()->toDateTimeString());
+
+		if ($request['waktu_Pinjam_Mulai']<= Carbon::now()->toDateTimeString())
+		{
+			return back()->withErrors(['Tidak bisa pinjam sebelum sekarang']); 
+		}
+
+		if ($request['waktu_Pinjam_Mulai']>=$request['waktu_Pinjam_Selesai'] || $request['waktu_Pinjam_Selesai'] < $timeout)
 		{
 			return back()->withErrors(['Waktu pinjam tidak benar']); 
 		}
+
 
 		$waktuPinjamMulai = strtotime($request['waktu_Pinjam_Mulai']);
 		$waktuPinjamSelesai = strtotime($request['waktu_Pinjam_Selesai']);

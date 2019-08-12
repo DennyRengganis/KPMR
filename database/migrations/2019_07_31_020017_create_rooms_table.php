@@ -13,11 +13,11 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mastertime', function (Blueprint $table) {
+        Schema::create('mastertimes', function (Blueprint $table) {
             $table->integer('masterMinute');
             //$table->timestamps();
         });
-        DB::table('mastertime')->insert(
+        DB::table('mastertimes')->insert(
                 array(
                     'masterMinute' => 10,
                 )
@@ -78,5 +78,7 @@ class CreateRoomsTable extends Migration
         Schema::dropIfExists('booklists');
         Schema::dropIfExists('rooms');
         Schema::dropIfExists('buildings');
+        Schema::dropIfExists('mastertimes');
+        Schema::dropIfExists('admins');
     }
 }
