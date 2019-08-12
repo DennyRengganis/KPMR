@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call('App\Http\Controllers\scheduleController@FromWaitingToNeedConfirmation')->everyMinute();
+        $schedule->call('App\Http\Controllers\scheduleController@FromNeedConfirmationToCancelled')->everyMinute();
+        $schedule->call('App\Http\Controllers\scheduleController@FromInProgressToDone')->everyMinute();
     }
 
     /**
@@ -38,5 +39,7 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+
+
     }
 }
