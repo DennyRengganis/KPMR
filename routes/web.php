@@ -20,7 +20,7 @@ Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
 Route::get('/adminRoom', function () {
-    return view('pages.dashboardAdmin');
+    return view('pages.dashboardAdminBookList');
 });
 Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook'));
 Route::get('/detailRoom2/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook2'));

@@ -139,9 +139,9 @@ table  { border-collapse: collapse; width: 100%; }
 th, td { padding: 8px 16px; height: 10vh; }
 th     { background:#eee; }
 
-.tableFixHead { border: 0.5px solid #000; border-left: 0; border-right: 0; }
-.tableFixHead th, td { border: 0.5px solid #000; border-top: 0; }
-.tableFixHead tbody tr:last-child td { border-bottom: 0; }
+.tableFixHead { border: 0.5px solid #000; border-left: 0.5px solid black; border-right: 0.5px solid black; }
+.tableFixHead th, td { border: 0.5px solid #000; border-top: 0.5 solid black; }
+.tableFixHead tbody tr:last-child td {  border-bottom: 0.5px solid black; border-right: 0.5px solid black; border-left: 0.5px solid black; border-top: 0.5px solid black; }
 .tableFixHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
 }
 
