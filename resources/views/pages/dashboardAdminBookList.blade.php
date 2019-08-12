@@ -10,7 +10,7 @@
 <h1>Admin Page</h1>
 <div class="row">
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Booking List</button>
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Building and Room</button> 
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'dashboardAdminBuildingRoom'">Building and Room</button> 
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Masterize time</button>  
 </div>
 <div class="row">

@@ -19,9 +19,7 @@ Route::get('/roomPage', function () {
 Route::get('/detailRoom', function () {
     return view('pages.detailRoom');
 });
-Route::get('/adminRoom', function () {
-    return view('pages.dashboardAdminBookList');
-});
+
 Route::get('/detailRoom/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook'));
 Route::get('/detailRoom2/{id}', array('as'=>'detailRoom','uses'=>'DetailBookingController@viewbook2'));
 
@@ -56,3 +54,12 @@ Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 
 
 Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
+
+//AdminRouting
+Route::get('/dashboardAdminBuildingRoom', 'AdminFormController@viewall');
+Route::get('/adminRoom', function () {
+    return view('pages.dashboardAdminBookList');
+});
+Route::get('/nambahGedung', function () {
+    return view('pages.Form.formGedung');
+});
