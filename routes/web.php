@@ -48,15 +48,17 @@ Route::post('/confirm_cancel','DetailBookingController@cancel');
 
 //Auth::routes();
 //Admin only
-Route::get('/AdminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
-Route::post('/AdminXmeetingYroomZlogin', 'Auth\LoginController@login');
-Route::post('/AdminXmeetingYroomZlogout', 'Auth\LoginController@logout');
+Route::get('/adminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
+Route::post('/adminXmeetingYroomZlogin', 'Auth\LoginController@login');
+Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 
+
+Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
 
 //Route::get('/AdminXmeetingYroomZhome', 'Auth\HomeController@index');
 
 //AdminRouting
-Route::get('/AdminXmeetingYroomZhome', 'AdminFormController@viewall');
+Route::get('/AdminXmeetingYroomZdashboard', 'AdminFormController@viewall');
 Route::get('/adminRoom', function () {
     return view('pages.dashboardAdminBookList');
 });
