@@ -12,20 +12,21 @@ class RoomController extends Controller
     public function view(){
         if(Auth::check()){
             $list = room::all()->sortBy('id');  
-            return view('',compact('list'));
+            return view('dashboardAdminBuildingRoom',compact('list'));
         }
         else return redirect('/');
     }
     public function create(){
         if(Auth::check()){
-            return view('');
+            $gedung= building::all()->sortBy('id');
+            return view('pages.Form.formRuangan',compact('gedung'));
         }
         else return redirect('/');
     }
     public function createhere($id_building,$lantai){
         if(Auth::check()){
             $buildings = building::where('id',$id)->first();
-            return view('',compact('buildings','lantai'));
+            return view('pages.Form.formRuangan',compact('buildings','lantai'));
         }
         else return redirect('/');
     }
@@ -43,7 +44,7 @@ class RoomController extends Controller
             $input->status_now="FREE";
             $input->save();
 
-            return redirect('');
+            return redirect('/AdminXmeetingYroomZhome');
         }
         else return redirect('/');
     }
@@ -54,7 +55,7 @@ class RoomController extends Controller
                         ->where('rooms.id',$id)->first();
            dd($rooms);
            if ($rooms != null){
-               return view('',compact('rooms'));
+               return view('pages.Form.formRuangan',compact('rooms'));
            }
            else return back(); 
         }
@@ -75,7 +76,7 @@ class RoomController extends Controller
             $input->status_now=$data['status_now'];
             $input->save();
 
-            return redirect('');
+            return redirect('/AdminXmeetingYroomZhome');
         }
         else return redirect('/');
     }

@@ -17,7 +17,7 @@ class BuildingController extends Controller
     }
     public function create(){
         if(Auth::check()){
-           return view(''); 
+           return view('pages.Form.formGedung'); 
         }
         else return redirect('/');
     }
@@ -32,15 +32,15 @@ class BuildingController extends Controller
             $input->jumlah_lantai=$data['jumlah_lantai'];
             $input->save();
 
-            return redirect('');
+            return redirect('/AdminXmeetingYroomZhome');
         }
         else return redirect('/');
     }
-    public function updatepick($id){
+    public function updatepick($gedung){
         if(Auth::check()){
-            $buildings = building::where('id',$id)->first();
+            $buildings = building::where('id',$gedung)->first();
             if ($buildings != null){
-                return view('',compact('buildings'));
+                return view('pages.Form.formGedung',compact('buildings'));
             }
             else return back();
         }
@@ -58,7 +58,7 @@ class BuildingController extends Controller
           $input->jumlah_lantai=$data['jumlah_lantai'];
           $input->save();
 
-          return redirect('');  
+          return redirect('/AdminXmeetingYroomZhome');  
         }
         else return redirect('/');
     }

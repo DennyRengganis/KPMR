@@ -335,17 +335,9 @@
     $('input[name="waktu_Pinjam_Selesai"]').on('change', function(){
       var wselesai= $(this).val();
       var wmulai= $('input[name="waktu_Pinjam_Mulai"').val();
-      console.log("ws wm");
-      console.log(wselesai);
-      console.log(wmulai);
       var wm = new Date(wmulai).getTime();
       var ws = new Date(wselesai).getTime();
-      console.log("date");
-      console.log(ws);
-      console.log(wm);
       if(ws<=wm){
-        $('input[name="waktu_Pinjam_Selesai"]').value=0;
-        $('input[name="waktu_Pinjam_Mulai"]').value=0;
         alert("Waktu Selesai tidak bisa sebelum Waktu Mulai");
         location.reload();
       }

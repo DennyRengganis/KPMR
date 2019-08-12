@@ -48,18 +48,34 @@ Route::post('/confirm_cancel','DetailBookingController@cancel');
 
 //Auth::routes();
 //Admin only
-Route::get('/adminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
-Route::post('/adminXmeetingYroomZlogin', 'Auth\LoginController@login');
-Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
+Route::get('/AdminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
+Route::post('/AdminXmeetingYroomZlogin', 'Auth\LoginController@login');
+Route::post('/AdminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 
 
-Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
+//Route::get('/AdminXmeetingYroomZhome', 'Auth\HomeController@index');
 
 //AdminRouting
-Route::get('/dashboardAdminBuildingRoom', 'AdminFormController@viewall');
+Route::get('/AdminXmeetingYroomZhome', 'AdminFormController@viewall');
 Route::get('/adminRoom', function () {
     return view('pages.dashboardAdminBookList');
 });
 Route::get('/nambahGedung', function () {
     return view('pages.Form.formGedung');
 });
+
+
+//AdminRuangan
+Route::get('/AdminXmeetingYroomZ/editRoom/{id}','RoomController@updatepick');
+Route::get('/AdminXmeetingYroomZ/tambahRoom/{id_gedung}/{lantai}','RoomController@createhere');
+Route::get('/AdminXmeetingYroomZ/createRoom','RoomController@create');
+Route::post('/AdminXmeetingYroomZ/updateRoom','RoomController@update');
+Route::get('/AdminXmeetingYroomZ/deleteRoom/{id}','RoomController@delete');
+Route::post('/AdminXmeetingYroomZ/saveRoom','RoomController@store');
+
+//AdminGedung
+Route::get('/AdminXmeetingYroomZ/editGedung','BuildingController@updatepick');
+Route::get('/AdminXmeetingYroomZ/createGedung','BuildingController@create');
+Route::post('/AdminXmeetingYroomZ/updateGedung','BuildingController@update');
+Route::get('/AdminXmeetingYroomZ/deleteGedung/{id}','BuildingController@delete');
+Route::post('/AdminXmeetingYroomZ/saveGedung','BuildingController@store');
