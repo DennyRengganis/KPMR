@@ -13,9 +13,6 @@
     <div class="col-s-12 col-w-10">
       <h1>Booking form</h1>
     </div>
-    <div class="col-w-2 col-s-2 hide">
-      <button type="button" onclick="window.location.href = '/'" class="btn btn-secondary">home</button>
-    </div>
   </div>
 </div>
 
@@ -114,7 +111,10 @@
   </div>
   <div class="row">
     <div class="col-w-6 col-s-6"></div>
-    <button type="button" onclick="window.location.href = '/AdminXmeetingYroomZhome'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
+    @if(isset($buildings))
+    <button type="button" onclick="window.location.href = '/AdminXmeetingYroomZ/deleteGedung/{{$buildings->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
+    @endif
+    <button type="button" onclick="window.location.href = '/adminXmeetingYroomZhome'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
     <div class="col-w-1 col-s-1"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Tambah/Update</button>
     <div class="col-w-1 col-s-1"></div>
