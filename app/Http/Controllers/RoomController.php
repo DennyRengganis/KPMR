@@ -53,7 +53,6 @@ class RoomController extends Controller
            $rooms = room::leftJoin('buildings','rooms.id_gedung','=','buildings.id')
                         ->select('rooms.*','buildings.nama_gedung as building_nama','buildings.id as building_id')
                         ->where('rooms.id',$id)->first();
-           dd($rooms);
            if ($rooms != null){
                return view('pages.Form.formRuangan',compact('rooms'));
            }

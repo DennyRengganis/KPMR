@@ -59,9 +59,7 @@ Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 
 //AdminRouting
 Route::get('/adminXmeetingYroomZbuilding', 'AdminFormController@viewall');
-Route::get('/adminXmeetingYroomZhome', function () {
-    return view('pages.dashboardAdminBookList');
-});
+Route::get('/adminXmeetingYroomZhome', 'AdminFormController@adminhome');
 Route::get('/nambahGedung', function () {
     return view('pages.Form.formGedung');
 });
