@@ -53,12 +53,12 @@ Route::post('/adminXmeetingYroomZlogin', 'Auth\LoginController@login');
 Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 
 
-Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
+//Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
 
 //Route::get('/AdminXmeetingYroomZhome', 'Auth\HomeController@index');
 
 //AdminRouting
-Route::get('/AdminXmeetingYroomZdashboard', 'AdminFormController@viewall');
+Route::get('/adminXmeetingYroomZhome', 'AdminFormController@viewall');
 Route::get('/adminRoom', function () {
     return view('pages.dashboardAdminBookList');
 });
