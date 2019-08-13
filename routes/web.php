@@ -61,9 +61,7 @@ Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 Route::get('/adminXmeetingYroomZbuilding', 'AdminFormController@viewall');
 Route::get('/adminXmeetingYroomZhome', 'AdminFormController@adminhome');
 Route::get('/adminXmeetingYroomZtime','AdminFormController@admintime');
-Route::get('/nambahGedung', function () {
-    return view('pages.Form.formGedung');
-});
+Route::get('/adminXmeetingYroomZsuperuser','AdminFormController@admunuser');
 
 
 //AdminRuangan
@@ -85,3 +83,4 @@ Route::post('/AdminXmeetingYroomZ/updateTime','MasterTimeController@update');
 
 Route::post('/AdminXmeetingYroomZ/deleteBookList','BooklistController@delete');
 
+Route::post('/AdminXmeetingYroomZ/addUser','AdminController@store')''

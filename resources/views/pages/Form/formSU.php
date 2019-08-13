@@ -17,7 +17,7 @@
 </div>
 
 <div class="bodybr">
-  <form action="{{$actionstring}}" method="post">
+  <form action="/AdminXmeetingYroomZ/addUser" method="post">
   @csrf
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
@@ -46,19 +46,19 @@
   </div>
   <div class="row">
     <div class="col-w-4 col-s-4 center">
-      Masterize waiting time(in minute) :
+      Nama :
       <br>
-        <input type="text" name="username" value="{{$mastertime->masterMinute}}">
+        <input type="text" name="username" value="">
     </div>
     <div class="col-w-4 col-s-4 center">
-      Masterize waiting time(in minute) :
+      Password :
       <br>
-        <input type="text" name="password" value="{{$mastertime->masterMinute}}">
+        <input type="text" name="password" value="">
     </div>
     <div class="col-w-4 col-s-4 center">
       Status :
       <br>
-        <input type="text" name="status" value="{{$mastertime->masterMinute}}">
+        <input type="text" name="status" value="">
     </div>
   </div>
   <div class="row">

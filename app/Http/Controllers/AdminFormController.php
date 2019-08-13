@@ -38,4 +38,12 @@ class AdminFormController extends Controller
         	return view('pages.Form.formTime',compact('mastertime'));
     	}
     }
+
+    public function adminuser(){
+        if(Auth::user()->status=="admin"){
+            $list = User::all()->sortBy('id');  
+            return view('pages.Form.formSU',compact('list'));
+        }
+        else return redirect('/');
+    }
 }

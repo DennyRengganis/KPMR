@@ -11,9 +11,11 @@
 	<div class="col-w-10">
 		<h1>ADMIN PAGE</h1>
 	</div>
+	@if(Auth::user()-status=="admin")
 	<div class="col-w-2">
 		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Edit User</button>
 	</div>
+	@endif
 </div>
 <div class="row">
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZhome'">Booking List</button>

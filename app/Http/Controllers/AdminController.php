@@ -24,10 +24,11 @@ class AdminController extends Controller
             $data = $this->validate($request, [
                 'username'=>'required',
                 'password'=>'required',
+                'status'=>'required',
                 ]);
             $input->username=$data['nama_gedung'];
             $input->password=Hash::make($data['password']);
-            $input->status='temp';
+            $input->status=$data['status'];
             $input->save();
 
             return back()->withSuccess("Berhasil Menambah Akun");
