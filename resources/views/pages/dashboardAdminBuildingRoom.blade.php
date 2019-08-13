@@ -6,15 +6,11 @@
 <link rel="stylesheet" type="text/css" href="/css/page.css">
 @endsection
 @section('content')
-<div class="header">
 	<h1>Search Room</h1>
-	<div>
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZhome'">Booking List</button>
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZbuilding'">Building and Room</button> 
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Masterize time</button>  
 		<form action="/AdminXmeetingYroomZ/editGedung">
-			<div class="row">
-				<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Booking List</button>
-				<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Building and Room</button> 
-				<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Masterize time</button>  
-			</div>
 <!-- 			<div class="row">
 				<div class="example">jkdfjdskjdf</div>
 			</div> -->
