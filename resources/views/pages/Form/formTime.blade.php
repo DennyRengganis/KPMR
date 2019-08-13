@@ -17,7 +17,7 @@
 </div>
 
 <div class="bodybr">
-  <form action="/bookroom" method="post">
+  <form action="/AdminXmeetingYroomZ/updateTime" method="post">
   @csrf
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
@@ -49,7 +49,7 @@
    <div class="col-w-10 col-s-10 center">
       Masterize waiting time(in minute) :
       <br>
-        <input type="integer" name="time" value="">
+        <input type="integer" name="time" value="{{$mastertime->masterMinute}}">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
