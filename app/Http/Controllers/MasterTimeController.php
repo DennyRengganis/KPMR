@@ -8,31 +8,17 @@ use App\mastertime;
 class MasterTimeController extends Controller
 {
     //
-    public function view(){
-        $mastertime = mastertime::all()->sortBy('id');  
-        return view('',compact('mastertime'));
-    }
-    public function updatepick($id){
-        if(Auth::check()){
-            $mastertime = mastertime::where('id',$id)->first();
-            if ($mastertime != null){
-                return view('',compact('mastertime'));
-            }
-            else return back();
-        }
-        else return redirect('/');
-    }
 
     public function update(Request $request){
         if(Auth::check()){
-          $input = mastertime::where('id',$request['id'])->first();
+          $input = mastertime::first();
           $data = $this->validate($request, [
-              'masterMinute'=>'required',
+              'time'=>'required',
               ]);
-          $input->masterMinute=$data['masterMinute'];
+          $input->masterMinute=$data['time'];
           $input->save();
 
-          return redirect('');  
+          return redirect('/adminXmeetingYroomZhome');  
         }
         return redirect('/');
     }
