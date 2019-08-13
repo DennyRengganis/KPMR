@@ -59,9 +59,6 @@
    </div>
    <div class="col-w-1 col-s-1"></div>
    <div class="col-w-3 col-s-3 left">
-     Nama :
-     <br>
-     <input type="text" name="nama" value="">
    </div>
    <div class="col-w-3 col-s-3 left">
    </div>
