@@ -7,13 +7,13 @@
 @endsection
 @section('content')
 	<h1>Search Room</h1>
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZhome'">Booking List</button>
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZbuilding'">Building and Room</button> 
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Masterize time</button>  
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'home'">Booking List</button>
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'building'">Building and Room</button> 
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'time'">Masterize time</button>  
 	@if(session('success'))
 	{{session('success')}}
 	@endif
-		<form action="/AdminXmeetingYroomZ/editGedung">
+		<form action="/admin/editGedung">
 <!-- 			<div class="row">
 				<div class="example">jkdfjdskjdf</div>
 			</div> -->
@@ -46,7 +46,7 @@
 			</form>
 			<div class="col-w-1 col-s-2 " >
 				<br>
-				<form action="/AdminXmeetingYroomZ/createGedung" method="get" target="_self">
+				<form action="/admin/createGedung" method="get" target="_self">
 					<button type="submit" class="btn btn-primary">Tambah Gedung</button>
 				</form>
 			</div>
@@ -142,8 +142,8 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
-											+'<form action="/AdminXmeetingYroomZ/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<br><form action="/admin/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
+											+'<form action="/admin/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
 											+'</div>'
 											+'</a>'
 											+'</div>');
@@ -163,8 +163,8 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
-											+'<form action="/AdminXmeetingYroomZ/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<br><form action="/admin/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
+											+'<form action="/admin/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
 											+'</div>'
 											+'</a>'
 											+'</div>');
@@ -183,15 +183,15 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
-											+'<form action="/AdminXmeetingYroomZ/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<br><form action="/admin/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form>'
+											+'<form action="/admin/deleteRoom/" method="post" target="_self">@csrf<input type="hidden" name="id" value="'+val['id']+'"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
 											+'</div>'
 											+'</a>'
 											+'</div>');
 									};
 								});
 								$('.list_ruangan').append(
-									'<form action="/AdminXmeetingYroomZ/tambahRoom/'+buildingID+'/'+floorpick+'" method="get" target="_self">'+'<button type="submit" class="btn btn-primary"> Tambah Disini</button></form>'
+									'<form action="/admin/tambahRoom/'+buildingID+'/'+floorpick+'" method="get" target="_self">'+'<button type="submit" class="btn btn-primary"> Tambah Disini</button></form>'
 									);
 							}
 

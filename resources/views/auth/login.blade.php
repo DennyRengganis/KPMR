@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ '/adminXmeetingYroomZlogin'}}">
+                    <form method="POST" action="{{ '/admin/login'}}">
                         @csrf
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">

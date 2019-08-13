@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/adminXmeetingYroomZhome';
+    protected $redirectTo = '/admin/home';
     /**
      * Create a new controller instance.
      *
@@ -48,6 +48,6 @@ class LoginController extends Controller
     }
 
     public function loggedOut(Request $request) {
-      return redirect('/adminXmeetingYroomZlogin');
+      return redirect('/admin/login');
     }
 }

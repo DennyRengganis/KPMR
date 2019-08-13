@@ -32,7 +32,7 @@ class BuildingController extends Controller
             $input->jumlah_lantai=$data['jumlah_lantai'];
             $input->save();
 
-            return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Menambah Gedung");
+            return redirect('/admin/building')->withSuccess("Berhasil Menambah Gedung");
         }
         else return redirect('/');
     }
@@ -58,7 +58,7 @@ class BuildingController extends Controller
           $input->jumlah_lantai=$data['jumlah_lantai'];
           $input->save();
 
-          return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Mengubah Gedung");  
+          return redirect('/admin/building')->withSuccess("Berhasil Mengubah Gedung");  
         }
         else return redirect('/');
     }
@@ -69,7 +69,7 @@ class BuildingController extends Controller
           if ($buildings != null){
                $buildings->delete();
           }       
-          return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Menghapus Gedung");  
+          return redirect('/admin/building')->withSuccess("Berhasil Menghapus Gedung");  
         }
         else return redirect('/');
     }

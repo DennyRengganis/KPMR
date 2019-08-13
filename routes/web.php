@@ -48,39 +48,39 @@ Route::post('/confirm_cancel','DetailBookingController@cancel');
 
 //Auth::routes();
 //Admin only
-Route::get('/adminXmeetingYroomZlogin', 'Auth\LoginController@showLoginForm');
-Route::post('/adminXmeetingYroomZlogin', 'Auth\LoginController@login');
-Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
+Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
+Route::post('/admin/login', 'Auth\LoginController@login');
+Route::post('/admin/logout', 'Auth\LoginController@logout');
 
 
-//Route::get('/adminXmeetingYroomZhome', 'Auth\HomeController@index');
+//Route::get('/admin/home', 'Auth\HomeController@index');
 
-//Route::get('/AdminXmeetingYroomZhome', 'Auth\HomeController@index');
+//Route::get('/Admin/home', 'Auth\HomeController@index');
 
 //AdminRouting
-Route::get('/adminXmeetingYroomZbuilding', 'AdminFormController@viewall');
-Route::get('/adminXmeetingYroomZhome', 'AdminFormController@adminhome');
-Route::get('/adminXmeetingYroomZtime','AdminFormController@admintime');
-Route::get('/adminXmeetingYroomZsuperuser','AdminFormController@adminuser');
+Route::get('/admin/building', 'AdminFormController@viewall');
+Route::get('/admin/home', 'AdminFormController@adminhome');
+Route::get('/admin/time','AdminFormController@admintime');
+Route::get('/admin/superuser','AdminFormController@adminuser');
 
 
 //AdminRuangan
-Route::get('/AdminXmeetingYroomZ/editRoom/{id}','RoomController@updatepick');
-Route::get('/AdminXmeetingYroomZ/tambahRoom/{id_gedung}/{lantai}','RoomController@createhere');
-Route::get('/AdminXmeetingYroomZ/createRoom','RoomController@create');
-Route::post('/AdminXmeetingYroomZ/updateRoom','RoomController@update');
-Route::post('/AdminXmeetingYroomZ/deleteRoom','RoomController@delete');
-Route::post('/AdminXmeetingYroomZ/saveRoom','RoomController@store');
+Route::get('/admin/editRoom/{id}','RoomController@updatepick');
+Route::get('/admin/tambahRoom/{id_gedung}/{lantai}','RoomController@createhere');
+Route::get('/admin/createRoom','RoomController@create');
+Route::post('/admin/updateRoom','RoomController@update');
+Route::post('/admin/deleteRoom','RoomController@delete');
+Route::post('/admin/saveRoom','RoomController@store');
 
 //AdminGedung
-Route::get('/AdminXmeetingYroomZ/editGedung','BuildingController@updatepick');
-Route::get('/AdminXmeetingYroomZ/createGedung','BuildingController@create');
-Route::post('/AdminXmeetingYroomZ/updateGedung','BuildingController@update');
-Route::post('/AdminXmeetingYroomZ/deleteGedung/','BuildingController@delete');
-Route::post('/AdminXmeetingYroomZ/saveGedung','BuildingController@store');
+Route::get('/admin/editGedung','BuildingController@updatepick');
+Route::get('/admin/createGedung','BuildingController@create');
+Route::post('/admin/updateGedung','BuildingController@update');
+Route::post('/admin/deleteGedung/','BuildingController@delete');
+Route::post('/admin/saveGedung','BuildingController@store');
 
-Route::post('/AdminXmeetingYroomZ/updateTime','MasterTimeController@update');
+Route::post('/admin/updateTime','MasterTimeController@update');
 
-Route::post('/AdminXmeetingYroomZ/deleteBookList','BooklistController@delete');
+Route::post('/admin/deleteBookList','BooklistController@delete');
 
-Route::post('/AdminXmeetingYroomZ/addUser','AdminController@store');
+Route::post('/admin/addUser','AdminController@store');

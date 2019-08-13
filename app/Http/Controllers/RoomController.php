@@ -44,7 +44,7 @@ class RoomController extends Controller
             $input->status_now="FREE";
             $input->save();
 
-            return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Menambah Ruangan");
+            return redirect('/admin/building')->withSuccess("Berhasil Menambah Ruangan");
         }
         else return redirect('/');
     }
@@ -74,7 +74,7 @@ class RoomController extends Controller
             $input->lantai=$data['floor'];
             $input->save();
 
-            return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Mengubah Ruangan");
+            return redirect('/admin/building')->withSuccess("Berhasil Mengubah Ruangan");
         }
         else return redirect('/');
     }

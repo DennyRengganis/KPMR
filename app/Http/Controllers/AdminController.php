@@ -14,7 +14,7 @@ class AdminController extends Controller
             $list = User::all()->sortBy('id');  
             return view('',compact('list'));
         }
-        else return redirect('/adminXmeetingYroomZhome');
+        else return redirect('/admin/home');
     }
     public function create(){
         return view('');
@@ -34,7 +34,7 @@ class AdminController extends Controller
 
             return back()->withSuccess("Berhasil Menambah Akun");
         }
-        else return redirect('/adminXmeetingYroomZhome');
+        else return redirect('/admin/home');
     }
     public function updatepick($id){
         if(Auth::user()->status=="admin"){
@@ -44,7 +44,7 @@ class AdminController extends Controller
             }
             else return back();
         }
-        else return redirect('/adminXmeetingYroomZhome');
+        else return redirect('/admin/home');
     }
 
     public function update(Request $request){
@@ -62,7 +62,7 @@ class AdminController extends Controller
 
             return back()->withSuccess("Berhasil Mengubah Akun");
         }
-        else return redirect('/adminXmeetingYroomZhome');
+        else return redirect('/admin/home');
     }
 
     public function delete(Request $request){
@@ -73,6 +73,6 @@ class AdminController extends Controller
            }       
            return back()->withSuccess("Berhasil Menghapus Akun"); 
         }
-        else return redirect('/adminXmeetingYroomZhome');
+        else return redirect('/admin/home');
     }
 }
