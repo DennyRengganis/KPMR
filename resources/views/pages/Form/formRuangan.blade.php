@@ -16,37 +16,19 @@
   </div>
 </div>
 
-<div class="">
-  <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-
-@if (Session::has('input'))
-<div class="book-popup-w book-popup-s" id="notif">
-      @php
-        $notice= Session::get('input'); 
-      @endphp
-      <b>Confirmation PIN</b>
-      <br>
-      <br>
-      Thank you <b>{{$notice->nama}}!</b> Your Reservartion is confirmed.<br>
-      Please check your e-mail and Save this Details for check-in in tablet:
-      <br>
-      <br>
-      Booking ID : {{$notice->id}}<br>
-      PIN : <b>{{$notice->PIN}}</b><br>
-      <div class="row">
-        <div class="col-s-9 col-w-9"></div>
-        <div class="col-w-3 col-s-3">
-          <button type="button" class="btn btn-primary" onclick="closeForm()">Ok</button>
-        </div>
-      </div>
-</div>
+@if(isset($gedungcreate))
+@php
+  $actionstring="/AdminXmeetingYroomZ/saveRoom";
+@endphp
+@elseif(isset($buildings))
+  @php
+  $actionstring="/AdminXmeetingYroomZ/saveRoom";
+  @endphp
+@elseif(isset($rooms))
+  @php
+  $actionstring="/AdminXmeetingYroomZ/updateRoom";
+  @endphp
 @endif
-
 
 <div class="bodybr">
   <form action="/bookroom" method="post">
@@ -82,19 +64,14 @@
     Building :
       <br>
       <select name="building">
+        @if(isset($rooms))
+        <option value="{{$rooms->id_gedung}}">{{$rooms->building_nama}}</option>
+        @elseif(isset($buildings))
+        <option value="{{$buildings->id}}">{{$buldings->nama_gedung}}</option>
+        @elseif(isset($gedungcreate))
         <option value="0">-Building-</option>
-        @if(@isset($pickedbuilding))
-        @foreach($gedung as $gd)
-        @if($gd->id===$pickedbuilding->id)
-        <option value="{{$gd->id}}" selected="selected">{{$gd->nama_gedung}}</option>
-        @else
-        <option value="{{$gd->id}}">{{$gd->nama_gedung}}</option>
-        @endif
-        @endforeach
-        @else
-        @foreach($gedung as $gd)
-        <option value="{{$gd->id}}">{{$gd->nama_gedung}}</option>
-        @endforeach
+        @foreach($gedungcreate as $gedung)
+        <option value="{{$gedung->id}}">{{$gedung->nama_gedung}}</option>
         @endif
       </select>
    </div>
@@ -102,21 +79,19 @@
          Floor: 
       <br>
       <select name="floor">
-        <option value="0">--</option>
-        @if(@isset($pickedroom))
-        @for($i=1;$i<=$pickedbuilding->jumlah_lantai;$i++)
-        @if($i==$pickedfloor)
-        <option value="{{$i}}" selected="selected">{{$i}}</option>
-        @else
-        <option value="{{$i}}">{{$i}}</option>
+        @if(isset($rooms))
+        <option value="{{$rooms->lantai}}">{{$rooms->lantai}}</option>
+        @elseif(isset($lantai))
+        <option value="{{$lantai}}">{{$lantai}}</option>
+        @elseif(isset($gedungcreate))
+        <option value="0">-Building-</option>
         @endif
-        @endfor
-        @endif
+        
       </select>
    </div>
    <div class="col-w-3 col-s-3 left">
-      Nomor Ruangan :
-     <input type="text" name="nomorruang" value="">
+      Nama Ruangan :
+     <input type="text" name="nama_ruangan" value="">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
@@ -233,7 +208,7 @@
   });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function() {
     $('select[name="floor"]').on('change', function() {
       floorpick = $(this).val();
@@ -301,4 +276,4 @@
     });
   });    
 
-</script>
+</script> -->

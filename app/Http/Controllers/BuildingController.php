@@ -32,7 +32,7 @@ class BuildingController extends Controller
             $input->jumlah_lantai=$data['jumlah_lantai'];
             $input->save();
 
-            return redirect('/AdminXmeetingYroomZhome');
+            return redirect('/adminXmeetingYroomZhome');
         }
         else return redirect('/');
     }
@@ -58,7 +58,7 @@ class BuildingController extends Controller
           $input->jumlah_lantai=$data['jumlah_lantai'];
           $input->save();
 
-          return redirect('/AdminXmeetingYroomZhome');  
+          return redirect('/adminXmeetingYroomZhome');  
         }
         else return redirect('/');
     }
