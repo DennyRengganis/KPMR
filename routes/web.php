@@ -61,7 +61,7 @@ Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 Route::get('/adminXmeetingYroomZbuilding', 'AdminFormController@viewall');
 Route::get('/adminXmeetingYroomZhome', 'AdminFormController@adminhome');
 Route::get('/adminXmeetingYroomZtime','AdminFormController@admintime');
-Route::get('/adminXmeetingYroomZsuperuser','AdminFormController@admunuser');
+Route::get('/adminXmeetingYroomZsuperuser','AdminFormController@adminuser');
 
 
 //AdminRuangan

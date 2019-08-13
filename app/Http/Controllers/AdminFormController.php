@@ -8,6 +8,7 @@ use App\booklist;
 use App\room;
 use App\building;
 use App\mastertime;
+use App\User;
 use Auth;
 
 class AdminFormController extends Controller

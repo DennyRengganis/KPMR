@@ -55,7 +55,7 @@
 								{{$booklist->room_nama}}
 							</td>
 							<td>
-								{{$booklist->gedung_nama}}
+								{{$booklist->building_nama}}
 							</td>
 							<td>
 								{{$booklist->waktu_Pinjam_Mulai}}
@@ -64,16 +64,19 @@
 								{{$booklist->waktu_Pinjam_Selesai}}
 							</td>
 							<td>
+								Status: {{$booklist->status}}<br>
 								Nama : {{$booklist->nama}}<br>
 								NPK : {{$booklist->NPK}}<br>
 								purpose : {{$booklist->keperluan}}
 							</td>
 							<td>
+								@if($booklist->status=="DONE" OR $booklist->status=="CANCELLED")
 								<form action="/AdminXmeetingYroomZ/deleteBookList" method="POST">
 									@csrf
 									<input type="hidden" name="id" value="{{$booklist->id}}">
 								<button class="btn btn-primary" type="submit">Delete</button>
 								</form>
+								@endif
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
 								<form action="/confirm_cancel" class="form-container" method="POST">
