@@ -8,11 +8,17 @@
 @endsection
 @section('content')
 <div class="row">
-	<div class="col-w-10">
+	<div class="col-w-9">
 		<h1>ADMIN PAGE</h1>
 	</div>
 	<div class="col-w-2">
 		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Edit User</button>
+	</div>
+	<div class="col-w-1">
+		<form action="/adminXmeetingYroomZlogout" method="POST">
+		@csrf
+		<button class="btn btn-primary" type="submit"> logout</button>
+	</form>
 	</div>
 </div>
 <div class="row">
