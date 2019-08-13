@@ -84,3 +84,4 @@ Route::post('/AdminXmeetingYroomZ/saveGedung','BuildingController@store');
 Route::post('/AdminXmeetingYroomZ/updateTime','MasterTimeController@update');
 
 Route::post('/AdminXmeetingYroomZ/deleteBookList','BooklistController@delete');
+

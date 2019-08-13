@@ -7,7 +7,14 @@
 <link rel="stylesheet" type="text/css" href="/css/detailroom.css">
 @endsection
 @section('content')
-<h1>Admin Page</h1>
+<div class="row">
+	<div class="col-w-10">
+		<h1>ADMIN PAGE</h1>
+	</div>
+	<div class="col-w-2">
+		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Edit User</button>
+	</div>
+</div>
 <div class="row">
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZhome'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZbuilding'">Building and Room</button> 
