@@ -54,7 +54,7 @@
 								purpose : {{$booklist->keperluan}}
 							</td>
 							<td>
-								<button class="btn btn-primary">Delete</button>
+								<button class="btn btn-primary" onclick="">Delete</button>
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
 								<form action="/confirm_cancel" class="form-container" method="POST">
