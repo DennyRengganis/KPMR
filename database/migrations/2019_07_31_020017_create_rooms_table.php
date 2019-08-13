@@ -48,7 +48,7 @@ class CreateRoomsTable extends Migration
             $table->unsignedBigInteger('id_gedung');
             $table->string('lantai');
             $table->string('status_now');
-            $table->foreign('id_gedung')->references('id')->on('buildings');
+            $table->foreign('id_gedung')->references('id')->on('buildings')->onDelete('cascade');
             //$table->timestamps();
         });
         Schema::create('booklists', function (Blueprint $table) {
@@ -63,7 +63,7 @@ class CreateRoomsTable extends Migration
             $table->datetime('waktu_Pinjam_Timeout');
             $table->string('keperluan');
             $table->string('status');
-            $table->foreign('id_Ruangan')->references('id')->on('rooms');
+            $table->foreign('id_Ruangan')->references('id')->on('rooms')->onDelete('cascade');
             //$table->timestamps();
         });
     }
