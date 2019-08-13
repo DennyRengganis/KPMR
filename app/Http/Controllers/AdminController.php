@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 class AdminController extends Controller
 {
@@ -26,7 +27,7 @@ class AdminController extends Controller
                 'password'=>'required',
                 'status'=>'required',
                 ]);
-            $input->username=$data['nama_gedung'];
+            $input->username=$data['username'];
             $input->password=Hash::make($data['password']);
             $input->status=$data['status'];
             $input->save();

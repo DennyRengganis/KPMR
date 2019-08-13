@@ -13,7 +13,7 @@
 	</div>
 	@if(Auth::user()->status=="admin")
 	<div class="col-w-2">
-		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Edit User</button>
+		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Add User</button>
 	</div>
 	@endif
 		<div class="col-w-1">
