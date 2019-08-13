@@ -11,10 +11,15 @@
 <div class="header">
   <div class="row">
     <div class="col-s-12 col-w-12">
-      <h1>Booking form</h1>
+      <h1>Room form</h1>
     </div>
   </div>
 </div>
+
+@if(session('success'))
+{{session('success')}}
+@endif
+
 
 @if(isset($gedungcreate))
 @php

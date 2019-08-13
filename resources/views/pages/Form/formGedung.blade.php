@@ -16,13 +16,9 @@
   </div>
 </div>
 
-<div class="">
-  <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+@if(session('success'))
+{{session('success')}}
+@endif
 
 @if(isset($buildings))
 @php
@@ -77,7 +73,7 @@
      Jumlah Lantai :
      <br>
      @if(isset($buildings))
-     <input type="text" name="jumlah_lantai" value="{{$buildings->junmlah_lantai}}">
+     <input type="text" name="jumlah_lantai" value="{{$buildings->jumlah_lantai}}">
      @else
      <input type="text" name="jumlah_lantai" value="">
      @endif

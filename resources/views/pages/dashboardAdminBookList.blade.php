@@ -32,38 +32,39 @@
 					</thead>
 					<tbody style="text-align: center;height: 200px; overflow-y:scroll;">
 						<tr>
+							@foreach($booklists as $booklist)
 							<td>
-								1
+								{{$booklist->id}}
 							</td>
 							<td>
-								401
+								{{$booklist->room_nama}}
 							</td>
 							<td>
-								ACCF
+								{{$booklist->gedung_nama}}
 							</td>
 							<td>
-								2019-08-12 09:30:00
+								{{$booklist->waktu_Pinjam_Mulai}}
 							</td>
 							<td>
-								2019-08-12 10:30:00
+								{{$booklist->waktu_Pinjam_Selesai}}
 							</td>
 							<td>
-								Nama : Denny<br>
-								NPK : 14045<br>
-								purpose : rapat
+								Nama : {{$booklist->nama}}<br>
+								NPK : {{$booklist->NPK}}<br>
+								purpose : {{$booklist->keperluan}}
 							</td>
 							<td>
 								<button class="btn btn-primary">Delete</button>
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
-								<form action="/confirm_checkin" class="form-container" method="POST">
+								<form action="/confirm_cancel" class="form-container" method="POST">
 								@csrf
 								<h1 style="color: black;">Insert your confirmation pin</h1>
 								<input type="text" name="pin1" maxlength="1" />
 								<input type="text" name="pin2" maxlength="1" />
 								<input type="text" name="pin3" maxlength="1" />
 								<input type="text" name="pin4" maxlength="1" />
-								<input type="hidden" name="id" value="">
+								<input type="hidden" name="id" value="{{$booklist->id}}">
 								<div class="row" style="margin-top: 5%">
 									<div class="col-s-4"></div>
 									<div class="col-s-4 center">
@@ -76,6 +77,7 @@
 							</form>
 						</div>
 							</td>
+							@endforeach
 						</tr>
 					</tbody>
 				</table>
