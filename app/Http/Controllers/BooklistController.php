@@ -24,14 +24,9 @@ class BooklistController extends Controller
    public function delete(Request $request){
         if(Auth::check()){
             $bookList = booklist::where('id',$request['id'])->first();
-            $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
+            //$pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
             if ($bookList != null){
-                if($bookList->PIN==$pin){
                  $bookList->delete();
-                }
-                else{
-                    return back()->withErrors('PIN Salah');
-                }
             } 
             return back()->withSuccess("Berhasil Menghapus Booklist");
         }
