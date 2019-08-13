@@ -83,4 +83,4 @@ Route::post('/AdminXmeetingYroomZ/updateTime','MasterTimeController@update');
 
 Route::post('/AdminXmeetingYroomZ/deleteBookList','BooklistController@delete');
 
-Route::post('/AdminXmeetingYroomZ/addUser','AdminController@store')''
+Route::post('/AdminXmeetingYroomZ/addUser','AdminController@store');
