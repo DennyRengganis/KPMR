@@ -16,7 +16,7 @@ class AdminFormController extends Controller
         //$ruangan = room::all()->sortBy('id');
   		if(Auth::check()){
   			$gedung = building::all()->sortBy('id');
-        return view('pages.dashboardAdminBuildingRoom',compact('gedung'));
+            return view('pages.dashboardAdminBuildingRoom',compact('gedung'));
 
   		}
         else return redirect('/');
@@ -30,6 +30,7 @@ class AdminFormController extends Controller
                         ->get(); 
     		return view('pages.dashboardAdminBookList',compact('booklists'));
     	}
+        else return redirect('/');
     }
 
     public function admintime(){
@@ -37,6 +38,7 @@ class AdminFormController extends Controller
     		$mastertime = mastertime::all()->sortBy('id');  
         	return view('pages.Form.formTime',compact('mastertime'));
     	}
+        else return redirect('/');
     }
 
     public function adminuser(){
