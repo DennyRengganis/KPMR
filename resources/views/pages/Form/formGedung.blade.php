@@ -16,9 +16,13 @@
   </div>
 </div>
 
-@if(session('success'))
-{{session('success')}}
-@endif
+<div class="">
+  <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 
 @if(isset($buildings))
 @php
@@ -73,7 +77,7 @@
      Jumlah Lantai :
      <br>
      @if(isset($buildings))
-     <input type="text" name="jumlah_lantai" value="{{$buildings->jumlah_lantai}}">
+     <input type="text" name="jumlah_lantai" value="{{$buildings->junmlah_lantai}}">
      @else
      <input type="text" name="jumlah_lantai" value="">
      @endif
@@ -106,11 +110,12 @@
     <div class="col-w-1 col-s-1"></div>
   </div>
   <div class="row">
-    <div class="col-w-6 col-s-6"></div>
+    <div class="col-w-1 col-s-1"></div>
+    <button type="button" onclick="window.location.href = '/adminXmeetingYroomZhome'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
+    <div class="col-w-3 col-s-3"></div>
     @if(isset($buildings))
     <button type="button" onclick="window.location.href = '/AdminXmeetingYroomZ/deleteGedung/{{$buildings->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
     @endif
-    <button type="button" onclick="window.location.href = '/adminXmeetingYroomZhome'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
     <div class="col-w-1 col-s-1"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Tambah/Update</button>
     <div class="col-w-1 col-s-1"></div>
