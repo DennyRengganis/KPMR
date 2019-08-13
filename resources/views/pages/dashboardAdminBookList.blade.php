@@ -11,7 +11,7 @@
 <div class="row">
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZhome'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZbuilding'">Building and Room</button> 
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'google.com'">Masterize time</button>  
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'adminXmeetingYroomZtime'">Masterize time</button>  
 </div>
 <div class="row">
 	<div class="col-w-1"></div>
@@ -54,7 +54,10 @@
 								purpose : {{$booklist->keperluan}}
 							</td>
 							<td>
-								<button class="btn btn-primary">Delete</button>
+								<form action="/AdminXmeetingYroomZ/deleteBookList" method="POST">
+									<input type="hidden" name="id" value="{{$booklist->id}}">
+								<button class="btn btn-primary" type="submit">Delete</button>
+								</form>
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
 								<form action="/confirm_cancel" class="form-container" method="POST">

@@ -67,7 +67,7 @@
      Nama Gedung:
      <br>
      @if(isset($buildings))
-     <input type="hidden" name="id_gedung" value="{{$buildings->id}}">
+     <input type="hidden" name="id" value="{{$buildings->id}}">
      <input type="text" name="nama_gedung" value="{{$buildings->nama_gedung}}">
      @else
      <input type="text" name="nama_gedung" value="">
@@ -114,7 +114,7 @@
     <button type="button" onclick="window.location.href = '/adminXmeetingYroomZhome'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
     <div class="col-w-3 col-s-3"></div>
     @if(isset($buildings))
-    <button type="button" onclick="window.location.href = '/AdminXmeetingYroomZ/deleteGedung/{{$buildings->id}}'" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
+    <button type="button" onclick="window.location.href = '/AdminXmeetingYroomZ/deleteGedung/'" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
     @endif
     <div class="col-w-1 col-s-1"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Tambah/Update</button>

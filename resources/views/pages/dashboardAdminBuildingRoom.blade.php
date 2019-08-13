@@ -142,7 +142,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Booking</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/''" method="post" target="_self"><button type="submit" class="btn btn-danger"><input type="hidden" name="id" value="'+val['id']+'">Delete Room</button></form>'
 											+'BOOK NOW'
 											+'</div>'
 											+'</a>'
@@ -163,7 +163,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Edit Room</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/''" method="post" target="_self"><button type="submit" class="btn btn-danger"><input type="hidden" name="id" value="'+val['id']+'">Delete Room</button></form>'
 											+'</div>'
 											+'</a>'
 											+'</div>');
@@ -182,7 +182,7 @@
 											+'<br>'
 											+val['status_now']
 											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
+											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/''" method="post" target="_self"><button type="submit" class="btn btn-danger"><input type="hidden" name="id" value="'+val['id']+'">Delete Room</button></form>'
 											+'</div>'
 											+'</a>'
 											+'</div>');
