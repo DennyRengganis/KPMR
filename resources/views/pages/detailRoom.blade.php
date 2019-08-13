@@ -350,7 +350,7 @@ var x = setInterval(function() {
 <script>
 
 // Set the date we're counting down to
-var countDownDatew = new Date("{{$detail['0']->waktu_Pinjam_Mulai}}").getTime()+600000;
+var countDownDatew = new Date("{{$detail['0']->waktu_Pinjam_Timeout}}").getTime();
 
 // Update the count down every 1 second
 var xw = setInterval(function() {

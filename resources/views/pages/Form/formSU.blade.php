@@ -1,3 +1,11 @@
+@extends('layouts.default')
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" charset="UTF-8"></script>
+@section('css')
+<link rel="stylesheet" type="text/css" href="/css/open-iconic-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/size.css">
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap3.css"> -->
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-datetimepicker.css">
 @endsection
 @section('content')
 <div class="header">
