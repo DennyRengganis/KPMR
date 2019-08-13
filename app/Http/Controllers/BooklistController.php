@@ -33,7 +33,7 @@ class BooklistController extends Controller
                     return back()->withErrors('PIN Salah');
                 }
             } 
-            return back();
+            return back()->withSuccess("Berhasil Menghapus Booklist");
         }
         else return redirect('/');
     }

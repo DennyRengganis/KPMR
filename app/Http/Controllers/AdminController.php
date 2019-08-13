@@ -9,53 +9,68 @@ class AdminController extends Controller
 {
     //
     public function view(){
-        $list = User::all()->sortBy('id');  
-        return view('',compact('list'));
+        if(Auth::user()->status=="admin"){
+            $list = User::all()->sortBy('id');  
+            return view('',compact('list'));
+        }
+        else return redirect('/');
     }
     public function create(){
         return view('');
     }
     public function store(Request $request){
-        $input = new User();
-        $data = $this->validate($request, [
-            'username'=>'required',
-            'password'=>'required',
-            ]);
-        $input->username=$data['nama_gedung'];
-        $input->password=Hash::make($data['password']);
-        $input->status='temp';
-        $input->save();
+        if(Auth::user()->status=="admin"){
+            $input = new User();
+            $data = $this->validate($request, [
+                'username'=>'required',
+                'password'=>'required',
+                ]);
+            $input->username=$data['nama_gedung'];
+            $input->password=Hash::make($data['password']);
+            $input->status='temp';
+            $input->save();
 
-        return back();
+            return back()->withSuccess("Berhasil Menambah Akun");
+        }
+        else return redirect('/');
     }
     public function updatepick($id){
-        $users = User::where('id',$id)->first();
-        if ($users != null){
-            return view('',compact('users'));
+        if(Auth::user()->status=="admin"){
+            $users = User::where('id',$id)->first();
+            if ($users != null){
+                return view('',compact('users'));
+            }
+            else return back();
         }
-        else return back();
+        else return redirect('/');
     }
 
     public function update(Request $request){
-        $input = User::where('id',$request['id'])->first();
-        $data = $this->validate($request, [
-            'username'=>'required',
-            'password'=>'required',
-            'status'  =>'required',
-            ]);
-        $input->username=$data['nama_gedung'];
-        $input->password=Hash::make($data['password']);
-        $input->status=$data['status'];
-        $input->save();
+        if(Auth::user()->status=="admin"){
+            $input = User::where('id',$request['id'])->first();
+            $data = $this->validate($request, [
+                'username'=>'required',
+                'password'=>'required',
+                'status'  =>'required',
+                ]);
+            $input->username=$data['nama_gedung'];
+            $input->password=Hash::make($data['password']);
+            $input->status=$data['status'];
+            $input->save();
 
-        return back();
+            return back()->withSuccess("Berhasil Mengubah Akun");
+        }
+        else return redirect('/');
     }
 
     public function delete(Request $request){
-        $users = User::where('id',$request['id'])->first();
-        if ($users != null){
-             $users->delete();
-        }       
-        return back();
+        if(Auth::user()->status=="admin"){
+           $users = User::where('id',$request['id'])->first();
+           if ($users != null){
+                $users->delete();
+           }       
+           return back()->withSuccess("Berhasil Menghapus Akun"); 
+        }
+        else return redirect('/');
     }
 }

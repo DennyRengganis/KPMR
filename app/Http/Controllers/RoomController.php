@@ -44,7 +44,7 @@ class RoomController extends Controller
             $input->status_now="FREE";
             $input->save();
 
-            return redirect('/adminXmeetingYroomZhome');
+            return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Menambah Ruangan");
         }
         else return redirect('/');
     }
@@ -76,7 +76,7 @@ class RoomController extends Controller
             $input->status_now=$data['status_now'];
             $input->save();
 
-            return redirect('/adminXmeetingYroomZhome');
+            return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Mengubah Ruangan");
         }
         else return redirect('/');
     }
@@ -87,7 +87,7 @@ class RoomController extends Controller
         if ($rooms != null){
              $rooms->delete();
         } 
-        return back(); 
+        return back()->withSuccess("Berhasil Menghapus Ruangan"); 
         }
         else return redirect('/');
     }
