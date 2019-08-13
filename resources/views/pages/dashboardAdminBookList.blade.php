@@ -11,10 +11,12 @@
 	<div class="col-w-9">
 		<h1>ADMIN PAGE</h1>
 	</div>
+	@if(Auth::user()-status=="admin")
 	<div class="col-w-2">
 		<button class="btn btn-primary" onclick="window.location.href = 'adminXmeetingYroomZsuperuser'"> Edit User</button>
 	</div>
-	<div class="col-w-1">
+	@endif
+		<div class="col-w-1">
 		<form action="/adminXmeetingYroomZlogout" method="POST">
 		@csrf
 		<button class="btn btn-primary" type="submit"> logout</button>

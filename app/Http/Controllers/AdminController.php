@@ -13,7 +13,7 @@ class AdminController extends Controller
             $list = User::all()->sortBy('id');  
             return view('',compact('list'));
         }
-        else return redirect('/');
+        else return redirect('/adminXmeetingYroomZhome');
     }
     public function create(){
         return view('');
@@ -24,15 +24,16 @@ class AdminController extends Controller
             $data = $this->validate($request, [
                 'username'=>'required',
                 'password'=>'required',
+                'status'=>'required',
                 ]);
             $input->username=$data['nama_gedung'];
             $input->password=Hash::make($data['password']);
-            $input->status='temp';
+            $input->status=$data['status'];
             $input->save();
 
             return back()->withSuccess("Berhasil Menambah Akun");
         }
-        else return redirect('/');
+        else return redirect('/adminXmeetingYroomZhome');
     }
     public function updatepick($id){
         if(Auth::user()->status=="admin"){
@@ -42,7 +43,7 @@ class AdminController extends Controller
             }
             else return back();
         }
-        else return redirect('/');
+        else return redirect('/adminXmeetingYroomZhome');
     }
 
     public function update(Request $request){
@@ -60,7 +61,7 @@ class AdminController extends Controller
 
             return back()->withSuccess("Berhasil Mengubah Akun");
         }
-        else return redirect('/');
+        else return redirect('/adminXmeetingYroomZhome');
     }
 
     public function delete(Request $request){
@@ -71,6 +72,6 @@ class AdminController extends Controller
            }       
            return back()->withSuccess("Berhasil Menghapus Akun"); 
         }
-        else return redirect('/');
+        else return redirect('/adminXmeetingYroomZhome');
     }
 }
