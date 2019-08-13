@@ -92,58 +92,6 @@
 								}
 								// console.log("data1:");
 								// console.log(data[1]);
-								$.each(data[1],function(key,val){
-									console.log(val);
-									if(val['status_now']=="FREE"){
-										//console.log("masuk free");
-										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
-											+'<div class="buttonlike free">'
-											+val['id']
-											+'<br>'
-											+val['nama_ruangan']
-											+'<br>'
-											+val['status_now']
-											+'<br>'
-											+'<form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">Edit Room</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
-											+'BOOK NOW'
-											+'</div>'
-											+'</div>');
-									};
-
-									if(val['status_now']=="BOOKED"){
-										//console.log("masuk booked");
-										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
-											+'<div class="buttonlike booked">'
-											+val['id']
-											+'<br>'
-											+val['nama_ruangan']
-											+'<br>'
-											+val['status_now']
-											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">Edit Room</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
-											+'</div>'
-											
-											+'</div>');
-									};
-
-									if(val['status_now']=="WAITING"){
-										//console.log("masuk wait");
-										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
-											+'<div class="buttonlike waiting">'
-											+val['id']
-											+'<br>'
-											+val['nama_ruangan']
-											+'<br>'
-											+val['status_now']
-											+'<br>'
-											+'<br><form action="/AdminXmeetingYroomZ/editRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-primary">Edit Room</button></form><form action="/AdminXmeetingYroomZ/deleteRoom/'+val['id']+'" method="get" target="_self"><button type="submit" class="btn btn-danger">Delete Room</button></form>'
-											+'</div>'
-											+'</div>');
-									};
-								});
-								$('.list_ruangan').append(
-									'<form action="/AdminXmeetingYroomZ/nambahRuangan/'+buildingID+'/0'+'" method="get" target="_self">'+'<button type="submit" class="btn btn-primary"> Tambah Disini</button></form>'
-									);
 							}							
 						});
 					}else{
@@ -242,7 +190,7 @@
 									};
 								});
 								$('.list_ruangan').append(
-									'<form action="/AdminXmeetingYroomZ/nambahRuangan/'+buildingID+'/'+floorpick+'" method="get" target="_self">'+'<button type="submit" class="btn btn-primary"> Tambah Disini</button></form>'
+									'<form action="/AdminXmeetingYroomZ/tambahRoom/'+buildingID+'/'+floorpick+'" method="get" target="_self">'+'<button type="submit" class="btn btn-primary"> Tambah Disini</button></form>'
 									);
 							}
 

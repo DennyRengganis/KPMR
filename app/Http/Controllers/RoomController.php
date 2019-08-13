@@ -25,7 +25,7 @@ class RoomController extends Controller
     }
     public function createhere($id_building,$lantai){
         if(Auth::check()){
-            $buildings = building::where('id',$id)->first();
+            $buildings = building::where('id',$id_building)->first();
             return view('pages.Form.formRuangan',compact('buildings','lantai'));
         }
         else return redirect('/');

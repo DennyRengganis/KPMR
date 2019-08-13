@@ -36,9 +36,9 @@ class BuildingController extends Controller
         }
         else return redirect('/');
     }
-    public function updatepick($gedung){
+    public function updatepick(Request $request){
         if(Auth::check()){
-            $buildings = building::where('id',$gedung)->first();
+            $buildings = building::where('id',$request['building'])->first();
             if ($buildings != null){
                 return view('pages.Form.formGedung',compact('buildings'));
             }
@@ -49,7 +49,7 @@ class BuildingController extends Controller
 
     public function update(Request $request){
         if(Auth::check()){
-          $input = building::where('id',$request['id'])->first();
+          $input = building::where('id',$request['id_gedung'])->first();
           $data = $this->validate($request, [
               'nama_gedung'=>'required',
               'jumlah_lantai'=>'required',

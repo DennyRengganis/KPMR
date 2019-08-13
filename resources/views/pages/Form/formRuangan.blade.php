@@ -67,11 +67,12 @@
         @if(isset($rooms))
         <option value="{{$rooms->id_gedung}}">{{$rooms->building_nama}}</option>
         @elseif(isset($buildings))
-        <option value="{{$buildings->id}}">{{$buldings->nama_gedung}}</option>
+        <option value="{{$buildings->id}}">{{$buildings->nama_gedung}}</option>
         @elseif(isset($gedungcreate))
         <option value="0">-Building-</option>
         @foreach($gedungcreate as $gedung)
         <option value="{{$gedung->id}}">{{$gedung->nama_gedung}}</option>
+        @endforeach
         @endif
       </select>
    </div>
