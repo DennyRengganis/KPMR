@@ -70,6 +70,7 @@
 							</td>
 							<td>
 								<form action="/AdminXmeetingYroomZ/deleteBookList" method="POST">
+									@csrf
 									<input type="hidden" name="id" value="{{$booklist->id}}">
 								<button class="btn btn-primary" type="submit">Delete</button>
 								</form>

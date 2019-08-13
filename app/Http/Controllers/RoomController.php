@@ -34,13 +34,13 @@ class RoomController extends Controller
         if(Auth::check()){
             $input = new room();
             $data = $this->validate($request, [
-                'nomor'=>'required',
-                'id_gedung'=>'required',
-                'lantai'=>'required',
+                'nama_ruangan'=>'required',
+                'building'=>'required',
+                'floor'=>'required',
                 ]);
-            $input->nomor=$data['nomor'];
-            $input->id_gedung=$data['id_gedung'];
-            $input->lantai=$data['lantai'];
+            $input->nama_ruangan=$data['nama_ruangan'];
+            $input->id_gedung=$data['building'];
+            $input->lantai=$data['floor'];
             $input->status_now="FREE";
             $input->save();
 
@@ -65,14 +65,13 @@ class RoomController extends Controller
         if(Auth::check()){
             $input = room::where('id',$request['id'])->first();
             $data = $this->validate($request, [
-                'nomor'=>'required',
-                'gedung'=>'required',
-                'lantai'=>'required',
+                'nama_ruangan'=>'required',
+                'building'=>'required',
+                'floor'=>'required',
                 ]);
-            $input->nomor=$data['nomor'];
-            $input->gedung=$data['gedung'];
-            $input->lantai=$data['lantai'];
-            $input->status_now=$data['status_now'];
+            $input->nama_ruangan=$data['nama_ruangan'];
+            $input->id_gedung=$data['building'];
+            $input->lantai=$data['floor'];
             $input->save();
 
             return redirect('/adminXmeetingYroomZbuilding')->withSuccess("Berhasil Mengubah Ruangan");

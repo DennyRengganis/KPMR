@@ -11,7 +11,7 @@ class MasterTimeController extends Controller
 
     public function update(Request $request){
         if(Auth::check()){
-          $input = mastertime::first();
+          $input = mmastertime::where('id',1)->first();
           $data = $this->validate($request, [
               'time'=>'required',
               ]);

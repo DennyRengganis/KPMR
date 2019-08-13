@@ -36,7 +36,7 @@
 @endif
 
 <div class="bodybr">
-  <form action="/bookroom" method="post">
+  <form action="{{$actionstring}}" method="post">
   @csrf
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
@@ -97,7 +97,10 @@
    </div>
    <div class="col-w-3 col-s-3 left">
       Nama Ruangan :
-     <input type="text" name="nama_ruangan" value="">
+      @if(isset($rooms))
+     <input type="text" name="nama_ruangan" value="{{$rooms->nama_ruangan}}">
+     <input type="hidden" name="id" value="{{$rooms->id}}">
+     @endif
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>

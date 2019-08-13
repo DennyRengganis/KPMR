@@ -17,7 +17,7 @@ class BookingFormController extends Controller
     //
 	public function BookRoom(BookingFormRequest $request){
 		
-		$interval = mastertime::first();
+		$interval = mastertime::where('id',1)->first();
 		// dd($interval);
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();
