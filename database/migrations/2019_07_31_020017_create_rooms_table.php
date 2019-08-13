@@ -14,6 +14,7 @@ class CreateRoomsTable extends Migration
     public function up()
     {
         Schema::create('mastertimes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->integer('masterMinute');
             //$table->timestamps();
         });

@@ -49,7 +49,7 @@ class BuildingController extends Controller
 
     public function update(Request $request){
         if(Auth::check()){
-          $input = building::where('id',$request['id_gedung'])->first();
+          $input = building::where('id',$request['id'])->first();
           $data = $this->validate($request, [
               'nama_gedung'=>'required',
               'jumlah_lantai'=>'required',

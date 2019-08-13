@@ -77,7 +77,7 @@
      Jumlah Lantai :
      <br>
      @if(isset($buildings))
-     <input type="text" name="jumlah_lantai" value="{{$buildings->junmlah_lantai}}">
+     <input type="text" name="jumlah_lantai" value="{{$buildings->jumlah_lantai}}">
      @else
      <input type="text" name="jumlah_lantai" value="">
      @endif
