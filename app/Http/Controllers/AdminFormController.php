@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\booklist;
 use App\room;
 use App\building;
+use App\mastertime;
 use Auth;
 
 class AdminFormController extends Controller
@@ -28,6 +29,13 @@ class AdminFormController extends Controller
                         ->select('booklists.*','rooms.nama_ruangan as room_nama','buildings.nama_gedung as building_nama','rooms.lantai as room_lantai')
                         ->get(); 
     		return view('pages.dashboardAdminBookList',compact('booklists'));
+    	}
+    }
+
+    public function admintime(){
+    	if(Auth::check()){
+    		$mastertime = mastertime::all()->sortBy('id');  
+        	return view('pages.Form.formTime',compact('mastertime'));
     	}
     }
 }

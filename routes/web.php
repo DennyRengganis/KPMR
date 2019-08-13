@@ -60,6 +60,7 @@ Route::post('/adminXmeetingYroomZlogout', 'Auth\LoginController@logout');
 //AdminRouting
 Route::get('/adminXmeetingYroomZbuilding', 'AdminFormController@viewall');
 Route::get('/adminXmeetingYroomZhome', 'AdminFormController@adminhome');
+Route::get('/adminXmeetingYroomZhtime','AdminFormController@admintime')
 Route::get('/nambahGedung', function () {
     return view('pages.Form.formGedung');
 });
