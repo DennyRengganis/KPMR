@@ -102,6 +102,10 @@
 							</td>
 						</tr>
 						@endforeach
+
+						Halaman : {{ $booklists->currentPage() }} <br/>
+						Jumlah Data : {{ $booklists->total() }} <br/>
+						Data Per Halaman : {{ $booklists->perPage() }} <br/>
 					</tbody>
 				</table>
 			</div>
