@@ -20,6 +20,19 @@ class CreateRoomsTable extends Migration
             $table->string('status');
             //$table->timestamps();
         });
+
+        Schema::create('config', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('booklists_timeout');
+            //$table->timestamps();
+        });
+        DB::table('Config')->insert(
+                array(
+                    'booklists_timeout' => 10,
+                )
+            );
+
+
         DB::table('admins')->insert(
                 array(
                     'username' => 'admin',

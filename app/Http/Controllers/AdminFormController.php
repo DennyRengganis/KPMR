@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\booklist;
 use App\room;
+use App\config;
 use App\building;
 use App\User;
 use Auth;
@@ -35,7 +36,8 @@ class AdminFormController extends Controller
 
     public function admintime(){
     	if(Auth::check()){
-    		$booklists_timeout = config('booklists_timeout');  
+            $config = mastertime::first();
+            $booklists_timeout = $config->booklists_timeout; 
         	return view('pages.Form.formTime',compact('booklists_timeout'));
     	}
         else return redirect('/');

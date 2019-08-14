@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\room;
 use App\booklist;
+use App\config;
 use App\building;
 use App\Http\Requests\BookingFormRequest;
 use Mail;
@@ -16,7 +17,9 @@ class BookingFormController extends Controller
     //
 	public function BookRoom(BookingFormRequest $request){
 		
-		$interval = config('booklists_timeout');
+
+        $config = mastertime::first();
+        $interval = $config->booklists_timeout;
 		// dd($interval);
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();
