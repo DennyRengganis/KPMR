@@ -76,7 +76,7 @@
 									<input type="hidden" name="id" value="{{$booklist->id}}">
 								<button class="btn btn-primary" type="submit">Delete</button>
 								</form>
-								@endif
+								@else
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
 								<form action="/confirm_cancel" class="form-container" method="POST">
@@ -97,6 +97,7 @@
 									</div>
 								</div>
 							</form>
+							@endif
 						</div>
 							</td>
 						</tr>
