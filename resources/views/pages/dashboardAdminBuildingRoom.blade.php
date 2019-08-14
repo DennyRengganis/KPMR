@@ -7,7 +7,11 @@
 @endsection
 @section('content')
 
-@if(Auth::user()->status=="admin")
+<div class="row">
+	<div class="col-w-9">
+		<h1>Manage Building and Room</h1>
+	</div>
+	@if(Auth::user()->status=="admin")
 	<div class="col-w-2">
 		<button class="btn btn-primary" onclick="window.location.href = 'superuser'"> Add User</button>
 	</div>
@@ -17,7 +21,8 @@
 		@csrf
 		<button class="btn btn-primary" type="submit"> logout</button>
 	</form>
-	<h1>Search Room</h1>
+	</div>
+</div>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'home'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'building'">Building and Room</button> 
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'time'">Masterize time</button>  
