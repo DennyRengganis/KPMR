@@ -76,8 +76,10 @@ Route::post('/admin/saveRoom','RoomController@store');
 Route::get('/admin/editGedung','BuildingController@updatepick');
 Route::get('/admin/createGedung','BuildingController@create');
 Route::post('/admin/updateGedung','BuildingController@update');
+Route::post('/admin/updateconfirmGedung','BuildingController@updateconfirm');
 Route::post('/admin/deleteGedung/','BuildingController@delete');
 Route::post('/admin/saveGedung','BuildingController@store');
+
 
 Route::post('/admin/updateTime','MasterTimeController@update');
 
