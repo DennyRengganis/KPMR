@@ -6,6 +6,17 @@
 <link rel="stylesheet" type="text/css" href="/css/page.css">
 @endsection
 @section('content')
+
+@if(Auth::user()->status=="admin")
+	<div class="col-w-2">
+		<button class="btn btn-primary" onclick="window.location.href = 'superuser'"> Add User</button>
+	</div>
+	@endif
+		<div class="col-w-1">
+		<form action="logout" method="POST">
+		@csrf
+		<button class="btn btn-primary" type="submit"> logout</button>
+	</form>
 	<h1>Search Room</h1>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'home'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'building'">Building and Room</button> 
