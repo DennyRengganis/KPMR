@@ -45,7 +45,7 @@
 							<th>Manage</th>
 						</tr>
 					</thead>
-					<tbody style="text-align: center;height: 200px; overflow-y:scroll;">
+					<tbody style="text-align: center;height: 200px;">
 						@foreach($booklists as $booklist)
 						<tr>
 							<td>
