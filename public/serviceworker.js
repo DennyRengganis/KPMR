@@ -1,5 +1,5 @@
 var CACHE_NAME = "pwa-v" + new Date().getTime();
-var filesToCache = [
+var urlsToCache = [
     './offline',
     './css/app.css',
     './js/app.js',
