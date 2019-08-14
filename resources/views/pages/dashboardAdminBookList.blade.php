@@ -32,7 +32,7 @@
 	<div class="col-w-1"></div>
 		<div class="col-w-10 center pageRoomFont" style="height: 90vh;" id="bookinglist">
 			<h1>BOOK LIST</h1>
-			<div class="row tableFixHead">
+			<div class="row tableBookHead">
 				<table class="table">
 					<thead style="text-align: center;background-color: grey;">
 						<tr>
@@ -45,7 +45,7 @@
 							<th>Manage</th>
 						</tr>
 					</thead>
-					<tbody style="text-align: center;height: 200px; overflow-y:scroll;">
+					<tbody style="text-align: center;height: 200px;">
 						@foreach($booklists as $booklist)
 						<tr>
 							<td>

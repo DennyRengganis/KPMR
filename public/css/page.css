@@ -255,3 +255,13 @@ tbody {
 select, option {
     max-width:150px;
 }
+
+.tableBookHead thead th { position: sticky; top: 0; }
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; height: 10vh; }
+th     { background:#eee; }
+
+.tableBookHead { border: 0.5px solid #000; border-left: 0.5px solid black; border-right: 0.5px solid black; }
+.tableBookHead th, td { border: 0.5px solid #000; border-top: 0.5 solid black; }
+.tableBookHead tbody tr:last-child td {  border-bottom: 0.5px solid black; border-right: 0.5px solid black; border-left: 0.5px solid black; border-top: 0.5px solid black; }
+.tableBookHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
