@@ -116,7 +116,8 @@ class BookingFormController extends Controller
 					'confirmationPIN' => $pinText]
 					, function ($message) use ($request)
 				{
-					$message->subject("BookingRoom");
+					$message->subject("Booking Confirmation");
+					$message->from('meetingr44@gmail.com','Meeting Room');
 					$message->to($request['email']);
 				});
 			}
