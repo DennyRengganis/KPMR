@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use App\booklist;
 use App\room;
 use App\building;
-use App\mastertime;
 use App\User;
 use Auth;
 
@@ -36,8 +35,8 @@ class AdminFormController extends Controller
 
     public function admintime(){
     	if(Auth::check()){
-    		$mastertime = mastertime::all()->sortBy('id');  
-        	return view('pages.Form.formTime',compact('mastertime'));
+    		$booklists_timeout = config('booklists_timeout');  
+        	return view('pages.Form.formTime',compact('booklists_timeout'));
     	}
         else return redirect('/');
     }

@@ -13,16 +13,6 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mastertimes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('masterMinute');
-            //$table->timestamps();
-        });
-        DB::table('mastertimes')->insert(
-                array(
-                    'masterMinute' => 10,
-                )
-            );
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('username')->unique();
@@ -79,7 +69,6 @@ class CreateRoomsTable extends Migration
         Schema::dropIfExists('booklists');
         Schema::dropIfExists('rooms');
         Schema::dropIfExists('buildings');
-        Schema::dropIfExists('mastertimes');
         Schema::dropIfExists('admins');
     }
 }
