@@ -105,7 +105,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike free">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
@@ -126,7 +125,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike booked">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
@@ -146,7 +144,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike waiting">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
@@ -204,7 +201,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike free">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
@@ -225,7 +221,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike booked">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
@@ -244,7 +239,6 @@
 											+val['id']
 											+'">'
 											+'<div class="buttonlike waiting">'
-											+val['id']
 											+'<br>'
 											+val['nama_ruangan']
 											+'<br>'
