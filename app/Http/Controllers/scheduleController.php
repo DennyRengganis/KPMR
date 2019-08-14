@@ -26,9 +26,9 @@ class scheduleController extends Controller
 
 	public function FromNeedConfirmationToCancelled()
 	{
-		$roomFreeLists = booklist::where('waktu_Pinjam_Mulai', '<=', DB::raw('waktu_Pinjam_Timeout'))->where('status', 'NEED CONFIRMATION')->pluck('id_ruangan')->toArray();
+		$roomFreeLists = booklist::where('waktu_Pinjam_Timeout', '<=', Carbon::now()->toDateTimeString())->where('status', 'NEED CONFIRMATION')->pluck('id_ruangan')->toArray();
 
-		$booklistsCancelled = booklist::where('waktu_Pinjam_Mulai', '<=', DB::raw('waktu_Pinjam_Timeout'))->where('status', 'NEED CONFIRMATION')->update(['status'=>'CANCELLED']);
+		$booklistsCancelled = booklist::where('waktu_Pinjam_Timeout', '<=', Carbon::now()->toDateTimeString())->where('status', 'NEED CONFIRMATION')->update(['status'=>'CANCELLED']);
 
 		$roomFree = room::wherein('id', $roomFreeLists)->update(['status_now'=>'FREE']);
 	}
