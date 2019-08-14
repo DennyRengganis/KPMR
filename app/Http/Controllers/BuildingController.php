@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\building;
+use App\room;
 use Auth;
 
 class BuildingController extends Controller
@@ -48,8 +49,31 @@ class BuildingController extends Controller
     }
 
     public function update(Request $request){
+      if(Auth::check()){
+        $input = building::where('id',$request['id'])->first();
+        $data = $this->validate($request, [
+            'nama_gedung'=>'required',
+            'jumlah_lantai'=>'required',
+            ]);
+        $input->nama_gedung=$data['nama_gedung'];
+        $input->jumlah_lantai=$data['jumlah_lantai'];
+        $input->save();
+
+        return redirect('/admin/building')->withSuccess("Berhasil Mengubah Gedung");  
+      }
+      else return redirect('/');
+    }
+
+    public function updateconfirm(Request $request){
         if(Auth::check()){
           $input = building::where('id',$request['id'])->first();
+          $rooms = room::where('id_gedung',$request['id'])
+                          ->where('lantai','>=',$request['jumlah_lantai'])
+                          ->get();
+          if($rooms!=null){
+            $jumlah = (string)count($rooms);
+            return back()->withSuccess('terdapat ' + $jumlah ' ruangan pada lantai di atas ' + $request['jumlah_lantai'] + '. Apakah anda yakin mengubah?');
+          }
           $data = $this->validate($request, [
               'nama_gedung'=>'required',
               'jumlah_lantai'=>'required',
