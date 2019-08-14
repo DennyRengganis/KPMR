@@ -46,8 +46,8 @@
 						</tr>
 					</thead>
 					<tbody style="text-align: center;height: 200px; overflow-y:scroll;">
+						@foreach($booklists as $booklist)
 						<tr>
-							@foreach($booklists as $booklist)
 							<td>
 								{{$booklist->id}}
 							</td>
@@ -99,8 +99,8 @@
 							</form>
 						</div>
 							</td>
-							@endforeach
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
