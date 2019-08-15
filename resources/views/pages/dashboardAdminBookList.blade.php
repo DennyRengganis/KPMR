@@ -76,7 +76,7 @@
 									<input type="hidden" name="id" value="{{$booklist->id}}">
 								<button class="btn btn-primary" type="submit">Delete</button>
 								</form>
-								@else
+								@elseif($booklist->status=="NEED CONFIRMATION" OR $booklist->status=="WAITING")
 								<button class="btn btn-secondary" onclick="openForm()">Cancel</button>
 								<div class="form-popup" id="myForm">
 								<form action="/confirm_cancel" class="form-container" method="POST">
@@ -102,12 +102,11 @@
 							</td>
 						</tr>
 						@endforeach
-
-						Halaman : {{ $booklists->currentPage() }} <br/>
-						Jumlah Data : {{ $booklists->total() }} <br/>
-						Data Per Halaman : {{ $booklists->perPage() }} <br/>
 					</tbody>
 				</table>
+				Halaman : {{ $booklists->currentPage() }} <br/>
+				Jumlah Data : {{ $booklists->total() }} <br/>
+				Data Per Halaman : {{ $booklists->perPage() }} <br/>
 			</div>
 		</div>
 		<div class="col-w-1"></div>
