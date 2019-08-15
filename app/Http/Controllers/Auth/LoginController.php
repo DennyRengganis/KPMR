@@ -47,6 +47,10 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function redirectToLogin() {
+        return redirect('/admin/login');
+    }
+
     public function loggedOut(Request $request) {
       return redirect('/admin/login');
     }

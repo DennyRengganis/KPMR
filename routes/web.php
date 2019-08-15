@@ -48,6 +48,7 @@ Route::post('/confirm_cancel','DetailBookingController@cancel');
 
 //Auth::routes();
 //Admin only
+Route::get('/admin', 'Auth\LoginController@redirectToLogin');
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::post('/admin/login', 'Auth\LoginController@login');
 Route::post('/admin/logout', 'Auth\LoginController@logout');
