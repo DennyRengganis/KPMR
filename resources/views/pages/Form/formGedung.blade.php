@@ -106,7 +106,7 @@
     <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
     <div class="col-w-3 col-s-3"></div>
     @if(isset($buildings))
-    <button type="button" onclick="openForm()" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
+    <button type="button" onclick="window.location.href = '/admin/deleteGedung/'" class="btn btn-secondary col-w-2 col-s-2 center">Delete</button>
     @endif
     <div class="col-w-1 col-s-1"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Tambah/Update</button>
@@ -114,8 +114,6 @@
   </div>
   </form>
 </div>
-
-
 <div class="book-popup-w book-popup-s" id="notifconfirm">
       <b>Confirmation</b>
       <br>
@@ -133,19 +131,14 @@
         </div>
       </div>
 </div>
+<script type="text/javascript">
+    function closeForm() {
+    document.getElementById("notifconfirm").style.display = "none";
+  }
 
+</script>
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
 
 @endsection
-
-<script type="text/javascript">
-    function closeForm() {
-    document.getElementById("notifconfirm").style.display = "none";
-  }
-      function openForm() {
-    document.getElementById("notifconfirm").style.display = "block";
-  }
-
-</script>
