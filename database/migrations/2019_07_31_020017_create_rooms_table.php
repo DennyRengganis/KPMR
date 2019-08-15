@@ -24,7 +24,6 @@ class CreateRoomsTable extends Migration
         Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('booklists_timeout');
-            //$table->timestamps();
         });
         DB::table('configs')->insert(
                 array(
