@@ -36,6 +36,7 @@
   <div class="row pageRoomFont">
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
+      <button class="btn btn-primary" onclick="window.location.href = 'time'">Masterize waiting time</button>
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
@@ -47,9 +48,6 @@
   <div class="row">
    <div class="col-w-4 col-s-4"></div>
    <div class="col-w-4 col-s-4 center">
-      Masterize waiting time(minutes) :
-      <br>
-        <input type="integer" name="time" value="{{$booklists_timeout}}" style="text-align: center;">
    </div>
    <div class="col-w-4 col-s-4"></div>
   </div>
