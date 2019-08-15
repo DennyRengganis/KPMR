@@ -119,7 +119,7 @@ class BookingFormController extends Controller
 					, function ($message) use ($request)
 				{
 					$message->subject("Booking Confirmation");
-					$message->from(config::get('app.email_address'),config::get('app.email_title'));
+					$message->from(env('MAIL_USERNAME'),'Booking Meeting Room');
 					$message->to($request['email']);
 				});
 			}
