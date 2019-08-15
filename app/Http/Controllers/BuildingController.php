@@ -80,7 +80,7 @@ class BuildingController extends Controller
             $jumlah = (string)count($rooms);
             $message=sprintf("terdapat %s ruangan pada lantai di atas %s. Apakah anda yakin untuk mengubah jumlah lantainya? Jika iya, ruangan di atas lantai tersebut akan terhapus.",$jumlah,$request['jumlah_lantai']);
             //dd($message);
-            return back()->withSuccess($message);
+            return back()->with('confirmation',$message);
           }
           $data = $this->validate($request, [
               'nama_gedung'=>'required',
