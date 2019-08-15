@@ -19,9 +19,9 @@
 		<div class="row">
 			@if(count($detail))
 			@if($info->status_now=="BOOKED")
-			<div class="booked col-w-12 col-s-12 detailroombox detail-2">
-				{{$info->nama_ruangan}}
-				<br>
+			<div class="booked col-w-12 col-s-12 center detailroombox detail-2">
+				<div class="fontd">{{$info->nama_ruangan}}</div>
+				<div class="fontb">
 				@php
 				date_default_timezone_set('Asia/Jakarta');
 				$currdate = "now";
@@ -29,6 +29,7 @@
 				echo date('H:i D, d M Y', $currdate);
 				@endphp
 				<br>
+			</div>
 				{{$info->status_now}}
 				<br>
 
@@ -49,9 +50,9 @@
 			@endif
 
 			@if($info->status_now=="WAITING")
-			<div class="waiting col-w-12 col-s-12 detailroombox detail-2">
-				<p id="nama">{{$info->nama_ruangan}}</p>
-				<br>
+			<div class="waiting col-w-12 col-s-12 center detailroombox detail-2">
+				<div class="fontd">{{$info->nama_ruangan}}</div>
+				<div class="fontb">
 				@php
 				date_default_timezone_set('Asia/Jakarta');
 				$currdate = "now";
@@ -59,10 +60,11 @@
 				echo date('H:i D, d M Y', $currdate);
 				@endphp
 				<br>
+				</div>
 				{{$info->status_now}}
 				<br>
 
-				<p id="waitingcd"></p>
+				<div id="waitingcd"></div>
 				@php
 				@endphp
 				<br>
@@ -70,7 +72,7 @@
 				<br>
 				Booked by: {{$detail['0']->nama}}
 				<div class="row">
-					<div class="waiting hide2 col-s-6 center">
+					<div class="waiting hide2 col-s-6">
 						<button class="open-button" onclick="openForm()">Check in</button>
 						<div class="form-popup" id="myForm">
 							<form action="/confirm_checkin" class="form-container" method="POST">
@@ -93,7 +95,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="waiting hide2 col-s-6 center">
+					<div class="waiting hide2 col-s-6">
 						<button class="cancel-button" onclick="openForm2()">Cancel</button>
 						<div class="form-popup" id="myForm2">
 							<form action="/confirm_cancel" class="form-container" method="POST">
