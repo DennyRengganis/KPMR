@@ -215,7 +215,7 @@
   date.setDate(date.getDate());
   console.log("old");
   console.log(date);
-  var dateend= new Date();
+  
     
 </script>
 
@@ -260,11 +260,12 @@
   $(document).ready(function(){
    $('input[name="waktu_Pinjam_Mulai"]').on('change',function(){
     var nd = new Date($(this).val()).getDate();
+    var dateend= new Date();
     dateend.setDate(nd);
     console.log("new");
-  console.log(dateend);
-  });
- });
+   console.log(dateend);
+
+  //$('.form_datetime_after').datetimepicker('update',dateend);
   $('.form_datetime_after').datetimepicker({
         //language:  'fr',
         startDate: dateend,
@@ -276,9 +277,10 @@
         forceParse: 0,
         showMeridian: 1
       });
+   
   $('.form_date_after').datetimepicker({
     language:  'id',
-    startDate: date,
+    startDate: dateend,
     weekStart: 1,
     todayBtn:  1,
     autoclose: 1,
@@ -289,7 +291,7 @@
   });
   $('.form_time_after').datetimepicker({
     language:  'id',
-    startDate: date,
+    startDate: dateend,
     weekStart: 1,
     todayBtn:  1,
     autoclose: 1,
@@ -299,6 +301,9 @@
     maxView: 1,
     forceParse: 0
   });
+  });
+ });
+  
 </script>
 
 @endsection
