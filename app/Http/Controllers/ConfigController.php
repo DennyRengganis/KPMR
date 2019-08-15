@@ -17,7 +17,7 @@ class ConfigController extends Controller
               ]);
           $config->booklists_timeout=$data['time'];
           $config->save();
-          return redirect('/admin/home');  
+          return redirect('/admin/masterconfig');  
         }
         return redirect('/');
     }
