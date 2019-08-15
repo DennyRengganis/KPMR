@@ -79,7 +79,7 @@
   width: 100%;
   font-weight: bold;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   div.hide {
     display: none;
   }
@@ -112,7 +112,7 @@
   .tableHead tbody tr:last-child td { border-bottom: 0.5px solid black; border-right: 0.5px solid black; border-left: 0.5px solid black }
   .tableHead thead th { box-shadow: 0.5px 0.5px 0 #000; }
   }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 800px) {
   div.hide2 {
     display: none;
   }
@@ -161,7 +161,7 @@ th     { background:#eee; }
   .col-s-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 800px) {
   /* For desktop: */
   .col-w-1 {width: 8.33%;}
   .col-w-2 {width: 16.66%;}
@@ -187,6 +187,21 @@ th     { background:#eee; }
 	text-align: center;
 	font-size: 150%;
 }
+
+.center>.fonta{
+  font-size: 200%;
+  margin-bottom: -10%;
+  margin-top: -10%;
+}
+.center>.fontb{
+  font-size: 80%;
+
+}
+.center>.fontc{
+  font-size: 150%; 
+  margin-bottom: -10%;
+}
+
 .left{
   text-align: left;
   font-size: 150%;

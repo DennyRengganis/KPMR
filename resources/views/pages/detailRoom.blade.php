@@ -40,13 +40,8 @@
 				Booked by: {{$detail['0']->nama}}
 				<br>
 				<div class="row">
-					<div class="col-w-12 col-s-6 center">
+					<div class="col-w-12 col-s-12 center">
 						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
-					</div>
-					<div class="col-s-6 hide2 center">
-						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-lg btn-primary">Detail info</button>
-						</div>
 					</div>
 				</div>
 
@@ -55,7 +50,7 @@
 
 			@if($info->status_now=="WAITING")
 			<div class="waiting col-w-12 col-s-12 detailroombox detail-2">
-				{{$info->nama_ruangan}}
+				<p id="nama">{{$info->nama_ruangan}}</p>
 				<br>
 				@php
 				date_default_timezone_set('Asia/Jakarta');
@@ -123,13 +118,8 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="waiting col-w-12 col-s-6 center">
+					<div class="waiting col-w-12 col-s-12 center">
 						<form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">+Schedule Meeting</button></form>
-					</div>
-					<div class="col-s-6 hide2 center">
-						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-primary">Detail info</button>
-						</div>
 					</div>
 
 				</div>
@@ -139,16 +129,20 @@
 
 			@if($info->status_now=="FREE")
 			<div class="free col-s-12 col-w-12 center detailroombox detail-2">
-				{{$info->nama_ruangan}}
+				<div class="fonta">{{$info->nama_ruangan}}</div>
 				<br>
+				<div class="fontb">
 				@php
 				date_default_timezone_set('Asia/Jakarta');
 				$currdate = "now";
 				$currdate = strtotime($currdate);
 				echo date('H:i D, d M Y', $currdate);
 				@endphp
+				</div>
 				<br>
+				<div class="fontc">
 				{{$info->status_now}}
+				</div>
 				<br>
 				<div class="row">
 					<a href="/bookingRoom/{{$info->id}}/1" class="col-s-12 col-w-12 center"><img src="/open-iconic-master/svg/plus.svg" style="width: 20%"></a>
@@ -158,13 +152,7 @@
 						BOOK NOW!
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-s-12 hide2 center">
-						<div>
-							<button type="button" onclick="window.location.href = '/detailRoom2/{{$info->id}}'" class="btn btn-primary">Detail info</button>
-						</div>
-					</div>
-				</div>
+
 			</div>
 			
 			@endif
