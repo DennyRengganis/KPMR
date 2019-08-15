@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class mastertime extends Model
+class config extends Model
 {
 	public $timestamps = false;
-    protected $fillable = ['masterMinute',];
+    protected $fillable = ['booklists_timeout',];
     protected $hidden = [
     ];
 }
