@@ -40,7 +40,7 @@
             </tr>
           </thead>
           <tbody style="text-align: center;height: 200px;">
-            @foreach($booklists as $booklist)
+            @foreach($list as $booklist)
             <tr>
               <td>
                 {{$booklist->id}}
@@ -64,7 +64,7 @@
                 purpose : {{$booklist->keperluan}}
               </td>
               <td>
-                @if($booklist->status=="DONE" OR $booklist->status=="CANCELLED")
+               <!--  @if($booklist->status=="DONE" OR $booklist->status=="CANCELLED")
                 <form action="/admin/deleteBookList" method="POST">
                   @csrf
                   <input type="hidden" name="id" value="{{$booklist->id}}">
@@ -91,19 +91,19 @@
                   </div>
                 </div>
               </form>
-              @endif
+              @endif -->
             </div>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
-        <!-- Halaman : {{ $booklists->currentPage() }} <br/>
-        Jumlah Data : {{ $booklists->total() }} <br/>
-        Data Per Halaman : {{ $booklists->perPage() }} <br/> -->
+        <!-- Halaman : {{ $list->currentPage() }} <br/>
+        Jumlah Data : {{ $list->total() }} <br/>
+        Data Per Halaman : {{ $list->perPage() }} <br/> -->
 
       </div>
-      <div> {{ $booklists->links() }} </div>
+      <div> {{ $list->links() }} </div>
     </div>
     <div class="col-w-1"></div>
 
