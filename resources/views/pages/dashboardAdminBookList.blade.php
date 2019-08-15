@@ -31,7 +31,11 @@
 <div class="row">
 	<div class="col-w-1"></div>
 		<div class="col-w-10 center pageRoomFont" style="height: 90vh;" id="bookinglist">
-			<h1>BOOK LIST</h1>
+			<div class="row">
+				<div class="col-w-2"></div>
+				<h1 class="col-w-8">BOOK LIST</h1>
+				<div class="col-w-2"><button class="btn btn-primary" onclick="window.location.href = 'histori'">Booking List</button></div>
+			</div>
 			<div class="row tableBookHead">
 				<table class="table">
 					<thead style="text-align: center;background-color: grey;">
