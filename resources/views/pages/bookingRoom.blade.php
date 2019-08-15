@@ -143,7 +143,7 @@
    <div class="col-w-3 col-s-3 left">
     End Booking :
     <br>
-       <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+       <div class="input-group date form_datetime_after" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
         <input class="form-control" size="16" type="text" value="" readonly>
@@ -215,19 +215,11 @@
   date.setDate(date.getDate());
   console.log("old");
   console.log(date);
+  var dateend= new Date();
+    
 </script>
 
 <script type="text/javascript">
- 
-</script>
-
-<script type="text/javascript">  
-  $(document).ready(function(){
-   $('input[name="waktu_Pinjam_Mulai"]').on('change',function(){
-    var nd = new Date($(this).val()).getDate();
-    date.setDate(nd);
-    console.log("new");
-  console.log(date);
   $('.form_datetime').datetimepicker({
         //language:  'fr',
         startDate: date,
@@ -262,11 +254,20 @@
     maxView: 1,
     forceParse: 0
   });
+</script>
+
+<script type="text/javascript">  
+  $(document).ready(function(){
+   $('input[name="waktu_Pinjam_Mulai"]').on('change',function(){
+    var nd = new Date($(this).val()).getDate();
+    dateend.setDate(nd);
+    console.log("new");
+  console.log(dateend);
   });
  });
-  $('.form_datetime').datetimepicker({
+  $('.form_datetime_after').datetimepicker({
         //language:  'fr',
-        startDate: date,
+        startDate: dateend,
         weekStart: 1,
         todayBtn:  1,
         autoclose: 1,
@@ -275,7 +276,7 @@
         forceParse: 0,
         showMeridian: 1
       });
-  $('.form_date').datetimepicker({
+  $('.form_date_after').datetimepicker({
     language:  'id',
     startDate: date,
     weekStart: 1,
@@ -286,7 +287,7 @@
     minView: 2,
     forceParse: 0
   });
-  $('.form_time').datetimepicker({
+  $('.form_time_after').datetimepicker({
     language:  'id',
     startDate: date,
     weekStart: 1,
