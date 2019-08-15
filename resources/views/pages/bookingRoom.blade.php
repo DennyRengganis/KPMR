@@ -211,8 +211,9 @@
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
 
 <script type="text/javascript">
-  var date = new Date();
-  date.setDate(date.getDate());
+  var date = new Date().getTime();
+  date = new Date(date);
+  //date.setDate(date.getDate());
   console.log("old");
   console.log(date);
   
@@ -259,9 +260,9 @@
 <script type="text/javascript">  
   $(document).ready(function(){
    $('input[name="waktu_Pinjam_Mulai"]').on('change',function(){
-    var nd = new Date($(this).val()).getDate();
-    var dateend= new Date();
-    dateend.setDate(nd);
+    $('.form_datetime_after').datetimepicker('remove');
+    var nd = new Date($(this).val()).getTime()+1000;
+    var dateend= new Date(nd);
     console.log("new");
    console.log(dateend);
 
@@ -277,7 +278,6 @@
         forceParse: 0,
         showMeridian: 1
       });
-   
   $('.form_date_after').datetimepicker({
     language:  'id',
     startDate: dateend,
