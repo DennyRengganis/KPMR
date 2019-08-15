@@ -61,7 +61,7 @@ Route::post('/admin/logout', 'Auth\LoginController@logout');
 Route::get('/admin/building', 'AdminFormController@viewall');
 Route::get('/admin/home', 'AdminFormController@adminhome');
 Route::get('/admin/time','AdminFormController@admintime');
-Route::get('/admin/masterconfig',);
+Route::get('/admin/masterconfig');
 Route::post('/admin/masterconfig/updateTime','ConfigController@updatetime');
 
 

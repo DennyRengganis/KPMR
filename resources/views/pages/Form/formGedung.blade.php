@@ -114,23 +114,36 @@
   </div>
   </form>
 </div>
+ @if (Session::has('confirmation'))
 <div class="book-popup-w book-popup-s" id="notifconfirm">
       <b>Confirmation</b>
       <br>
       <br>
-      Apakah anda yakin ingin menghapus lantai ini ?
+        @php
+          $notice=Session::get('confirmation');
+          echo $notice['0'];
+        @endphp
       <br>
       <br>
       <div class="row">
-        <div class="col-s-6 col-w-9"></div>
-        <div class="col-w-3 col-s-3">
+        <div class="col-s-7 col-w-7"></div>
+        <div class="col-w-2 col-s-2">
           <button type="button" class="btn btn-primary" onclick="closeForm()">Tidak</button>
         </div>
         <div class="col-w-3 col-s-3">
-         <form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Ya, hapus saja</button></form>
+         <form action="/admin/updateconfirmGedung" method="post" target="_self">
+          @csrf
+          @if(isset($buildings))
+          <input type="hidden" name="id" value="{{$buildings->id}}">
+          <input type="hidden" name="nama_gedung" value="{{$notice['1']}}">
+          <input type="hidden" name="jumlah_lantai" value="{{$notice['2']}}">
+          <button type="submit" class="btn btn-primary">Ya, hapus saja</button>
+          @endif
+        </form>
         </div>
       </div>
 </div>
+ @endif
 <script type="text/javascript">
     function closeForm() {
     document.getElementById("notifconfirm").style.display = "none";
