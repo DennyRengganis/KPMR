@@ -52,7 +52,7 @@ class BuildingController extends Controller
       if(Auth::check()){
         $input = building::where('id',$request['id'])->first();
         $rooms = room::where('id_gedung',$request['id'])
-                          ->where('lantai','>=',$request['jumlah_lantai'])
+                          ->where('lantai','>',$request['jumlah_lantai'])
                           ->get();
         foreach($rooms as $rm){
         	$rm->delete();
@@ -74,9 +74,9 @@ class BuildingController extends Controller
         if(Auth::check()){
           $input = building::where('id',$request['id'])->first();
           $rooms = room::where('id_gedung',$request['id'])
-                          ->where('lantai','>=',$request['jumlah_lantai'])
+                          ->where('lantai','>',$request['jumlah_lantai'])
                           ->get();
-          if($rooms!=null){
+          if(count($rooms)>0){
             $jumlah = (string)count($rooms);
             $datas=array();
             $message=sprintf("terdapat %s ruangan pada lantai di atas %s. Apakah anda yakin untuk mengubah jumlah lantainya? Jika iya, ruangan di atas lantai tersebut akan terhapus.",$jumlah,$request['jumlah_lantai']);
