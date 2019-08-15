@@ -80,7 +80,7 @@
   </div>
   <div class="row">
     <div class="col-w-6 col-s-6"></div>
-    <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
+    <button type="button" onclick="window.location.href = '/admin/masterconfig'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
     <div class="col-w-1 col-s-1"></div>
     <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Update</button>
     <div class="col-w-1 col-s-1"></div>

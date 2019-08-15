@@ -17,7 +17,6 @@
 </div>
 
 <div class="bodybr">
-  <form action="/admin/updateTime" method="post">
   @csrf
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
@@ -36,7 +35,7 @@
   <div class="row pageRoomFont">
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
-      <button class="btn btn-primary" onclick="window.location.href = 'time'">Masterize waiting time</button>
+     <button class="btn btn-primary" onclick="window.location.href = 'time'">Masterize waiting time</button>  
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
@@ -56,9 +55,10 @@
    <div class="col-w-3 col-s-3 left">
    </div>
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-3 col-s-3 left">
+   <div class="col-w-4 col-s-4 left">
    </div>
-   <div class="col-w-3 col-s-3 left">
+   <div class="col-w-2 col-s-2 left">
+        <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary">Back</button>
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
@@ -76,14 +76,6 @@
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-1 col-s-1"></div>
   </div>
-  <div class="row">
-    <div class="col-w-6 col-s-6"></div>
-    <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary col-w-2 col-s-2 center">Cancel</button>
-    <div class="col-w-1 col-s-1"></div>
-    <button type="submit" value="Book" class="btn btn-primary col-w-2 col-s-2 center">Update</button>
-    <div class="col-w-1 col-s-1"></div>
-  </div>
-  </form>
 </div>
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>

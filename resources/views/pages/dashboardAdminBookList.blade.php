@@ -26,7 +26,7 @@
 <div class="row">
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'home'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'building'">Building and Room</button> 
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'time'">Master Config</button>  
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'masterconfig'">Master Config</button>  
 </div>
 <div class="row">
 	<div class="col-w-1"></div>
