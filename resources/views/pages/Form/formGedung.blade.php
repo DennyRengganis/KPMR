@@ -124,12 +124,12 @@
       <br>
       <br>
       <div class="row">
-        <div class="col-s-6 col-w-9"></div>
-        <div class="col-w-3 col-s-3">
-          <button type="button" class="btn btn-primary" onclick="closeForm()">Tidak</button>
+        <div class="col-s-7 col-w-7 "></div>
+        <div class="col-w-2 col-s-2">
+          <button type="button" class="btn btn-secondary" onclick="closeForm()">Tidak</button>
         </div>
         <div class="col-w-3 col-s-3">
-         <form action="/bookingRoom/{{$info->id}}/1" method="get" target="_self"><button type="submit" class="btn btn-primary">Ya, hapus saja</button></form>
+         <form action="" method="get" target="_self"><button type="submit" class="btn btn-primary">Ya, hapus saja</button></form>
         </div>
       </div>
 </div>
