@@ -391,21 +391,3 @@
   }
 
 </script>
-
-<script type="text/javascript">
-
-  $(document).ready(function(){
-    $('input[name="waktu_Pinjam_Selesai"]').on('change', function(){
-      var wselesai= $(this).val();
-      var wmulai= $('input[name="waktu_Pinjam_Mulai"').val();
-      var wm = new Date(wmulai).getTime();
-      var ws = new Date(wselesai).getTime();
-      if(ws<=wm){
-        alert("Waktu Selesai tidak bisa sebelum Waktu Mulai");
-        location.reload();
-      }
-
-    });
-  });    
-
-</script>

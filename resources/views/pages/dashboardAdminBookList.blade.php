@@ -11,11 +11,6 @@
 	<div class="col-w-9">
 		<h1>ADMIN PAGE</h1>
 	</div>
-	@if(Auth::user()->status=="admin")
-	<div class="col-w-2">
-		<button class="btn btn-primary" onclick="window.location.href = 'superuser'"> Add User</button>
-	</div>
-	@endif
 		<div class="col-w-1">
 		<form action="logout" method="POST">
 		@csrf
