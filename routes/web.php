@@ -75,8 +75,8 @@ Route::post('/admin/saveRoom','RoomController@store');
 //AdminGedung
 Route::get('/admin/editGedung','BuildingController@updatepick');
 Route::get('/admin/createGedung','BuildingController@create');
-Route::post('/admin/updateGedung','BuildingController@update');
-Route::post('/admin/updateconfirmGedung','BuildingController@updateconfirm');
+Route::post('/admin/updateGedung','BuildingController@update');//dimana pengecekan ada ruangan di lantai atasnya, kalau ada return dulu
+Route::post('/admin/updateconfirmGedung','BuildingController@updateconfirm');//confirmed
 Route::post('/admin/deleteGedung/','BuildingController@delete');
 Route::post('/admin/saveGedung','BuildingController@store');
 

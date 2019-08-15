@@ -48,9 +48,15 @@ class BuildingController extends Controller
         else return redirect('/');
     }
 
-    public function update(Request $request){
+    public function updateconfirm(Request $request){
       if(Auth::check()){
         $input = building::where('id',$request['id'])->first();
+        $rooms = room::where('id_gedung',$request['id'])
+                          ->where('lantai','>=',$request['jumlah_lantai'])
+                          ->get();
+        foreach($rooms as $rm){
+        	$rm->delete();
+        }
         $data = $this->validate($request, [
             'nama_gedung'=>'required',
             'jumlah_lantai'=>'required',
@@ -64,7 +70,7 @@ class BuildingController extends Controller
       else return redirect('/');
     }
 
-    public function updateconfirm(Request $request){
+    public function update(Request $request){
         if(Auth::check()){
           $input = building::where('id',$request['id'])->first();
           $rooms = room::where('id_gedung',$request['id'])
