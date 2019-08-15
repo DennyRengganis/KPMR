@@ -368,7 +368,7 @@ var secondsw = Math.floor((distancew % (1000 * 60)) / 1000);
 
 <script type="text/javascript">
 	var nowz = new Date().getTime();
-	var reload_interval = 60000 - Math.floor((nowz % (1000 * 60))) +2000;
+	var reload_interval = 60000 - Math.floor((nowz % (1000 * 60))) +5000;
 	console.log("interval reload:");
 	console.log(reload_interval);
 	setTimeout(function(){
