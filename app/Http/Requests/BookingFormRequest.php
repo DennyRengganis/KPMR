@@ -38,7 +38,7 @@ class BookingFormRequest extends FormRequest
     {
         return [
             'nama.required' => 'Mohon isikan nama anda',
-            'NPK.digits:5' => 'Format NPK salah',
+            'NPK.digits' => 'Format NPK salah',
             'NPK.required' => 'Mohon isikan NPK anda',
             'email.required' => 'Mohon isikan email anda',
             'email.email' => 'Format email salah',
