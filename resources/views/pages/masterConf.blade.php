@@ -11,7 +11,7 @@
 <div class="header">
   <div class="row">
     <div class="col-s-12 col-w-10">
-      <h1>Masterize time</h1>
+      <h1>Config</h1>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
   <div class="row pageRoomFont">
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
-     <button class="btn btn-primary" onclick="window.location.href = 'time'">Masterize waiting time</button>  
+     <button class="btn btn-primary" onclick="window.location.href = '/admin/masterconfig/time'">Masterize waiting time</button>  
     </div>
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-3 col-s-3 left">
