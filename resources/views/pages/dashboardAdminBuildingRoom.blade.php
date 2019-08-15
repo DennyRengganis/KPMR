@@ -25,7 +25,7 @@
 </div>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'home'">Booking List</button>
 	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'building'">Building and Room</button> 
-	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'time'">Masterize time</button>  
+	<button class="btn btn-primary col-w-4 col-s-4" onclick="window.location.href = 'time'">Masteri Config</button>  
 	@if(session('success'))
 	{{session('success')}}
 	@endif

@@ -61,7 +61,8 @@ Route::post('/admin/logout', 'Auth\LoginController@logout');
 Route::get('/admin/building', 'AdminFormController@viewall');
 Route::get('/admin/home', 'AdminFormController@adminhome');
 Route::get('/admin/time','AdminFormController@admintime');
-Route::get('/admin/superuser','AdminFormController@adminuser');
+Route::get('/admin/masterconfig');
+Route::post('/admin/masterconfig/updateTime','ConfigController@updatetime');
 
 
 //AdminRuangan
@@ -80,9 +81,9 @@ Route::post('/admin/updateconfirmGedung','BuildingController@updateconfirm');//c
 Route::post('/admin/deleteGedung/','BuildingController@delete');
 Route::post('/admin/saveGedung','BuildingController@store');
 
-
-Route::post('/admin/updateTime','ConfigController@updatetime');
-
+//AdminBooklist
+Route::get('/admin/booklisthistory','BooklistController@view');
 Route::post('/admin/deleteBookList','BooklistController@delete');
 
-Route::post('/admin/addUser','AdminController@store');
+
+

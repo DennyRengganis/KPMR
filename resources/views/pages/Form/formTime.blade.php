@@ -45,13 +45,13 @@
     <div class="col-w-1 col-s-1"></div>
   </div>
   <div class="row">
-   <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-10 col-s-10 center">
-      Masterize waiting time(in minute) :
+   <div class="col-w-4 col-s-4"></div>
+   <div class="col-w-4 col-s-4 center">
+      Masterize waiting time(minutes) :
       <br>
-        <input type="integer" name="time" value="{{$booklists_timeout}}">
+        <input type="integer" name="time" value="{{$booklists_timeout}}" style="text-align: center;">
    </div>
-   <div class="col-w-1 col-s-1"></div>
+   <div class="col-w-4 col-s-4"></div>
   </div>
   <div class="row">
    <div class="col-w-1 col-s-1"></div>

@@ -14,7 +14,7 @@ class BooklistController extends Controller
              $list = booklist::leftJoin('rooms','booklists.id_Ruangan','=','rooms.id')
                         ->leftJoin('buildings','rooms.id_gedung','=','buildings.id')
                         ->select('booklists.*','rooms.nama_ruangan as room_nama','buildings.nama_gedung as building_nama','rooms.lantai as room_lantai')
-                        ->where('booklists.status','=','DELETED')
+                        ->where('booklists.is_deleted',1)
                         ->get();  
             //dd($list);
             return view('',compact('list'));
