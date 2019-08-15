@@ -61,9 +61,7 @@ Route::post('/admin/logout', 'Auth\LoginController@logout');
 Route::get('/admin/building', 'AdminFormController@viewall');
 Route::get('/admin/home', 'AdminFormController@adminhome');
 Route::get('/admin/time','AdminFormController@admintime');
-Route::get('/admin/masterconfig',function () {
-    return view('pages.masterConf');
-});
+Route::get('/admin/masterconfig','ConfigController@view');
 Route::post('/admin/masterconfig/updateTime','ConfigController@updatetime');
 
 

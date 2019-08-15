@@ -8,7 +8,12 @@ use App\config;
 class ConfigController extends Controller
 {
     //
-
+    public function view(){
+      if(Auth::check()){
+        return view('pages.masterConf');
+      }
+      return redirect('/');
+    }
     public function updatetime(Request $request){
         if(Auth::check()){
           $config = config::first();
