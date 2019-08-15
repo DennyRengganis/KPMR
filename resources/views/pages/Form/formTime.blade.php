@@ -17,7 +17,7 @@
 </div>
 
 <div class="bodybr">
-  <form action="/admin/updateTime" method="post">
+  <form action="/admin/masterconfig/updateTime" method="post">
   @csrf
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
