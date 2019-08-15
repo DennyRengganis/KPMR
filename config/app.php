@@ -2,6 +2,9 @@
 
 return [
 
+
+    'email_address' => 'meetingr44@gmail.com',
+    'email_title' => 'Meeting Room',
     /*
     |--------------------------------------------------------------------------
     | Application Name

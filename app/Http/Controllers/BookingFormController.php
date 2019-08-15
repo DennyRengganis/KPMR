@@ -115,12 +115,11 @@ class BookingFormController extends Controller
 					'selesai'=> date("D, d/m/y H:i", strtotime($request['waktu_Pinjam_Selesai'])),
 					'npk'=>$request['NPK'],
 					'keperluan' => $request['keperluan'],
-					// 'BookingID' =>$request['id'],
 					'confirmationPIN' => $pinText]
 					, function ($message) use ($request)
 				{
 					$message->subject("Booking Confirmation");
-					$message->from('meetingr44@gmail.com','Meeting Room');
+					$message->from(config::get('app.email_address'),config::get('app.email_title'));
 					$message->to($request['email']);
 				});
 			}
