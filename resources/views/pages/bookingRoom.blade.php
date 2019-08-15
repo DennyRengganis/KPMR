@@ -209,9 +209,28 @@
 <script type="text/javascript" src="/js/bootstrap.bundle.js" ></script>
 <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
+
 <script type="text/javascript">
+  var date = new Date();
+  date.setDate(date.getDate());
+  console.log("old");
+  console.log(date);
+</script>
+
+<script type="text/javascript">
+ 
+</script>
+
+<script type="text/javascript">  
+  $(document).ready(function(){
+   $('input[name="waktu_Pinjam_Mulai"]').on('change',function(){
+    var nd = new Date($(this).val()).getDate();
+    date.setDate(nd);
+    console.log("new");
+  console.log(date);
   $('.form_datetime').datetimepicker({
         //language:  'fr',
+        startDate: date,
         weekStart: 1,
         todayBtn:  1,
         autoclose: 1,
@@ -222,6 +241,7 @@
       });
   $('.form_date').datetimepicker({
     language:  'id',
+    startDate: date,
     weekStart: 1,
     todayBtn:  1,
     autoclose: 1,
@@ -232,6 +252,43 @@
   });
   $('.form_time').datetimepicker({
     language:  'id',
+    startDate: date,
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+  });
+  });
+ });
+  $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        startDate: date,
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+      });
+  $('.form_date').datetimepicker({
+    language:  'id',
+    startDate: date,
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+  });
+  $('.form_time').datetimepicker({
+    language:  'id',
+    startDate: date,
     weekStart: 1,
     todayBtn:  1,
     autoclose: 1,
