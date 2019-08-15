@@ -21,12 +21,12 @@ class CreateRoomsTable extends Migration
             //$table->timestamps();
         });
 
-        Schema::create('config', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('booklists_timeout');
             //$table->timestamps();
         });
-        DB::table('Config')->insert(
+        DB::table('configs')->insert(
                 array(
                     'booklists_timeout' => 10,
                 )
@@ -67,6 +67,7 @@ class CreateRoomsTable extends Migration
             $table->datetime('waktu_Pinjam_Timeout');
             $table->string('keperluan');
             $table->string('status');
+            $table->boolean('is_deleted');
             $table->foreign('id_Ruangan')->references('id')->on('rooms')->onDelete('cascade');
             //$table->timestamps();
         });

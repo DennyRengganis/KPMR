@@ -28,8 +28,8 @@ class AdminFormController extends Controller
     		$booklists = booklist::leftJoin('rooms','booklists.id_Ruangan','=','rooms.id')
                         ->leftJoin('buildings','rooms.id_gedung','=','buildings.id')
                         ->select('booklists.*','rooms.nama_ruangan as room_nama','buildings.nama_gedung as building_nama','rooms.lantai as room_lantai')
-                        ->where('booklists.status','!=','DELETED')
-                        ->paginate(1); 
+                        ->where('booklists.is_deleted',0)
+                        ->paginate(1);
     		return view('pages.dashboardAdminBookList',compact('booklists'));
     	}
         else return redirect('/');
@@ -37,7 +37,7 @@ class AdminFormController extends Controller
 
     public function admintime(){
     	if(Auth::check()){
-            $config = mastertime::first();
+            $config = config::first();
             $booklists_timeout = $config->booklists_timeout; 
         	return view('pages.Form.formTime',compact('booklists_timeout'));
     	}

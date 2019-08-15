@@ -81,7 +81,7 @@ Route::post('/admin/deleteGedung/','BuildingController@delete');
 Route::post('/admin/saveGedung','BuildingController@store');
 
 
-Route::post('/admin/updateTime','MasterTimeController@update');
+Route::post('/admin/updateTime','ConfigController@updatetime');
 
 Route::post('/admin/deleteBookList','BooklistController@delete');
 

@@ -104,12 +104,15 @@
 						@endforeach
 					</tbody>
 				</table>
-				Halaman : {{ $booklists->currentPage() }} <br/>
+				<!-- Halaman : {{ $booklists->currentPage() }} <br/>
 				Jumlah Data : {{ $booklists->total() }} <br/>
-				Data Per Halaman : {{ $booklists->perPage() }} <br/>
+				Data Per Halaman : {{ $booklists->perPage() }} <br/> -->
+
 			</div>
+			<div> {{ $booklists->links() }} </div>
 		</div>
 		<div class="col-w-1"></div>
+
 </div>
 <script>
 	function openForm() {

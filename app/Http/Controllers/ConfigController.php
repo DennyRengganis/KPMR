@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-class MasterTimeController extends Controller
+use App\config;
+class ConfigController extends Controller
 {
     //
 
-    public function update(Request $request){
+    public function updatetime(Request $request){
         if(Auth::check()){
-          $config = mastertime::first();
+          $config = config::first();
           $data = $this->validate($request, [
               'time'=>'required',
               ]);

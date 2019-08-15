@@ -18,7 +18,7 @@ class BookingFormController extends Controller
 	public function BookRoom(BookingFormRequest $request){
 		
 
-        $config = mastertime::first();
+        $config = config::first();
         $interval = $config->booklists_timeout;
 		// dd($interval);
 		$validator = $request->validated();
@@ -29,7 +29,7 @@ class BookingFormController extends Controller
 
 		// dd($mulai, $selesai, $interval->masterMinute);
 		$timeout = new Carbon($request['waktu_Pinjam_Mulai']);
-		$timeout->addMinutes($interval->masterMinute);
+		$timeout->addMinutes($interval);
 
 		$mulai->second=0;
 		$selesai->second=0;
@@ -100,6 +100,7 @@ class BookingFormController extends Controller
 			$input->waktu_Pinjam_Timeout = $timeout;
 			$input->keperluan = $request['keperluan'];
 			$input->status = 'WAITING';
+			$input->is_deleted = 0;
 
 			$namaRuangan = room::where('id', $request['id_Ruangan'])->first();
 			$namaGedung = building::where('id', $namaRuangan->id_gedung)->first();

@@ -49,11 +49,7 @@
    <div class="col-w-10 col-s-10 center">
       Masterize waiting time(in minute) :
       <br>
-      @foreach($mastertime as $mt)
-      @if($loop->first)
-        <input type="integer" name="time" value="{{$mt->masterMinute}}">
-        @endif
-      @endforeach
+        <input type="integer" name="time" value="{{$booklists_timeout}}">
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
