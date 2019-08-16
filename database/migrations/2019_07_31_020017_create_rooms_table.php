@@ -37,7 +37,7 @@ class CreateRoomsTable extends Migration
         DB::table('admins')->insert(
                 array(
                     'username' => 'admin',
-                    'password' => Hash::make('admin'),
+                    'password' => Hash::make('adminXmeetingYroomZ2019'),
                     'status'   => 'admin'
                 )
             );
