@@ -34,13 +34,12 @@
   </div>
   <div class="row pageRoomFont">
     <div class="col-w-1 col-s-1"></div>
-    <div class="col-w-3 col-s-3 left">
-     <button class="btn btn-primary" onclick="window.location.href = '/admin/masterconfig/time'">Masterize waiting time</button>  
-    </div>
-    <div class="col-w-1 col-s-1"></div>
-    <div class="col-w-3 col-s-3 left">
-    </div>
-    <div class="col-w-3 col-s-3 left">
+    <div class="col-w-10 col-s-10 left">
+      <div class="row">
+        <!-- foreach -->
+        <button class="btn btn-primary col-w-4 col-s-6" onclick="window.location.href = '/admin/masterconfig/time'">Masterize waiting time</button>
+        <!-- endforeach -->
+      </div>
     </div>
     <div class="col-w-1 col-s-1"></div>
   </div>
@@ -52,10 +51,12 @@
   </div>
   <div class="row">
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-3 col-s-3 left">
+   <div class="col-w-5 col-s-5 left">
    </div>
    <div class="col-w-1 col-s-1"></div>
-   <div class="col-w-4 col-s-4 left">
+   <div class="col-w-2 col-s-2 left">
+        <button type="button" onclick="window.location.href = '/admin/'" class="btn btn-secondary">Back</button>
+
    </div>
    <div class="col-w-2 col-s-2 left">
         <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary">Back</button>
