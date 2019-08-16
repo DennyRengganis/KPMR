@@ -14,8 +14,8 @@ class DetailBookingController extends Controller
     	$dtcurr=$current->toDateString();
     	$tomorrow = Carbon::now()->addDay();
     	$dttmrw= $tomorrow->toDateString();
-        $detail = booklist::wheredate('waktu_Pinjam_Mulai',$dtcurr)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
-        $besok = booklist::wheredate('waktu_Pinjam_Mulai',$dttmrw)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $detail = booklist::wheredate('waktu_Pinjam_Mulai',$dtcurr)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->where('is_deleted',0)->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $besok = booklist::wheredate('waktu_Pinjam_Mulai',$dttmrw)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->where('is_deleted',0)->orderBy('waktu_Pinjam_Mulai','asc')->get();
         $info = room::where('id',$idroom)->first();
         //dd($detail);  
         return view('pages.detailRoom',compact('detail','info','besok'));
@@ -26,8 +26,8 @@ class DetailBookingController extends Controller
         $dtcurr=$current->toDateString();
         $tomorrow = Carbon::now()->addDay();
         $dttmrw= $tomorrow->toDateString();
-        $detail = booklist::wheredate('waktu_Pinjam_Mulai',$dtcurr)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
-        $besok = booklist::wheredate('waktu_Pinjam_Mulai',$dttmrw)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $detail = booklist::wheredate('waktu_Pinjam_Mulai',$dtcurr)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->where('is_deleted',0)->orderBy('waktu_Pinjam_Mulai','asc')->get();
+        $besok = booklist::wheredate('waktu_Pinjam_Mulai',$dttmrw)->where('id_Ruangan',$idroom)->where('status','!=',"DONE")->where('status','!=',"CANCELLED")->where('is_deleted',0)->orderBy('waktu_Pinjam_Mulai','asc')->get();
         $info = room::where('id',$idroom)->first();
         //dd($detail);  
         return view('pages.detailRoom_2',compact('detail','info','besok'));
