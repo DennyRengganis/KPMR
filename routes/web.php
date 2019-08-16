@@ -61,9 +61,11 @@ Route::post('/admin/logout', 'Auth\LoginController@logout');
 //AdminRouting
 Route::get('/admin/building', 'AdminFormController@viewall');
 Route::get('/admin/home', 'AdminFormController@adminhome');
-Route::get('/admin/masterconfig/time','AdminFormController@admintime');
 Route::get('/admin/masterconfig','ConfigController@view');
-Route::post('/admin/masterconfig/updateTime','ConfigController@updatetime');
+Route::get('/admin/masterconfig/createConfig','ConfigController@create');
+Route::post('/admin/masterconfig/saveConfig','ConfigController@store');
+Route::get('/admin/masterconfig/updateConfig/{id}','ConfigController@updatepick');
+Route::post('/admin/masterconfig/updateConfig','ConfigController@update');
 
 
 //AdminRuangan
