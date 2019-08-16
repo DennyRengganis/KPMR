@@ -52,7 +52,7 @@ class DetailBookingController extends Controller
     public function confirm(Request $request){
     	$check = booklist::where('id',$request['id'])->first();
         $pin=sprintf("%s%s%s%s",$request['pin1'],$request['pin2'],$request['pin3'],$request['pin4']);
-        if($check->waktu_Pinjam_Timeout <= Carbon::now()->toDateString){
+        if($check->waktu_Pinjam_Timeout <= Carbon::now()->toDateString()){
             return back()->withErrors('anda Telat');
         }
 
