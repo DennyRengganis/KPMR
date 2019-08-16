@@ -23,11 +23,13 @@ class CreateRoomsTable extends Migration
 
         Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('booklists_timeout');
+            $table->string('key');
+            $table->string('value');
         });
         DB::table('configs')->insert(
                 array(
-                    'booklists_timeout' => 10,
+                	'key' => 'booklists_timeout',
+                    'value' => '10'
                 )
             );
 
@@ -35,7 +37,7 @@ class CreateRoomsTable extends Migration
         DB::table('admins')->insert(
                 array(
                     'username' => 'admin',
-                    'password' => Hash::make('KPMR2019'),
+                    'password' => Hash::make('admin'),
                     'status'   => 'admin'
                 )
             );

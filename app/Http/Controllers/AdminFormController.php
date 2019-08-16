@@ -37,8 +37,8 @@ class AdminFormController extends Controller
 
     public function admintime(){
     	if(Auth::check()){
-            $config = config::first();
-            $booklists_timeout = $config->booklists_timeout; 
+            $config = config::where('key','booklists_timeout')->first();
+            $booklists_timeout = $config->value; 
         	return view('pages.Form.formTime',compact('booklists_timeout'));
     	}
         else return redirect('/');

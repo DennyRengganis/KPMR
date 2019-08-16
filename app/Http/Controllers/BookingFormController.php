@@ -18,8 +18,8 @@ class BookingFormController extends Controller
 	public function BookRoom(BookingFormRequest $request){
 		
 
-        $config = config::first();
-        $interval = $config->booklists_timeout;
+        $config = config::where('key','booklists_timeout')->first();
+        $interval = (integer)$config->value;
 		// dd($interval);
 		$validator = $request->validated();
 		$booklist = booklist::where('id_Ruangan', $request['id_Ruangan'])->where('status', '!=', 'CANCELLED')->get();

@@ -16,11 +16,11 @@ class ConfigController extends Controller
     }
     public function updatetime(Request $request){
         if(Auth::check()){
-          $config = config::first();
+          $config = config::where('key','booklists_timeout')->first();
           $data = $this->validate($request, [
               'time'=>'required',
               ]);
-          $config->booklists_timeout=$data['time'];
+          $config->value=$data['time'];
           $config->save();
           return redirect('/admin/masterconfig');  
         }
