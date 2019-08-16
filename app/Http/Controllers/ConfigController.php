@@ -10,20 +10,56 @@ class ConfigController extends Controller
     //
     public function view(){
       if(Auth::check()){
-        return view('pages.masterConf');
+        $config = config::all()->sortBy('id');
+        return view('pages.masterConf',compact('config'));
       }
       return redirect('/');
     }
-    public function updatetime(Request $request){
+
+    public function create(){
         if(Auth::check()){
-          $config = config::where('key','booklists_timeout')->first();
-          $data = $this->validate($request, [
-              'time'=>'required',
+           return view('pages.Form.formConfig'); 
+        }
+        else return redirect('/');
+    }
+
+    public function store(Request $request){
+      if(Auth::check()){
+        $config = new config();
+        $data = $this->validate($request, [
+              'key'=>'required',
+              'value'=>'required',
               ]);
-          $config->value=$data['time'];
+          $config->key=$data['key'];
+          $config->value=$data['value'];
+          $config->save();
+          return redirect('/admin/masterconfig');  
+      }
+      return redirect('/');
+    }
+    public function update(Request $request){
+        if(Auth::check()){
+          $config = config::where('key',$request['key'])->first();
+          $data = $this->validate($request, [
+              'value'=>'required',
+              ]);
+          $config->value=$data['value'];
           $config->save();
           return redirect('/admin/masterconfig');  
         }
         return redirect('/');
     }
+
+    public function updatepick($id){
+        if(Auth::check()){
+           $config = config::where('id',$id)->first();
+           if ($config != null){
+               return view('',compact('config'));
+           }
+           else return back(); 
+        }
+        else return redirect('/');
+    }
+
+    
 }

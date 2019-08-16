@@ -35,20 +35,4 @@ class AdminFormController extends Controller
         else return redirect('/');
     }
 
-    public function admintime(){
-    	if(Auth::check()){
-            $config = config::where('key','booklists_timeout')->first();
-            $booklists_timeout = $config->value; 
-        	return view('pages.Form.formTime',compact('booklists_timeout'));
-    	}
-        else return redirect('/');
-    }
-
-    public function adminuser(){
-        if(Auth::user()->status=="admin"){
-            $list = User::all()->sortBy('id');  
-            return view('pages.Form.formSU',compact('list'));
-        }
-        else return redirect('/');
-    }
 }
