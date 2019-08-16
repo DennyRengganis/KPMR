@@ -36,7 +36,6 @@
               <th>Waktu Pinjam</th>
               <th>Waktu Selesai</th>
               <th>Keterangan</th>
-              <th>Manage</th>
             </tr>
           </thead>
           <tbody style="text-align: center;height: 200px;">
@@ -62,37 +61,6 @@
                 Nama : {{$booklist->nama}}<br>
                 NPK : {{$booklist->NPK}}<br>
                 purpose : {{$booklist->keperluan}}
-              </td>
-              <td>
-               <!--  @if($booklist->status=="DONE" OR $booklist->status=="CANCELLED")
-                <form action="/admin/deleteBookList" method="POST">
-                  @csrf
-                  <input type="hidden" name="id" value="{{$booklist->id}}">
-                <button class="btn btn-primary" type="submit">Delete</button>
-                </form>
-                @elseif($booklist->status=="NEED CONFIRMATION" OR $booklist->status=="WAITING")
-                <button class="btn btn-secondary" onclick="openForm()">Cancel</button>
-                <div class="form-popup" id="myForm">
-                <form action="/confirm_cancel" class="form-container" method="POST">
-                @csrf
-                <h1 style="color: black;">Insert your confirmation pin</h1>
-                <input type="text" name="pin1" maxlength="1" />
-                <input type="text" name="pin2" maxlength="1" />
-                <input type="text" name="pin3" maxlength="1" />
-                <input type="text" name="pin4" maxlength="1" />
-                <input type="hidden" name="id" value="{{$booklist->id}}">
-                <div class="row" style="margin-top: 5%">
-                  <div class="col-s-4"></div>
-                  <div class="col-s-4 center">
-                    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                  </div>
-                  <div class="col-s-4 center">
-                    <button type="submit" class="btn">submit</button>
-                  </div>
-                </div>
-              </form>
-              @endif -->
-            </div>
               </td>
             </tr>
             @endforeach

@@ -15,7 +15,8 @@ class BooklistController extends Controller
                         ->leftJoin('buildings','rooms.id_gedung','=','buildings.id')
                         ->select('booklists.*','rooms.nama_ruangan as room_nama','buildings.nama_gedung as building_nama','rooms.lantai as room_lantai')
                         ->where('booklists.is_deleted',1)
-                        ->paginate(1);  
+                        ->orderBy('booklists.waktu_Pinjam_Mulai','desc')
+                        ->paginate(10);  
             //dd($list);
             return view('pages.historiBook',compact('list'));
         }
