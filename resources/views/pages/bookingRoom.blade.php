@@ -214,9 +214,6 @@
   var date = new Date().getTime();
   date = new Date(date);
   //date.setDate(date.getDate());
-  console.log("old");
-  console.log(date);
-  
     
 </script>
 
@@ -263,9 +260,7 @@
     $('.form_datetime_after').datetimepicker('remove');
     var nd = new Date($(this).val()).getTime()+1000;
     var dateend= new Date(nd);
-    console.log("new");
-   console.log(dateend);
-
+  
   //$('.form_datetime_after').datetimepicker('update',dateend);
   $('.form_datetime_after').datetimepicker({
         //language:  'fr',
@@ -315,7 +310,6 @@
   $(document).ready(function() {
     $('select[name="building"]').on('change', function() {
       buildingID = $(this).val();
-      console.log(buildingID);
       if(buildingID) {
         $.ajax({
           url: '/home/ajax/'+buildingID,
@@ -323,8 +317,7 @@
           dataType: "json",
           success:function(data) {
 
-            console.log(data); 
-
+    
 
             $('select[name="floor"]').empty();
             $('select[name="id_Ruangan"]').empty();
@@ -352,9 +345,6 @@
   $(document).ready(function() {
     $('select[name="floor"]').on('change', function() {
       floorpick = $(this).val();
-      console.log(floorpick);
-      console.log("buid: ")
-      console.log(buildingID);
       if(floorpick) {
         $.ajax({
           url: '/home/ajax/'+buildingID+'/'+floorpick,
@@ -362,20 +352,11 @@
           dataType: "json",
           success:function(data) {
 
-            console.log(data);
-
 
             $('select[name="id_Ruangan"]').empty();
             $('select[name="id_Ruangan"]').append('<option value="0">--</option>');
             var room= data;
             $.each(data,function(id,val){
-              console.log("masuk each");
-              console.log("data each:")
-              console.log(id);
-              console.log(val);
-              console.log(val['id']);
-              console.log(val['nama_ruangan']);
-              console.log(val['status_now']);
               $('select[name="id_Ruangan"]').append('<option value="'+ val['id'] +'">'+ val['nama_ruangan'] +'</option>');
             });
           }

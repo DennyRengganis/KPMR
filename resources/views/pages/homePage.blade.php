@@ -74,7 +74,6 @@
 			$(document).ready(function() {
 				$('select[name="building"]').on('change', function() {
 					buildingID = $(this).val();
-					console.log(buildingID);
 					if(buildingID) {
 						$.ajax({
 							url: '/home/ajax/'+buildingID,
@@ -170,17 +169,12 @@
 			$(document).ready(function() {
 				$('select[name="floor"]').on('change', function() {
 					floorpick = $(this).val();
-					console.log(floorpick);
-					console.log("buid: ")
-					console.log(buildingID);
 					if(floorpick) {
 						$.ajax({
 							url: '/home/ajax/'+buildingID+'/'+floorpick,
 							type: "GET",
 							dataType: "json",
 							success:function(data) {
-
-								console.log(data);
 
 
 								$('.list_ruangan').empty();
@@ -194,7 +188,6 @@
 									// console.log(val['nama_ruangan']);
 									// console.log(val['status_now']);
 									if(val['status_now']=="FREE"){
-										console.log("masuk free");
 										$('.list_ruangan').append('<div class="col-w-4 col-s-6 center">'
 											+'<a href="'
 											+'detailRoom/'

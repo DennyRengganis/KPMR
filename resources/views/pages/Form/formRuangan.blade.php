@@ -186,7 +186,6 @@
   $(document).ready(function() {
     $('select[name="building"]').on('change', function() {
       buildingID = $(this).val();
-      console.log(buildingID);
       if(buildingID) {
         $.ajax({
           url: '/home/ajax/'+buildingID,
@@ -194,8 +193,7 @@
           dataType: "json",
           success:function(data) {
 
-            console.log(data); 
-
+     
 
             $('select[name="floor"]').empty();
             $('select[name="id_Ruangan"]').empty();

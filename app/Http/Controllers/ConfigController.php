@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -18,7 +17,7 @@ class ConfigController extends Controller
 
     public function create(){
         if(Auth::check()){
-           return view('pages.Form.formConfig'); 
+           return view('pages.Form.formAddConfig'); 
         }
         else return redirect('/');
     }
@@ -54,7 +53,7 @@ class ConfigController extends Controller
         if(Auth::check()){
            $config = config::where('id',$id)->first();
            if ($config != null){
-               return view('',compact('config'));
+               return view('pages.Form.formConfig',compact('config'));
            }
            else return back(); 
         }

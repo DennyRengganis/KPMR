@@ -17,7 +17,7 @@
 </div>
 
 <div class="bodybr">
-  @csrf
+  
   <div class="row">
     <div class="col-w-1 col-s-1"></div>
     <div class="col-w-1 col-s-1"></div>
@@ -37,7 +37,9 @@
     <div class="col-w-10 col-s-10 left">
       <div class="row">
         <!-- foreach -->
-        <button class="btn btn-primary col-w-4 col-s-6" onclick="window.location.href = '/admin/masterconfig/time'">Masterize waiting time</button>
+        @foreach($config as $conf)
+        <button class="btn btn-primary col-w-4 col-s-6" onclick="window.location.href = '/admin/masterconfig/updateConfig/{{$conf->id}}'">Manage {{$conf->key}}</button>
+        @endforeach
         <!-- endforeach -->
       </div>
     </div>
@@ -59,7 +61,7 @@
 
    </div>
    <div class="col-w-2 col-s-2 left">
-        <button type="button" onclick="window.location.href = '/admin/home'" class="btn btn-secondary">Back</button>
+        <button type="button" onclick="window.location.href = '/admin/masterconfig/createConfig'" class="btn btn-secondary">Tambah Config</button>
    </div>
    <div class="col-w-1 col-s-1"></div>
   </div>
